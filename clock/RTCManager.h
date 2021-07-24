@@ -33,14 +33,14 @@ void setupRTC() {
   rtcAvailable = true;
 
   // -- ** Debug line remove later ** -- //
-  Serial.println(F("Setting to compiler time..."));
-  if (rtc.setToCompilerTime() == false) {
-    // -- ** Debug line remove later ** -- //
-    Serial.println("Something went wrong setting the time");
-    while (true) {}
-  }
-  // -- ** Debug line remove later ** -- //
-  Serial.println(F("Compiler Time set!"));
+  //  Serial.println(F("Setting to compiler time..."));
+  //  if (rtc.setToCompilerTime() == false) {
+  //    // -- ** Debug line remove later ** -- //
+  //    Serial.println("Something went wrong setting the time");
+  //    while (true) {}
+  //  }
+  //  // -- ** Debug line remove later ** -- //
+  //  Serial.println(F("Compiler Time set!"));
 
   // -- ** Debug line remove later ** -- //
   //  Serial.println(F("Setting custom time..."));
