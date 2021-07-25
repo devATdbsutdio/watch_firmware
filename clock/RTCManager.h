@@ -4,6 +4,7 @@ RV8803Tiny rtc;
 bool rtcAvailable;
 bool rtcReadable;
 
+
 int sec = 0;
 //int compensation_sec = 10; // compensation sec for delays in startinga nd uploading till setting time
 int minute = 40;
