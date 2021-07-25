@@ -6,12 +6,12 @@ bool rtcReadable;
 
 int sec = 0;
 //int compensation_sec = 10; // compensation sec for delays in startinga nd uploading till setting time
-int minute = 10;
-int hour = 0; // Set value in 24 hour mode
-int date = 30;
-int month = 6;
+int minute = 40;
+int hour = 19; // Set value in 24 hour mode
+int date = 24;
+int month = 7;
 int year = 2021;
-int weekday = 3;
+int weekday = 6;
 
 unsigned long startCountMillis;
 unsigned long currentCountMillis;
