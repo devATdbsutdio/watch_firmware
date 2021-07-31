@@ -1,2 +1,2 @@
-# clcok_firmware_production[
+# clock_firmware_production[
 [TBD]
