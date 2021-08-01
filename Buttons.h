@@ -72,13 +72,5 @@ void watchButtons() {
       showCurrTimePressed = true;
       enableSerialTransport = false;
     }
-    // toggle the "showTime" flag
-    // showCurrTimePressed = SW_OneState;
-
-
-    // Read PC3
-    // SW_TwoState = PORTC.IN & PIN3_bm;
-    // toggle the "read from serial" flag
-    // enableSerialTransport = !SW_TwoState;
   }
 }
