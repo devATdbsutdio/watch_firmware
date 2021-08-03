@@ -2,7 +2,7 @@
 
 #include "RTCManager.h"
 #include "DisplayManager.h"
-//#include "SerialReset.h"
+#include "SerialReset.h"
 #include "Buttons.h"
 
 int stayAwakeFor = 5000;
@@ -35,8 +35,9 @@ void loop() {
   //------//
   watchButtons();
 
+
   if (showCurrTimePressed) {
-    showCurrTimePressed = !showCurrTimePressed;
+    showCurrTimePressed = false;
 
     // -- ** Debug line remove later ** -- //
     //    Serial.print("\"Show Time\" button has been released. So show time for ");
@@ -46,6 +47,12 @@ void loop() {
     //--- start the timer for how long to show [Int RTC method] ---//
     RTC_DELAY_init(stayAwakeFor);
     while ( showTimePeriodOver == 0) {
+      // set time over serial
+      //      if (enableSerialTransport) {
+      SetTimeOverSerial();
+      //      enableSerialTransport = false;
+      //      }
+
       // "show time" routine
       getAndShowTime();
     }
@@ -59,13 +66,6 @@ void loop() {
     delay(10);
     sleep_cpu();
   }
-
-  //  if (enableSerialTransport) {
-  //    enableSerialTransport =  !enableSerialTransport;
-  //    TBD--
-  //    SetTimeOverSerial();
-  //    enableSerialTransport = false;
-  //  }
 }
 
 
