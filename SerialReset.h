@@ -106,31 +106,6 @@ void setRTCToNewTime() {
 
 
 void SetTimeOverSerial() {
-  //  //-------- HandShake ---------//
-  //  if (Serial.available() > 0 && !readyToReceive) {
-  //    incomingChar = Serial.read();
-  //    if (incomingChar == '[') { // if received HS req.
-  //      // send response
-  //      Serial.println("Received hand shake req.");
-  //      Serial.println("Sending Response");
-  //      Serial.println(']');
-  //      // & make sys ready
-  //      readyToReceive = true;
-  //    } else {
-  //      readyToReceive = false;
-  //    }
-  //  }
-  //
-  //  if (readyToReceive) {
-  //    if (printOnce) {
-  //      Serial.println("Sys ready to receive Data");
-  //      printOnce = false;
-  //    }
-  //
-  //    fillDataArray();
-  //    parseDataArray();
-  //  }
-
   fillDataArray();
   parseDataArray();
   setRTCToNewTime();

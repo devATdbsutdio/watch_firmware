@@ -1,11 +1,10 @@
-
 bool SW_OneState;
-bool enableSerialTransport;
-
-bool SW_TwoState;
 bool showCurrTimePressed;
 volatile byte wakeUpTriggered;
 volatile byte showTimePeriodOver;
+
+//bool SW_TwoState;
+//bool enableSerialTransport;
 
 
 void disableUnusedButtons() {
@@ -15,7 +14,7 @@ void disableUnusedButtons() {
   PORTC.PIN3CTRL = PORT_PULLUPEN_bm;
   PORTC.PIN4CTRL = PORT_PULLUPEN_bm;
   PORTC.PIN5CTRL = PORT_PULLUPEN_bm;
-}
+} 
 
 
 
@@ -60,6 +59,7 @@ void setupButtons() {
 void watchButtons() {
   if (wakeUpTriggered == 1) {
     wakeUpTriggered = 0;
+    // -- ** Debug line remove later ** -- //
     //    Serial.println(F("Interrupt-1 fired. Awaking device & reading Pins.."));
 
     // Read PC2
@@ -67,10 +67,10 @@ void watchButtons() {
 
     if (SW_OneState) {
       showCurrTimePressed = false;
-      enableSerialTransport = true;
+      //      enableSerialTransport = true;
     } else {
       showCurrTimePressed = true;
-      enableSerialTransport = false;
+      //      enableSerialTransport = false;
     }
   }
 }

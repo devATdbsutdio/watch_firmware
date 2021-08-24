@@ -1,6 +1,6 @@
 unsigned long startMicros;
 unsigned long currentMicros;
-const unsigned long period = 1;  // the value is a number of Microseconds
+const unsigned long period = 10;  // the value is a number of Microseconds
 
 void setupDisplay() {
   startMicros = micros();

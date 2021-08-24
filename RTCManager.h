@@ -6,14 +6,14 @@ bool rtcReadable;
 
 //test comment
 
-int sec = 0;
-//int compensation_sec = 10; // compensation sec for delays in startinga nd uploading till setting time
-int minute = 40;
-int hour = 19; // Set value in 24 hour mode
-int date = 24;
-int month = 7;
-int year = 2021;
-int weekday = 6;
+//int sec = 0;
+////int compensation_sec = 10; // compensation sec for delays in startinga nd uploading till setting time
+//int minute = 40;
+//int hour = 19; // Set value in 24 hour mode
+//int date = 24;
+//int month = 7;
+//int year = 2021;
+//int weekday = 6;
 
 unsigned long startCountMillis;
 unsigned long currentCountMillis;
@@ -29,7 +29,7 @@ void setupRTC() {
     rtcAvailable = false;
     // -- ** Debug line remove later ** -- //
     //    Serial.println(F("Something went wrong, check wiring"));
-    delay(1000);
+    //    delay(1000);
   }
   //  Serial.println(F("RTC online!\n"));
   rtcAvailable = true;

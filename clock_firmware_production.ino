@@ -1,16 +1,16 @@
 #include <avr/sleep.h>
+#include <avr/power.h>
 
 #include "RTCManager.h"
 #include "DisplayManager.h"
-#include "SerialReset.h"
+//#include "SerialReset.h"
 #include "Buttons.h"
 
 int stayAwakeFor = 5000;
 
 
 void setup() {
-  // -- ** Debug code remove later ** -- //
-  Serial.begin(115200);
+  //  Serial.begin(115200);
 
   //--- Seven segment display initialization ---//
   setupDisplay();
@@ -18,10 +18,12 @@ void setup() {
   //--- Seven segment display initialization ---//
   setupRTC();
 
-  //--- Buttn Modes Enabled ---//
+  //--- Button Modes Enabled ---//
   setupButtons();
 
   //--- Sleep mode enablers ---//
+  ADC0.CTRLA &= ~ADC_ENABLE_bm;
+  power_all_disable();
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
   sleep_enable();
 }
@@ -30,8 +32,6 @@ void setup() {
 
 
 void loop() {
-  //  getAndShowTime();
-
   //------//
   watchButtons();
 
@@ -46,24 +46,25 @@ void loop() {
 
     //--- start the timer for how long to show [Int RTC method] ---//
     RTC_DELAY_init(stayAwakeFor);
+
     while ( showTimePeriodOver == 0) {
-      // set time over serial
-      //      if (enableSerialTransport) {
-      SetTimeOverSerial();
-      //      enableSerialTransport = false;
-      //      }
+
+      // set time over serial routine
+      //      SetTimeOverSerial();
 
       // "show time" routine
       getAndShowTime();
     }
+
     // Reset Trigger for RTC delay
     showTimePeriodOver = 0;
 
     // Then go to sleep
-    Serial.println(F("Sleeping..."));
+    // -- ** Debug line remove later ** -- //
+    //    Serial.println(F("Sleeping..."));
     turnOffDisplay();
-    Serial.flush();                    // flush everything before going to sleep
-    delay(10);
+    //    Serial.flush();                    // flush everything before going to sleep
+    //    delay(1);
     sleep_cpu();
   }
 }
@@ -92,22 +93,19 @@ void getAndShowTime() {
       rtc.updateTimeArray();
 
       // -- ** Debug code remove later ** -- //
-      Serial.print(rtc.currTimeArray[0]);
-      Serial.print(rtc.currTimeArray[1]);
-      Serial.print(":");
-      Serial.print(rtc.currTimeArray[2]);
-      Serial.print(rtc.currTimeArray[3]);
-      Serial.print(":");
-      Serial.print(rtc.currTimeArray[4]);
-      Serial.print(rtc.currTimeArray[5]);
-      Serial.println();
+      //      Serial.print(rtc.currTimeArray[0]);
+      //      Serial.print(rtc.currTimeArray[1]);
+      //      Serial.print(":");
+      //      Serial.print(rtc.currTimeArray[2]);
+      //      Serial.print(rtc.currTimeArray[3]);
+      //      Serial.print(":");
+      //      Serial.print(rtc.currTimeArray[4]);
+      //      Serial.print(rtc.currTimeArray[5]);
+      //      Serial.println();
     }
 
     startCountMillis = currentCountMillis;
   }
-
-
-  //  showOnDisplay(minimalTime);
 
   // --- ** [TBD] corner case handler TBD ** --- //
   if (rtcAvailable && rtcReadable) showOnDisplay(rtc.currTimeArray);
