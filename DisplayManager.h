@@ -47,7 +47,7 @@ void showOnDisplay(uint8_t * digits) {
 
     // ---- Activate one segment at a time ---- //
     cli(); // Interrupts off so an interrupt can't fire in the middle of these two.
-    byte mask = (0b00010001 << c) & 0xF0;   // We need to toggle 2 bits in PORTB.OUT to increment the digit right?
+    byte mask = (0b00010001 << c) & 0xF0;   // We need to toggle 2 bits in PORTB.OUT to increment the digit right
     PORTB.OUTTGL = mask;                    // Toggle those bits
     // Immediately do a direct write of the PORTA value using the (fast) VPORT register
     byte this_digit = num_array[digits[c]];
