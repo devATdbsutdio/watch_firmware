@@ -4,7 +4,6 @@ RV8803Tiny rtc;
 bool rtcAvailable;
 bool rtcReadable;
 
-//test comment
 
 //int sec = 0;
 //int compensation_sec = 10; // approx secs for compensating delays that will happen during uploading the code if and when set to "a/c to compiler time" method
