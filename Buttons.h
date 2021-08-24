@@ -28,7 +28,7 @@ ISR(PORTC_PORT_vect) {
 
 
 
-//--- uC's internal RTC based interrupt based delay method ---//
+//--- uC's internal RTC & interrupt based based delay method ---//
 void RTC_DELAY_init(int RTCdelay) {
   RTC.CLKSEL = RTC_CLKSEL_INT32K_gc;    // 32.768kHz Internal Crystal Oscillator (INT32K)
 
