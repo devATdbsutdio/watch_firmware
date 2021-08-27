@@ -8,23 +8,23 @@ void disableUnusedPins() {
 }
 
 void disableSerial() {
-  //  Note for Dr.Azzy: In our brief discussion, Did you mean just set the RX TX pins set LOW or something else?
-
-  //  For ATMega328P:
-  //  UCSR0B &= ~bit (RXEN0);  // disable receiver
-  //  UCSR0B &= ~bit (TXEN0);  // disable transmitter
-
-  //  For ATTINY1607:
-  //  USART0.CTRLB &= ~bit (USART0_RXC); // How to ??
-  //  USART0.CTRLB &= ~bit (USART0_TXC); // How to ??
+  USART0.CTRLB &= ~(USART_RXEN_bm);
+  USART0.CTRLB &= ~(USART_TX`EN_bm);
+  // Also set TX pin to INPUT_PULLUP (Do we need to?)
+  PORTB.PIN2CTRL = PORT_PULLUPEN_bm; //i.e TX_PIN PB2 to INPUT_PULLUP (By default it is)
+  // Also set RX pin to INPUT_PULLUP (Do we need to?)
+  PORTB.PIN3CTRL = PORT_PULLUPEN_bm; //i.e RX_PIN PB3 to INPUT_PULLUP (By default it is set to OUTPUT)
+  // --------------------- //
+  // Test curr consumption by setting RX TX to output instead of inputpullup
+  //  PORTB.DIRSET = PIN2_bm;
+  //  PORTB.DIRSET = PIN3_bm;
 }
 
 void enableSerial() {
-  //  For ATMega328P:
-  //  UCSR0B |= bit (RXEN0);  // disable receiver
-  //  UCSR0B |= bit (TXEN0);  // disable transmitter
-
-  //  For ATTINY1607:
-  //  USART0.CTRLB |= bit (USART0_RXC); // How to ??
-  //  USART0.CTRLB |= bit (USART0_TXC); // How to ??
+  USART0.CTRLB |= (USART_RXEN_bm); // enable receiver
+  USART0.CTRLB |= (USART_TXEN_bm); // enable Transmitter
+  // Also set TX pin to INPUT_PULLUP (Do we need to?)
+  PORTB.PIN2CTRL = PORT_PULLUPEN_bm; //i.e TX_PIN PB2 to INPUT_PULLUP (By default it is)
+  // Also set RX pin to OUTPUT (Do we need to?)
+  PORTB.DIRSET = PIN3_bm;
 }

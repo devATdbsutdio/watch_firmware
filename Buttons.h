@@ -56,9 +56,6 @@ void watchButtons() {
     if (SW_OneState) {
       showCurrTimePressed = false;
       //      enableSerialTransport = true;
-
-      //-- Enable Serial [In ExtraUtils.h] --//
-      enableSerial();
     } else {
       showCurrTimePressed = true;
       //      enableSerialTransport = false;
