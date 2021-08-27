@@ -8,9 +8,6 @@ volatile byte showTimePeriodOver;
 
 
 
-
-
-
 //--- ISR for waking up from sleep mode ---//
 ISR(PORTC_PORT_vect) {
   byte flags = PORTC.INTFLAGS;
@@ -28,7 +25,7 @@ void RTC_DELAY_init(int RTCdelay) {
   while (RTC.STATUS > 0);               // Wait for all register to be synchronized
   RTC.PER = RTCdelay;                   // Set period for delay
   RTC.INTCTRL |= RTC_OVF_bm;            // Enable overflow Interrupt which will trigger ISR
-  
+
   RTC.CTRLA = RTC_PRESCALER_DIV32_gc    // 32768 / 32 = 1024 (sec) ~ 1 ms
               | RTC_RTCEN_bm                        // Enable: enabled
               | RTC_RUNSTDBY_bm;                    // Run In Standby: enabled
@@ -59,6 +56,9 @@ void watchButtons() {
     if (SW_OneState) {
       showCurrTimePressed = false;
       //      enableSerialTransport = true;
+
+      //-- Enable Serial [In ExtraUtils.h] --//
+      enableSerial();
     } else {
       showCurrTimePressed = true;
       //      enableSerialTransport = false;

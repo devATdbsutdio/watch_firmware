@@ -21,10 +21,10 @@ void disableSerial() {
 
 void enableSerial() {
   //  For ATMega328P:
-  //  UCSR0B &= ~bit (RXEN0);  // disable receiver
-  //  UCSR0B &= ~bit (TXEN0);  // disable transmitter
+  //  UCSR0B |= bit (RXEN0);  // disable receiver
+  //  UCSR0B |= bit (TXEN0);  // disable transmitter
 
   //  For ATTINY1607:
-  //  USART0.CTRLB &= ~bit (USART0_RXC); // How to ??
-  //  USART0.CTRLB &= ~bit (USART0_TXC); // How to ??
+  //  USART0.CTRLB |= bit (USART0_RXC); // How to ??
+  //  USART0.CTRLB |= bit (USART0_TXC); // How to ??
 }

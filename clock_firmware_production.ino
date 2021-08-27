@@ -1,5 +1,5 @@
 #include <avr/sleep.h>
-#include <avr/power.h>
+//#include <avr/power.h>
 
 #include "ExtraUtils.h"
 #include "RTCManager.h"
@@ -12,6 +12,10 @@ int stayAwakeFor = 5000;
 
 void setup() {
   Serial.begin(115200);
+
+  //--- Disable the Serial so that it doesn't draw curr in TX pin during sleep ---//
+  //-- [In ExtraUtils.h] --//
+  disableSerial(); 
 
   //--- Disable unused pins (i.e do not keep them floating) | For efficient low power in sleep mode ---//
   disableUnusedPins();
@@ -54,10 +58,11 @@ void loop() {
 
     while ( showTimePeriodOver == 0) {
 
-      // set time over serial routine
+      // Note: Serial should have been enabled in the Buttons.h [ in void watchButtons(){} ], when the button press interrupt was detected.
+      // So set time over serial routine (If serial data is availbe in this time window)
       SetTimeOverSerial();
-
-      // "show time" routine
+    
+      // Anyways, "show time here" routine
       getAndShowTime();
     }
 
