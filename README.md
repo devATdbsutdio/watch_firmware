@@ -27,7 +27,41 @@ Arduino-IDE, arduino-cli etc.
   GND of uC <-> FTDI GND
   [RXD] PB3 <-- FTDI TXD
   [TXD] PB2 --> FTDI RXD
-  ````
+````
+
+Pseudo-code for the firmware written so far:
+````
+SETUP:
+	Begin Serial.
+	
+	Set up RTC
+	while RTC is not available, block. 
+	when RTC is available, move to next step. 
+	
+	Setup pins to OUTPUT for the seven segment displays. (Using PORT manipulation)
+	
+	Setup pin for the button as INPUT_PULLUP (Using PORT manipulation) 
+	
+	Set all other unused pins as INPUT_PULLUP. 
+
+	Setup sleep and power-down mode for ATTINY1607
+	
+
+LOOP:
+	if button is pressed:
+		interrupt is triggered:
+			uC wakes up FOR 5 SECONDS (interrupt and ATTINY's Internal RTC based time keeping).
+			Quarries the RV-8803 RTC to get latest time.
+			If RTC doesn’t responds, it shows an error signal in seven segment display.
+ 			If it responds correctly, the uC then gets the time and shows the it on display. 
+			
+ 			MeanWhile if a serial string is received, parse info and set time on RTC accordingly (if RTC is available). 
+			
+		after the 5-SECONDS
+			Flush serial
+			turn off all the LED pins from seven segments
+                         Go to power down sleep mode	
+````
 
 ### Notes for Collaborators:
 1. Please check the codebase on "old" branch. I know I have a messy sense of naming branches
