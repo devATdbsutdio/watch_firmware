@@ -9,7 +9,7 @@ void disableUnusedPins() {
 
 void disableSerial() {
   USART0.CTRLB &= ~(USART_RXEN_bm);
-  USART0.CTRLB &= ~(USART_TX`EN_bm);
+  USART0.CTRLB &= ~(USART_TXEN_bm);
   // Also set TX pin to INPUT_PULLUP (Do we need to?)
   PORTB.PIN2CTRL = PORT_PULLUPEN_bm; //i.e TX_PIN PB2 to INPUT_PULLUP (By default it is)
   // Also set RX pin to INPUT_PULLUP (Do we need to?)

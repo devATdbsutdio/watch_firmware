@@ -12,7 +12,6 @@ int stayAwakeFor = 5000;
 
 void setup() {
   //  Serial.begin(115200);
-
   //--- Disable the Serial so that it doesn't draw curr in TX pin during sleep ---//
   //-- [In ExtraUtils.h] --//
   //  disableSerial();
@@ -29,7 +28,7 @@ void setup() {
   //--- Button Modes Enabled ---//
   setupButtons();
 
-  //--- disable some ADC, SPI, TIMERS
+  //--- disable some ADC
   ADC0.CTRLA &= ~ADC_ENABLE_bm;
 
   //--- Sleep mode enablers ---//
