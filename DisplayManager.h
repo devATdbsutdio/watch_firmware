@@ -1,4 +1,4 @@
-unsigned long startMicros;
+  unsigned long startMicros;
 unsigned long currentMicros;
 const unsigned long period = 10;  // the value is a number of Microseconds
 

@@ -11,11 +11,11 @@ int stayAwakeFor = 5000;
 
 
 void setup() {
-  Serial.begin(115200);
+  //  Serial.begin(115200);
 
   //--- Disable the Serial so that it doesn't draw curr in TX pin during sleep ---//
   //-- [In ExtraUtils.h] --//
-  disableSerial(); 
+  //  disableSerial();
 
   //--- Disable unused pins (i.e do not keep them floating) | For efficient low power in sleep mode ---//
   disableUnusedPins();
@@ -53,6 +53,11 @@ void loop() {
     //    Serial.print(stayAwakeFor / 1000);
     //    Serial.println(" sec.");
 
+
+    //-- Enable Serial [In ExtraUtils.h] --//
+    Serial.begin(115200);
+    //    enableSerial();
+
     //--- start the timer for how long to show [In Buttons.h] ---//
     RTC_DELAY_init(stayAwakeFor);
 
@@ -61,7 +66,7 @@ void loop() {
       // Note: Serial should have been enabled in the Buttons.h [ in void watchButtons(){} ], when the button press interrupt was detected.
       // So set time over serial routine (If serial data is availbe in this time window)
       SetTimeOverSerial();
-    
+
       // Anyways, "show time here" routine
       getAndShowTime();
     }
@@ -73,7 +78,9 @@ void loop() {
     // -- ** Debug line remove later ** -- //
     //    Serial.println(F("Sleeping..."));
     turnOffDisplay();
-    Serial.flush();                    // flush everything before going to sleep
+    //    Serial.flush();                    // flush everything before going to sleep
+    Serial.end();
+    //    disableSerial();
     sleep_cpu();
   }
 }
