@@ -1,16 +1,24 @@
 #include <avr/sleep.h>
-#include <avr/power.h>
+//#include <avr/power.h>
 
+#include "ExtraUtils.h"
 #include "RTCManager.h"
 #include "DisplayManager.h"
-//#include "SerialReset.h"
+#include "SerialReset.h"
 #include "Buttons.h"
 
 int stayAwakeFor = 5000;
 
 
 void setup() {
-  //  Serial.begin(115200);
+  Serial.begin(115200);
+
+  //--- Disable the Serial so that it doesn't draw curr in TX pin during sleep ---//
+  //-- [In ExtraUtils.h] --//
+  disableSerial(); 
+
+  //--- Disable unused pins (i.e do not keep them floating) | For efficient low power in sleep mode ---//
+  disableUnusedPins();
 
   //--- Seven segment display initialization ---//
   setupDisplay();
@@ -21,9 +29,10 @@ void setup() {
   //--- Button Modes Enabled ---//
   setupButtons();
 
-  //--- Sleep mode enablers ---//
+  //--- disable some ADC, SPI, TIMERS
   ADC0.CTRLA &= ~ADC_ENABLE_bm;
-  power_all_disable();
+
+  //--- Sleep mode enablers ---//
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
   sleep_enable();
 }
@@ -44,15 +53,16 @@ void loop() {
     //    Serial.print(stayAwakeFor / 1000);
     //    Serial.println(" sec.");
 
-    //--- start the timer for how long to show [Int RTC method] ---//
+    //--- start the timer for how long to show [In Buttons.h] ---//
     RTC_DELAY_init(stayAwakeFor);
 
     while ( showTimePeriodOver == 0) {
 
-      // set time over serial routine
-      //      SetTimeOverSerial();
-
-      // "show time" routine
+      // Note: Serial should have been enabled in the Buttons.h [ in void watchButtons(){} ], when the button press interrupt was detected.
+      // So set time over serial routine (If serial data is availbe in this time window)
+      SetTimeOverSerial();
+    
+      // Anyways, "show time here" routine
       getAndShowTime();
     }
 
@@ -63,8 +73,7 @@ void loop() {
     // -- ** Debug line remove later ** -- //
     //    Serial.println(F("Sleeping..."));
     turnOffDisplay();
-    //    Serial.flush();                    // flush everything before going to sleep
-    //    delay(1);
+    Serial.flush();                    // flush everything before going to sleep
     sleep_cpu();
   }
 }
