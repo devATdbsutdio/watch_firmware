@@ -7,14 +7,7 @@ volatile byte showTimePeriodOver;
 //bool enableSerialTransport;
 
 
-void disableUnusedButtons() {
-  // set them to input pull and do not keep them floating
-  PORTC.PIN0CTRL = PORT_PULLUPEN_bm;
-  PORTC.PIN1CTRL = PORT_PULLUPEN_bm;
-  PORTC.PIN3CTRL = PORT_PULLUPEN_bm;
-  PORTC.PIN4CTRL = PORT_PULLUPEN_bm;
-  PORTC.PIN5CTRL = PORT_PULLUPEN_bm;
-} 
+
 
 
 
@@ -35,6 +28,7 @@ void RTC_DELAY_init(int RTCdelay) {
   while (RTC.STATUS > 0);               // Wait for all register to be synchronized
   RTC.PER = RTCdelay;                   // Set period for delay
   RTC.INTCTRL |= RTC_OVF_bm;            // Enable overflow Interrupt which will trigger ISR
+  
   RTC.CTRLA = RTC_PRESCALER_DIV32_gc    // 32768 / 32 = 1024 (sec) ~ 1 ms
               | RTC_RTCEN_bm                        // Enable: enabled
               | RTC_RUNSTDBY_bm;                    // Run In Standby: enabled
@@ -50,9 +44,6 @@ ISR(RTC_CNT_vect) {
 void setupButtons() {
   //--- Buttons initialization ---//
   PORTC.PIN2CTRL = 0b00001001; // in INPUT pullup mode - will trigger an async ISR // for wakeup from sleep
-
-  //--- Disable unused pins (i.e do not keep them floating) | For efficient low power in sleep mode ---//
-  disableUnusedButtons();
 }
 
 
