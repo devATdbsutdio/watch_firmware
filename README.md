@@ -32,8 +32,6 @@ Arduino-IDE, arduino-cli etc.
 Pseudo-code for the firmware written so far:
 ````
 SETUP:
-	Begin Serial.
-	
 	Set up RTC
 	while RTC is not available, block. 
 	when RTC is available, move to next step. 
@@ -50,6 +48,8 @@ SETUP:
 LOOP:
 	if button is pressed:
 		interrupt is triggered:
+			Begin Serial
+			
 			uC wakes up FOR 5 SECONDS (interrupt and ATTINY's Internal RTC based time keeping).
 			Quarries the RV-8803 RTC to get latest time.
 			If RTC doesn’t responds, it shows an error signal in seven segment display.
@@ -59,8 +59,10 @@ LOOP:
 			
 		after the 5-SECONDS
 			Flush serial
+			Kill Serial
+			Put RX line to output and LOW
 			turn off all the LED pins from seven segments
-                         Go to power down sleep mode	
+                        Go to power down sleep mode	
 ````
 
 ### Notes for Collaborators:
