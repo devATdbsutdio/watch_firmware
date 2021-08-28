@@ -47,23 +47,17 @@ void loop() {
   if (showCurrTimePressed) {
     showCurrTimePressed = false;
 
+    Serial.begin(115200);
+
     // -- ** Debug line remove later ** -- //
     //    Serial.print("\"Show Time\" button has been released. So show time for ");
     //    Serial.print(stayAwakeFor / 1000);
     //    Serial.println(" sec.");
 
-
-    //-- Enable Serial [In ExtraUtils.h] --//
-    Serial.begin(115200);
-    //    enableSerial();
-
     //--- start the timer for how long to show [In Buttons.h] ---//
     RTC_DELAY_init(stayAwakeFor);
 
     while ( showTimePeriodOver == 0) {
-
-      // Note: Serial should have been enabled in the Buttons.h [ in void watchButtons(){} ], when the button press interrupt was detected.
-      // So set time over serial routine (If serial data is availbe in this time window)
       SetTimeOverSerial();
 
       // Anyways, "show time here" routine
@@ -77,9 +71,10 @@ void loop() {
     // -- ** Debug line remove later ** -- //
     //    Serial.println(F("Sleeping..."));
     turnOffDisplay();
-    //    Serial.flush();                    // flush everything before going to sleep
+    Serial.flush();                    // flush everything before going to sleep
     Serial.end();
-    //    disableSerial();
+    pinMode(8, OUTPUT);
+    digitalWrite(8, LOW);
     sleep_cpu();
   }
 }
