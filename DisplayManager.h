@@ -9,7 +9,7 @@ void setupDisplay() {
   //  PORTC.DIRSET = 0b00111100; // [ PC 2-5 (PC-4&5 for top displays and PC-2&3 for bottom display) as Outputs or in Arduino world, digital Pins 14-17 ]
   PORTB.DIRSET = 0b11110000;
 
-  startMicros = micros();
+  //  startMicros = micros();
 }
 
 

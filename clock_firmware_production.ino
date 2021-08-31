@@ -12,7 +12,8 @@ int stayAwakeFor = 4000;
 
 void setup() {
   disableSerialHWPins();
-  
+  disableTWI();
+
   //--- Disable unused pins (i.e do not keep them floating) | For efficient low power in sleep mode ---//
   disableUnusedPins();
 
@@ -20,23 +21,24 @@ void setup() {
   setupDisplay();
   turnOffDisplay();
 
-  //--- Seven segment display initialization ---//
-  setupRTC();
-
   //--- Button Modes Enabled ---//
   setupButtons();
 
   //--- disable ADC
-  ADC0.CTRLA &= ~ADC_ENABLE_bm;
+  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
   //--- disable SPI
   SPI0.CTRLA &= ~(SPI_ENABLE_bm);
+
+  // Enable interrupt
+  sei();
+
+  // Setup some counters...
+  startCountMillis = millis(); // for the ext rtc
+  startMicros = micros();      // for display fps
 
   //--- Sleep mode enablers ---//
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
   sleep_enable();
-
-  // Enable interrupt
-  sei();
 }
 
 
@@ -50,7 +52,11 @@ void loop() {
   if (showCurrTimePressed) {
     showCurrTimePressed = false;
 
+    //--- Enable Serial for time setting over serial ---//
     Serial.begin(115200);
+    //--- RV-8803 Ext RTC initialization ---//
+    setupRTC();
+
 
     // -- ** Debug line remove later ** -- //
     //    Serial.print("\"Show Time\" button has been released. So show time for ");
@@ -78,6 +84,7 @@ void loop() {
     Serial.flush();                    // flush everything before going to sleep
     Serial.end();
     disableSerialHWPins();
+    disableTWI();
     sleep_cpu();
   }
 }

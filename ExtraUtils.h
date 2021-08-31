@@ -8,8 +8,13 @@ void disableUnusedPins() {
 }
 
 void disableSerialHWPins() {
-  pinMode(8, OUTPUT); // RX
+  //  pinMode(8, OUTPUT); // RX
   //  pinMode(9, INPUT_PULLUP); // TX
-  digitalWrite(8, LOW);
+  //  digitalWrite(8, LOW);
   //  digitalWrite(9, LOW);
+
+  PORTB.DIRSET = PIN3_bm;
+  cli();
+  PORTB.OUT &= ~PIN3_bm;
+  sei();
 }

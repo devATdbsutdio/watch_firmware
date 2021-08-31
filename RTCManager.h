@@ -4,56 +4,42 @@ RV8803Tiny rtc;
 bool rtcAvailable;
 bool rtcReadable;
 
-
-//int sec = 0;
-//int compensation_sec = 10; // approx secs for compensating delays that will happen during uploading the code if and when set to "a/c to compiler time" method
-//int minute = 40;
-//int hour = 19; // Set value in 24 hour mode
-//int date = 24;
-//int month = 7;
-//int year = 2021;
-//int weekday = 6;
-
 unsigned long startCountMillis;
 unsigned long currentCountMillis;
 const unsigned long secPeriod = 1000;  //the value is a number of milliseconds
 
 
+//void enableTWI() {
+//  //  on 1607, set the SDA SCL Pins to input pull-up
+//  PORTB.PIN1CTRL |= PORT_PULLUPEN_bm;
+//  PORTB.PIN0CTRL |= PORT_PULLUPEN_bm;
+//  PORTB.OUTCLR = 0x03; //bits 1 and 0.
+//
+//  TWI0.MCTRLA = TWI_ENABLE_bm; // Enable as master, no interrupts
+//}
+
+void disableTWI() {
+  //  on 1607, set the SDA SCL Pins to Output and LOW
+  //  pinMode(11, OUTPUT);
+  //  pinMode(10, OUTPUT);
+  //  digitalWrite(11, LOW);
+  //  digitalWrite(10, LOW);
+
+  //  TWI0.MCTRLA &= ~(TWI_ENABLE_bm);
+
+  PORTB.DIRSET = PIN0_bm;
+  PORTB.DIRSET = PIN1_bm;
+  cli(); // interrupts off
+  PORTB.OUT &= ~PIN0_bm;
+  PORTB.OUT &= ~PIN1_bm;
+  sei(); // Interrupts back on
+}
 
 void setupRTC() {
-  //  Serial.println("\nChecking RTC...");
-  //  Serial.println("\nChecking Serial Set Time...");
-
-  while (rtc.begin() == false) { // un-shifted default address for RV-8803 is 0x32. Check library
+  while (rtc.begin() == false) { // un-shifted default address for RV-8803 is 0x32. Check library!
     rtcAvailable = false;
-    // -- ** Debug line remove later ** -- //
-    //    Serial.println(F("Something went wrong, check wiring"));
-    //    delay(1000);
   }
-  //  Serial.println(F("RTC online!\n"));
   rtcAvailable = true;
 
-  // -- ** Debug line remove later ** -- //
-  //  Serial.println(F("Setting to compiler time..."));
-  //  if (rtc.setToCompilerTime() == false) {
-  //    // -- ** Debug line remove later ** -- //
-  //    Serial.println("Something went wrong setting the time");
-  //    while (true) {}
-  //  }
-  //  // -- ** Debug line remove later ** -- //
-  //  Serial.println(F("Compiler Time set!"));
-
-  // -- ** Debug line remove later ** -- //
-  //  Serial.println(F("Setting custom time..."));
-  //  if (rtc.setTime(sec, minute, hour, weekday, date, month, year) == false) {
-  //    // -- ** Debug line remove later ** -- //
-  //    Serial.println("Something went wrong setting the time");
-  //    while (true) {}
-  //  }
-  //  // -- ** Debug line remove later ** -- //
-  //  Serial.println(F("Custom Time set!"));
-
-  //  delay(1000);
-
-  startCountMillis = millis();
+  //  startCountMillis = millis();
 }
