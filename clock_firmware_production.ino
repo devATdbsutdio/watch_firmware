@@ -7,20 +7,18 @@
 #include "SerialReset.h"
 #include "Buttons.h"
 
-int stayAwakeFor = 5000;
+int stayAwakeFor = 4000;
 
 
 void setup() {
-  //  Serial.begin(115200);
-  //--- Disable the Serial so that it doesn't draw curr in TX pin during sleep ---//
-  //-- [In ExtraUtils.h] --//
-  //  disableSerial();
-
+  disableSerialHWPins();
+  
   //--- Disable unused pins (i.e do not keep them floating) | For efficient low power in sleep mode ---//
   disableUnusedPins();
 
   //--- Seven segment display initialization ---//
   setupDisplay();
+  turnOffDisplay();
 
   //--- Seven segment display initialization ---//
   setupRTC();
@@ -28,12 +26,17 @@ void setup() {
   //--- Button Modes Enabled ---//
   setupButtons();
 
-  //--- disable some ADC
+  //--- disable ADC
   ADC0.CTRLA &= ~ADC_ENABLE_bm;
+  //--- disable SPI
+  SPI0.CTRLA &= ~(SPI_ENABLE_bm);
 
   //--- Sleep mode enablers ---//
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
   sleep_enable();
+
+  // Enable interrupt
+  sei();
 }
 
 
@@ -67,14 +70,14 @@ void loop() {
     // Reset Trigger for RTC delay
     showTimePeriodOver = 0;
 
+
     // Then go to sleep
     // -- ** Debug line remove later ** -- //
     //    Serial.println(F("Sleeping..."));
     turnOffDisplay();
     Serial.flush();                    // flush everything before going to sleep
     Serial.end();
-    pinMode(8, OUTPUT);
-    digitalWrite(8, LOW);
+    disableSerialHWPins();
     sleep_cpu();
   }
 }

@@ -1,5 +1,5 @@
-bool SW_OneState;
-bool showCurrTimePressed;
+boolean SW_OneState;
+boolean showCurrTimePressed;
 volatile byte wakeUpTriggered;
 volatile byte showTimePeriodOver;
 

@@ -1,15 +1,15 @@
-  unsigned long startMicros;
+unsigned long startMicros;
 unsigned long currentMicros;
 const unsigned long period = 10;  // the value is a number of Microseconds
 
 void setupDisplay() {
-  startMicros = micros();
-
   //  Cathode Pins for LEDS
   PORTA.DIRSET = 0b11111110; // [ PA 1-7 as Outputs]
   //  Anode Pins for LEDS
   //  PORTC.DIRSET = 0b00111100; // [ PC 2-5 (PC-4&5 for top displays and PC-2&3 for bottom display) as Outputs or in Arduino world, digital Pins 14-17 ]
   PORTB.DIRSET = 0b11110000;
+
+  startMicros = micros();
 }
 
 
