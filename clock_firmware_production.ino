@@ -71,6 +71,8 @@ void loop() {
 
       // Anyways, "show time here" routine
       getAndShowTime();
+      // when awake, after finishing showing time, show on one of the segment dots, blinking to show if battery volatge is low
+      showLowVoltageWarning();
     }
 
     // Reset Trigger for RTC delay
@@ -130,4 +132,9 @@ void getAndShowTime() {
   // --- ** [TBD] corner case handler TBD ** --- //
   if (rtcAvailable && rtcReadable) showOnDisplay(rtc.currTimeArray);
   else showOnDisplay(blankSignal);
+}
+
+void showLowVoltageWarning() {
+  // ---- Clear all leds of a segment ---- //
+  //  PORTA.OUTCLR = 0b11111110;
 }

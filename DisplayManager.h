@@ -15,7 +15,22 @@ void setupDisplay() {
 
 uint8_t blankSignal[4] = { 10, 10, 10, 10 };
 
+
+/*
+ SINGLE 7 SEGEMNT LED LAYOUT
+ --A--
+ |   |
+ F   B
+ |   |
+ --G--
+ |   |
+ E   C
+ |   |
+ --D-- *
+*/
+
 unsigned char num_array[11] = {
+  //GFEDCBA0
   0b01111110, //0
   0b00001100, //1
   0b10110110, //2
@@ -27,6 +42,7 @@ unsigned char num_array[11] = {
   0b11111110, //8
   0b11011110, //9
   0b00010000  //_
+  0b00000001  //*
 };
 
 
