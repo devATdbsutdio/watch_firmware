@@ -15,6 +15,5 @@ void setupRTC() {
     rtcAvailable = false;
   }
   rtcAvailable = true;
-
   //  startCountMillis = millis();
 }

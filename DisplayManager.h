@@ -2,11 +2,17 @@ unsigned long startMicros;
 unsigned long currentMicros;
 const unsigned long period = 10;  // the value is a number of Microseconds
 
+
+
+
 void setupDisplay() {
-  //  Cathode Pins for LEDS
+  //  Cathode Pin for last dot of the LED segment (used for battery low warning)
+  PORTC.DIRSET = PIN5_bm; // use PC5 as an output
+  PORTC.OUTCLR = PIN5_bm; // turn PC5 output off
+
+  //  Cathode Pins for LEDS segments
   PORTA.DIRSET = 0b11111110; // [ PA 1-7 as Outputs]
   //  Anode Pins for LEDS
-  //  PORTC.DIRSET = 0b00111100; // [ PC 2-5 (PC-4&5 for top displays and PC-2&3 for bottom display) as Outputs or in Arduino world, digital Pins 14-17 ]
   PORTB.DIRSET = 0b11110000;
 
   //  startMicros = micros();
@@ -17,16 +23,16 @@ uint8_t blankSignal[4] = { 10, 10, 10, 10 };
 
 
 /*
- SINGLE 7 SEGEMNT LED LAYOUT
- --A--
- |   |
- F   B
- |   |
- --G--
- |   |
- E   C
- |   |
- --D-- *
+  SINGLE 7 SEGEMNT LED LAYOUT
+  --A--
+  |   |
+  F   B
+  |   |
+  --G--
+  |   |
+  E   C
+  |   |
+  --D-- *
 */
 
 unsigned char num_array[11] = {
@@ -41,8 +47,7 @@ unsigned char num_array[11] = {
   0b00001110, //7
   0b11111110, //8
   0b11011110, //9
-  0b00010000  //_
-  0b00000001  //*
+  0b00010000 //_
 };
 
 
@@ -58,7 +63,6 @@ void showOnDisplay(uint8_t * digits) {
     // ---- Clear all leds of a segment ---- //
     PORTA.OUTCLR = 0b11111110;
     // ---- Deactivatec all segments by setting them HIGH (My segments are in common cathode config) ---- //
-    // PORTC.OUTSET = 0b00111100 ;
     PORTB.OUTSET = 0b11110000;
 
     // ---- Activate one segment at a time ---- //
@@ -78,9 +82,28 @@ void showOnDisplay(uint8_t * digits) {
 }
 
 void turnOffDisplay() {
+  PORTC.OUTCLR = PIN5_bm; // toggle PC5 OFF
+
   // ---- Clear all leds of a segment ---- //
   PORTA.OUTCLR = 0b11111110;
   // ---- Deactivatec all segments by setting them HIGH (My segments are in common Anode config) ---- //
-  // PORTC.OUTSET = 0b00111100 ;
   PORTB.OUTSET = 0b11110000;
+}
+
+
+void batteryWarningLED_ON() {
+  PORTC.OUTCLR = PIN5_bm;
+  PORTB.OUTSET = 0b11110000;
+
+  cli();
+  PORTB.OUTTGL = 0b00010000;
+  VPORTC.OUT = PIN5_bm;
+  sei();
+}
+
+void batteryWarningLED_OFF() {
+  cli();
+  // Turn PC5 (Battery warning LED dot) output off
+  PORTC.OUTCLR = PIN5_bm;
+  sei();
 }

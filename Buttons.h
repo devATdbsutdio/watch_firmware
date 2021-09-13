@@ -3,9 +3,6 @@ boolean showCurrTimePressed;
 volatile byte wakeUpTriggered;
 volatile byte showTimePeriodOver;
 
-//bool SW_TwoState;
-//bool enableSerialTransport;
-
 
 
 //--- ISR for waking up from sleep mode ---//
@@ -55,10 +52,8 @@ void watchButtons() {
 
     if (SW_OneState) {
       showCurrTimePressed = false;
-      //      enableSerialTransport = true;
     } else {
       showCurrTimePressed = true;
-      //      enableSerialTransport = false;
     }
   }
 }

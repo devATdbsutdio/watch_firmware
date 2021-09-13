@@ -1,14 +1,13 @@
 #include <avr/sleep.h>
-//#include <avr/power.h>
 
+#include "DisplayManager.h"
 #include "ExtraUtils.h"
 #include "RTCManager.h"
-#include "DisplayManager.h"
 #include "SerialReset.h"
 #include "Buttons.h"
 
 int stayAwakeFor = 4000;
-
+uint16_t lowVoltageThres = 28; // 2.7V
 
 void setup() {
   disableSerialHWPins();
@@ -20,13 +19,19 @@ void setup() {
   //--- Seven segment display initialization ---//
   setupDisplay();
   turnOffDisplay();
+  //  batteryWarningLED_OFF() ;
 
   //--- Button Modes Enabled ---//
   setupButtons();
 
-  //--- disable ADC
-  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
-  //--- disable SPI
+  //--- disable ADC ---//
+  //  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
+
+  //--- enable ADC ---//
+  // ADC0.CTRLA |= ADC_ENABLE_bm;
+
+
+  //--- disable SPI ---//
   SPI0.CTRLA &= ~(SPI_ENABLE_bm);
 
   // Enable interrupt
@@ -45,7 +50,6 @@ void setup() {
 
 
 void loop() {
-  //------//
   watchButtons();
 
 
@@ -57,26 +61,45 @@ void loop() {
     //--- RV-8803 Ext RTC initialization ---//
     setupRTC();
 
-
     // -- ** Debug line remove later ** -- //
     //    Serial.print("\"Show Time\" button has been released. So show time for ");
     //    Serial.print(stayAwakeFor / 1000);
     //    Serial.println(" sec.");
 
+    //--- Detect self referenced Batt voltage ---//
+    ADCVoltRefSetup();
+    uint16_t currBattVolt = measuredVoltage();
+    bool lowVoltageDetected = false;
+    // -- ** Debug line remove later ** -- //
+    //    Buffer[0] = voltage / 10; Buffer[1] = voltage % 10;
+    //    Serial.print(float(currBattVolt) / 10);
+    //    Serial.println(" V");
+    if (currBattVolt < lowVoltageThres) {
+      lowVoltageDetected = true;
+    } else {
+      lowVoltageDetected = false;
+      batteryWarningLED_OFF();
+    }
+
+
     //--- start the timer for how long to show [In Buttons.h] ---//
     RTC_DELAY_init(stayAwakeFor);
 
     while ( showTimePeriodOver == 0) {
-      SetTimeOverSerial();
-
-      // Anyways, "show time here" routine
-      getAndShowTime();
-      // when awake, after finishing showing time, show on one of the segment dots, blinking to show if battery volatge is low
-      showLowVoltageWarning();
+      // If battery voltage is above threshold and low voltage not detected
+      if (!lowVoltageDetected) {
+        // If data arrives over serial, it will check for data format and set time to RTC as it expects data to be the "setTime" data
+        SetTimeOverSerial();
+        // Anyways, "show time here" routine also runs
+        getAndShowTime();
+      } else {
+        // If low voltgae detected, then show warning for some time
+        batteryWarningLED_ON();
+      }
     }
-
     // Reset Trigger for RTC delay
     showTimePeriodOver = 0;
+
 
 
     // Then go to sleep
@@ -109,9 +132,9 @@ void getAndShowTime() {
       rtcReadable = false;
     }
 
-    // updateTime i.e read registers, ** must for getting current time
+    // update Time i.e read registers, ** must for getting current time
     if (rtcAvailable && rtcReadable) {
-      // ** Must push time read from registers to an int array for showing to segment display
+      // *** Must push time read from registers to an int array for showing to segment display
       rtc.updateTimeArray();
 
       // -- ** Debug code remove later ** -- //
@@ -129,12 +152,7 @@ void getAndShowTime() {
     startCountMillis = currentCountMillis;
   }
 
-  // --- ** [TBD] corner case handler TBD ** --- //
+  // --- ** corner case handler (In case time retreival was unsuccessful) ** --- //
   if (rtcAvailable && rtcReadable) showOnDisplay(rtc.currTimeArray);
   else showOnDisplay(blankSignal);
-}
-
-void showLowVoltageWarning() {
-  // ---- Clear all leds of a segment ---- //
-  //  PORTA.OUTCLR = 0b11111110;
 }
