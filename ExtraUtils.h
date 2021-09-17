@@ -52,15 +52,15 @@ void disableTWI() {
 void ADCVoltRefSetup() {
   VREF.CTRLA = VREF_ADC0REFSEL_1V1_gc;
   ADC0.CTRLC = ADC_REFSEL_VDDREF_gc | ADC_PRESC_DIV256_gc; // 78kHz clock
-  ADC0.MUXPOS = ADC_MUXPOS_INTREF_gc;                  // Measure INTREF
-  ADC0.CTRLA = ADC_ENABLE_bm;                          // Single, 10-bit
+  ADC0.MUXPOS = ADC_MUXPOS_INTREF_gc;                      // Measure INTREF
+  ADC0.CTRLA = ADC_ENABLE_bm;                              // Single, 10-bit
 }
 
 uint16_t measuredVoltage() {
   uint16_t  v;
-  ADC0.COMMAND = ADC_STCONV_bm;                        // Start conversion
-  while (ADC0.COMMAND & ADC_STCONV_bm);                // Wait for completion
-  uint16_t adc_reading = ADC0.RES;                     // ADC conversion result
+  ADC0.COMMAND = ADC_STCONV_bm;                            // Start conversion
+  while (ADC0.COMMAND & ADC_STCONV_bm);                    // Wait for completion
+  uint16_t adc_reading = ADC0.RES;                         // ADC conversion result
   v = 11264 / adc_reading;
   //  Buffer[0] = voltage / 10; Buffer[1] = voltage % 10;
   return v;
