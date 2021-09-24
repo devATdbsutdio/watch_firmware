@@ -37,7 +37,7 @@ void fillDataArray() {
 // 02:18:19:6:25:06:2021
 
 void parseDataArray() {
-  
+
   if (newDataArrived) {
     newDataArrived = false;
     totalDelimators = 0;
