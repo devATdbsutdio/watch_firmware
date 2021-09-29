@@ -28,6 +28,7 @@ unsigned long startCountMillis;
 unsigned long currentCountMillis;
 const unsigned long countdownPeriod = 4000;  //the value is a number of milliseconds
 int displayCycleCounter = 0;
+int prevCounter = 0;
 
 
 
@@ -50,7 +51,6 @@ void setup() {
   btnWatchTimerStart = millis();
   startMicros = micros();
   startCountMillis = millis();
-
 }
 
 
@@ -67,6 +67,7 @@ void loop() {
     Serial.println("CHECKING RTC's CONDITION:");
     Serial.println("--------------------------");
     printHeader = true;
+    delay(3000);
   }
 
   if (!rtcAvailabilityChecked) {
@@ -93,14 +94,12 @@ void loop() {
   }
 
 
-  /* TBD blocker*/
-
-
   /* ---- 2. Check curr. factory default time ---- */
   if (!printHeader) {
     Serial.println("\nCHECKING RTC's AVAILABILITY:");
     Serial.println("----------------------------");
     printHeader = true;
+    delay(3000);
   }
 
   if (rtcAvailabilityChecked && !rtcReadabilityChecked) {
@@ -130,14 +129,12 @@ void loop() {
   }
 
 
-  /* TBD blocker*/
-
-
   /* ---- 3. check button for two presses ---- */
   if (!printHeader) {
     Serial.println("\nCHECKING BUTTON's CONDITION:");
     Serial.println("----------------------------");
     printHeader = true;
+    delay(3000);
   }
 
   if (rtcReadabilityChecked && !btnConnChecked) {
@@ -166,53 +163,60 @@ void loop() {
   }
 
 
-  /* TBD blocker*/
-
-
   /* ---- 4. check display routine ---- */
   if (!printHeader) {
     Serial.println("\nCHECKING DISPLAY's CONDITION:");
     Serial.println("-----------------------------");
-
-    for (int i = 0; i < sizeof(digits_); i++) {
-      Serial.print(digits_[i]);
-      Serial.print(",");
-    }
-    Serial.println();
-
-    showOnDisplay(digits_);
-
+    delay(3000);
+    Serial.println("Watch if you see the below pattern \nin the segments\n(Starting in 10 sec):");
+    Serial.println("0, 1");
+    Serial.println("2, 3");
+    Serial.println("delay(4000);");
+    Serial.println("4, 5");
+    Serial.println("6, 7");
+    Serial.println("delay(4000);");
+    Serial.println("8, 9");
+    Serial.println("0, 0");
+    Serial.println("delay(4000);");
+    Serial.println("Finally display will Turn OFF");
     printHeader = true;
+    delay(10000);
+    //    Serial.println(displayCycleCounter);
   }
 
   if (btnConnChecked && !displayChecked) {
 
-    currentCountMillis = millis();
-
-    if (currentCountMillis - startCountMillis >= countdownPeriod) {
-      //      Serial.println(displayCycleCounter);
-
-      // Update digits array TBD
-      for (int i = 0; i < sizeof(digits_); i++) {
-        digits_[i] += 4;
-        if (digits_[i] > 9) digits_[i] = 0;
-
-        Serial.print(digits_[i]);
-        Serial.print(",");
-      }
-      Serial.println();
-
-      displayCycleCounter++;
-
-      startCountMillis = currentCountMillis;
-    }
-
     showOnDisplay(digits_);
 
-    if (displayCycleCounter > 2) {
-      turnOffDisplay();
-      displayCycleCounter = 0;
-      displayChecked = true;
+    if (displayCycleCounter != prevCounter) {
+
+      //      Serial.println(displayCycleCounter);
+
+      if (displayCycleCounter > 1 && displayCycleCounter <= 3) {
+        for (int i = 0; i < sizeof(digits_); i++) {
+          digits_[i] += 4;
+          if (digits_[i] > 9) digits_[i] = 0;
+        }
+      }
+
+      if (displayCycleCounter > 3) {
+        turnOffDisplay();
+        displayCycleCounter = 0;
+        prevCounter = 0;
+        displayChecked = true;
+
+        Serial.println("\nReport DISPLAY OKAY by pressing '1'");
+        Serial.println("Report DISPLAY NOT OKAY by pressing '0'");
+      }
+
+      prevCounter = displayCycleCounter;
+    }
+
+
+    currentCountMillis = millis();
+    if (currentCountMillis - startCountMillis >= countdownPeriod) {
+      displayCycleCounter++;
+      startCountMillis = currentCountMillis;
     }
   }
 }
