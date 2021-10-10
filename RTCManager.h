@@ -1,7 +1,7 @@
 /*
 Description: Time mamnagement mechanism for the specific RTC (custom library)
 Author: Saurabh datta.
-Time: Oct, 2021.
+Time: Aug, 2021.
 Loca: Beijing, China.
 License: MIT
 */

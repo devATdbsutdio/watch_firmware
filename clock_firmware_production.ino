@@ -1,7 +1,7 @@
 /*
   Description: [MAIN] Main sketch for the watch and the operation mechanism
   Author: Saurabh datta.
-  Time: Oct, 2021.
+  Time: Aug, 2021.
   Loca: Beijing, China.
   License: MIT
 */
