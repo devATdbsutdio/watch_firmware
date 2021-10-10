@@ -52,29 +52,29 @@ LOOP:
 			1. Begin Serial
 
 			2. Set up RTC (built in i2c in libray)
-					while RTC is not available, block. 
+			    while RTC is not available, block. 
 			
 			3. Measure battery volate
-					if low:
-						Show low voltage warning [for 5 sec]
-					else:
-						Quarries the RV-8803 RTC to get latest time.
-						if RTC doesn’t responds:
-							 it shows an error signal in seven segment display.
- 						else: 
- 							The uC then gets the time and shows the it on display. [for 5 sec]
+                           if low:
+                               Show low voltage warning [for 5 sec]
+                           else:
+                               Quarries the RV-8803 RTC to get latest time.
+                               if RTC doesn’t responds:
+                                   it shows an error signal in seven segment display.
+                               else: 
+                                   The uC then gets the time and shows the it on display. [for 5 sec]
 			
  			MeanWhile, in parallel, if a serial string is received:
- 				Parse info:
- 					if in right format:
- 						Set time on RTC accordingly (if RTC is available).
+ 			    Parse info:
+ 			        if in right format:
+ 			            Set time on RTC accordingly (if RTC is available).
 			
 		after the 5-SECONDS
-			Flush serial
-			Kill Serial
-			Put RX line to output and LOW
-			Disable i2c pins (set them to LOW)
-			turn off all the LED pins from seven segments
+                  Flush serial
+                  Kill Serial
+                  Put RX line to output and LOW
+                  Disable i2c pins (set them to LOW)
+                  turn off all the LED pins from seven segments
       Go to power down sleep mode	
 ````
 
