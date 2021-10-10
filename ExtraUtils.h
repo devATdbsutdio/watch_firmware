@@ -15,11 +15,6 @@ void disableUnusedPins() {
 }
 
 void disableSerialHWPins() {
-  //  pinMode(8, OUTPUT); // RX
-  //  pinMode(9, INPUT_PULLUP); // TX
-  //  digitalWrite(8, LOW);
-  //  digitalWrite(9, LOW);
-
   PORTB.DIRSET = PIN3_bm;
   cli();
   PORTB.OUT &= ~PIN3_bm;
@@ -27,25 +22,14 @@ void disableSerialHWPins() {
 }
 
 void disableTWI() {
-  //  on 1607, set the SDA SCL Pins to Output and LOW
-  //  pinMode(11, OUTPUT);
-  //  pinMode(10, OUTPUT);
-  //  digitalWrite(11, LOW);
-  //  digitalWrite(10, LOW);
-
+  //  TWI0.MCTRLA &= ~(TWI_ENABLE_bm);
   PORTB.DIRSET = PIN0_bm;
   PORTB.DIRSET = PIN1_bm;
-  cli(); // interrupts off
+  cli(); 
   PORTB.OUT &= ~PIN0_bm;
   PORTB.OUT &= ~PIN1_bm;
-  sei(); // Interrupts back on
-
-  //  TWI0.MCTRLA &= ~(TWI_ENABLE_bm);
+  sei();
 }
-
-
-
-
 
 
 

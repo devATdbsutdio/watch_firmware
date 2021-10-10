@@ -32,41 +32,53 @@ Arduino-IDE, arduino-cli etc.
 Pseudo-code for the firmware written so far:
 ````
 SETUP:
-	Set up RTC
-	while RTC is not available, block. 
-	when RTC is available, move to next step. 
-	
+	Disable serial related HW pins and registers
+	Disable i2C realted Pins and registers
+
 	Setup pins to OUTPUT for the seven segment displays. (Using PORT manipulation)
-	
 	Setup pin for the button as INPUT_PULLUP (Using PORT manipulation) 
 	
 	Set all other unused pins as INPUT_PULLUP. 
+
+	start timers (we are going to avoid delay() ofc)
 
 	Setup sleep and power-down mode for ATTINY1607
 	
 
 LOOP:
 	if button is pressed:
-		interrupt is triggered:
-			Begin Serial
+		interrupt is triggered -> uC wakes up:
 			
-			uC wakes up FOR 5 SECONDS (interrupt and ATTINY's Internal RTC based time keeping).
-			Quarries the RV-8803 RTC to get latest time.
-			If RTC doesn’t responds, it shows an error signal in seven segment display.
- 			If it responds correctly, the uC then gets the time and shows the it on display. 
+			1. Begin Serial
+
+			2. Set up RTC (built in i2c in libray)
+					while RTC is not available, block. 
 			
- 			MeanWhile if a serial string is received, parse info and set time on RTC accordingly (if RTC is available). 
+			3. Measure battery volate
+					if low:
+						Show low voltage warning [for 5 sec]
+					else:
+						Quarries the RV-8803 RTC to get latest time.
+						if RTC doesn’t responds:
+							 it shows an error signal in seven segment display.
+ 						else: 
+ 							The uC then gets the time and shows the it on display. [for 5 sec]
+			
+ 			MeanWhile, in parallel, if a serial string is received:
+ 				Parse info:
+ 					if in right format:
+ 						Set time on RTC accordingly (if RTC is available).
 			
 		after the 5-SECONDS
 			Flush serial
 			Kill Serial
 			Put RX line to output and LOW
+			Disable i2c pins (set them to LOW)
 			turn off all the LED pins from seven segments
-                        Go to power down sleep mode	
+      Go to power down sleep mode	
 ````
 
 ### Notes for Collaborators:
-1. Please check the codebase on "old" branch. I know I have a messy sense of naming branches
-2. Please use [ExtraUtils.h](https://github.com/dattasaurabh82/clock_firmware_production/blob/old/ExtraUtils.h) for new Functions Suggestions.
-3. Please comment to explain a noob like me, for any change suggestion in other files (For optimization for example ...)
+1. Please use [ExtraUtils.h](https://github.com/dattasaurabh82/clock_firmware_production/blob/old/ExtraUtils.h) for new Functions Suggestions.
+2. Please comment to explain, for any change suggestion in other files (For optimization for example ...)
 

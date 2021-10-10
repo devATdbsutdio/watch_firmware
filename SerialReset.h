@@ -114,7 +114,7 @@ void setRTCToNewTime() {
 
 
 
-void SetTimeOverSerial() {
+void SetTimeOverSerial() {  
   fillDataArray();
   parseDataArray();
   setRTCToNewTime();
