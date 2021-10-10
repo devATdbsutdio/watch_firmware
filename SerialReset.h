@@ -1,3 +1,12 @@
+/*
+Description: Time reset to RTC mechanism using serial data from computer
+Author: Saurabh datta.
+Time: Oct, 2021.
+Loca: Beijing, China.
+License: MIT
+*/
+
+
 boolean readyToReceive;
 char incomingChar;
 int idx = 0;

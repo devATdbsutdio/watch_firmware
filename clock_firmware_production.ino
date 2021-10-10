@@ -1,3 +1,11 @@
+/*
+  Description: [MAIN] Main sketch for the watch and the operation mechanism
+  Author: Saurabh datta.
+  Time: Oct, 2021.
+  Loca: Beijing, China.
+  License: MIT
+*/
+
 #include <avr/sleep.h>
 
 #include "DisplayManager.h"

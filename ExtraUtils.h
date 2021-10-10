@@ -1,5 +1,10 @@
-//#include "DisplayManager.h"
-
+/*
+Description: Some extra helper functions are placed here
+Author: Saurabh datta.
+Time: Oct, 2021.
+Loca: Beijing, China.
+License: MIT
+*/
 
 void disableUnusedPins() {
   // set them to input pull and do not keep them floating

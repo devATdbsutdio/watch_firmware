@@ -1,3 +1,11 @@
+/*
+Description: Time mamnagement mechanism for the specific RTC (custom library)
+Author: Saurabh datta.
+Time: Oct, 2021.
+Loca: Beijing, China.
+License: MIT
+*/
+
 #include <RV8803Tiny.h>
 RV8803Tiny rtc;
 

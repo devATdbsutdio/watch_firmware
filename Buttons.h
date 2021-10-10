@@ -1,3 +1,11 @@
+/*
+Description: Button press mechanism for waking up uC
+Author: Saurabh datta.
+Time: Oct, 2021.
+Loca: Beijing, China.
+License: MIT
+*/
+
 boolean SW_OneState;
 boolean showCurrTimePressed;
 volatile byte wakeUpTriggered;
@@ -12,7 +20,6 @@ ISR(PORTC_PORT_vect) {
 
   wakeUpTriggered = 1;
 }
-
 
 
 //--- uC's internal RTC & interrupt based based delay method ---//

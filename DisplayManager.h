@@ -1,7 +1,15 @@
+/*
+Description: 7 segmebnt display manager for showing digits
+Author: Saurabh datta.
+Time: Oct, 2021.
+Loca: Beijing, China.
+License: MIT
+*/
+
+
 unsigned long startMicros;
 unsigned long currentMicros;
 const unsigned long period = 10;  // the value is a number of Microseconds
-
 
 
 
