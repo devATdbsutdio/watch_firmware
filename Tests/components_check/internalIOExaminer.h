@@ -1,9 +1,9 @@
 /*
-Description: For checking inetrnal IOs can be set properly and the registers are working
-Author: Saurabh datta.
-Time: Oct, 2021.
-Loca: Beijing, China.
-License: MIT
+  Description: For checking inetrnal IOs can be set properly and the registers are working
+  Author: Saurabh datta.
+  Time: Oct, 2021.
+  Loca: Beijing, China.
+  License: MIT
 */
 
 
@@ -98,9 +98,9 @@ void examinePins() {
         // Serial.println(secondState);
 
         // [DEBUG] [TEST] **Simulation for non-working pins
-        if (pac == 4 || pac == 6) {
-          secondState = HIGH;
-        }
+        //        if (pac == 4 || pac == 6) {
+        //          secondState = HIGH;
+        //        }
         //------------------------------------------------//
         sei();
 
@@ -187,9 +187,9 @@ void examinePins() {
           //        Serial.println(secondState);
 
           // [DEBUG] [TEST] **Simulation for non-working pins
-          if (pbc == 5) {
-            secondState = HIGH;
-          }
+          //          if (pbc == 5) {
+          //            secondState = HIGH;
+          //          }
           //------------------------------------------------//
           sei();
         }

@@ -92,8 +92,7 @@ void loop() {
   if (btnConnChecked && !displayChecked) {
     operateDisplay();
 
-    Serial.println("\nReport DISPLAY OKAY by pressing '1'");
-    Serial.println("Report DISPLAY NOT OKAY by pressing '0'");
+    Serial.println("\nDISPLAY WORKING? (write below)");
     Serial.println("!");
 
     displayChecked = true;

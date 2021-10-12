@@ -19,7 +19,7 @@ void initAllTheTimeTrackers() {
 
 void printStepTitle(String Title, int holdDelay) {
   if (!printHeader) {
-    Serial.println("\n" + Title + ":");
+    Serial.println("\n[H]" + Title + ":");
     String underline = "-";
     for (int i = 0; i < Title.length(); i++) {
       underline = underline + "-";
