@@ -49,3 +49,4 @@ May be the `sleep` methods of `megaTinyCore` are not optimized properly.
 6. We can setup a separate branch in git for this. Need to discuss how we can collaborate on this and share.  
 7. If HW needs to be shipped, then it would take almost a month from my studio to your lab in EU. Only after that may be you can start testing the firmware. Need to discuss. 
 8. Total period of final developemnt deleivery with full test should be at max 1 month after starting.
+9. ...
