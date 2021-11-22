@@ -1,9 +1,9 @@
 /*
-Description: Button press mechanism for waking up uC
-Author: Saurabh datta.
-Time: Aug, 2021.
-Loca: Beijing, China.
-License: MIT
+  Description: Button press mechanism for waking up uC
+  Author: Saurabh datta.
+  Time: Aug, 2021.
+  Loc: Beijing, China.
+  License: MIT
 */
 
 boolean SW_OneState;

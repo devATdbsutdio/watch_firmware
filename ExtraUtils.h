@@ -1,9 +1,9 @@
 /*
-Description: Some extra helper functions are placed here
-Author: Saurabh datta.
-Time: Aug, 2021.
-Loca: Beijing, China.
-License: MIT
+  Description: Some extra helper functions are placed here
+  Author: Saurabh datta.
+  Time: Aug, 2021.
+  Loc: Beijing, China.
+  License: MIT
 */
 
 void disableUnusedPins() {

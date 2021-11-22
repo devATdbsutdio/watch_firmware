@@ -2,7 +2,7 @@
   Description: [MAIN] Main sketch for the watch and the operation mechanism
   Author: Saurabh datta.
   Time: Aug, 2021.
-  Loca: Beijing, China.
+  Loc: Beijing, China.
   License: MIT
 */
 
@@ -28,7 +28,6 @@ void setup() {
   //--- Seven segment display initialization ---//
   setupDisplay();
   turnOffDisplay();
-  //  batteryWarningLED_OFF() ;
 
   //--- Button Modes Enabled ---//
   setupButtons();

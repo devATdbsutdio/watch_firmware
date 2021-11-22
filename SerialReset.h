@@ -1,9 +1,9 @@
 /*
-Description: Time reset to RTC mechanism using serial data from computer
-Author: Saurabh datta.
-Time: Aug, 2021.
-Loca: Beijing, China.
-License: MIT
+  Description: Time reset to RTC mechanism using serial data from computer
+  Author: Saurabh datta.
+  Time: Aug, 2021.
+  Loc: Beijing, China.
+  License: MIT
 */
 
 
@@ -114,7 +114,7 @@ void setRTCToNewTime() {
 
 
 
-void SetTimeOverSerial() {  
+void SetTimeOverSerial() {
   fillDataArray();
   parseDataArray();
   setRTCToNewTime();

@@ -2,7 +2,7 @@
   Description: 7 segmebnt display manager for showing digits
   Author: Saurabh datta.
   Time: Aug, 2021.
-  Loca: Beijing, China.
+  Loc: Beijing, China.
   License: MIT
 */
 
