@@ -15,7 +15,8 @@
 #include "Buttons.h"
 
 int stayAwakeFor = 4000;
-uint16_t lowVoltageThres = 28; // 2.7V
+uint16_t unsafeLowVoltage = 28; // 2.7V
+uint16_t safeLowVoltage = 30; //3.0V
 
 void setup() {
   disableSerialHWPins();
@@ -78,16 +79,39 @@ void loop() {
     ADCVoltRefSetup();
     uint16_t currBattVolt = measuredVoltage();
     bool lowVoltageDetected = false;
+    bool lowestVoltageDetected = false;
     // -- ** Debug line remove later ** -- //
     //    Buffer[0] = voltage / 10; Buffer[1] = voltage % 10;
     //    Serial.print(float(currBattVolt) / 10);
     //    Serial.println(" V");
-    if (currBattVolt < lowVoltageThres) {
-      lowVoltageDetected = true;
-    } else {
+
+    // Check if the voltage is higher that the safe voltage
+    if (currBattVolt >= safeLowVoltage) {
+      // Meaning that the voltage is in a good range for teh device to operate
       lowVoltageDetected = false;
+      lowestVoltageDetected = false;
       batteryWarningLED_OFF();
     }
+    // Check if the voltage is lower that the safe voltage
+    if (currBattVolt < safeLowVoltage) {
+      // Check if the voltage is still higher than the lowest un-safe voltage
+      if (currBattVolt > unsafeLowVoltage) {
+        lowVoltageDetected = true;
+        lowestVoltageDetected = false;
+      }
+      // Check if the voltage is still lower than the lowest un-safe voltage
+      if (currBattVolt <= unsafeLowVoltage) {
+        lowVoltageDetected = true;
+        lowestVoltageDetected = true;
+      }
+    }
+
+    //    if (currBattVolt < unsafeLowVoltage) {
+    //      lowVoltageDetected = true;
+    //    } else {
+    //      lowVoltageDetected = false;
+    //      batteryWarningLED_OFF();
+    //    }
 
 
     //--- start the timer for how long to show [In Buttons.h] ---//
@@ -95,13 +119,23 @@ void loop() {
 
     while ( showTimePeriodOver == 0) {
       // If battery voltage is above threshold and low voltage not detected
-      if (!lowVoltageDetected) {
+      if (!lowestVoltageDetected && !lowVoltageDetected) {
         // If data arrives over serial, it will check for data format and set time to RTC as it expects data to be the "setTime" data
         SetTimeOverSerial();
         // Anyways, "show time here" routine also runs
         getAndShowTime();
+      } else if (!lowestVoltageDetected && lowVoltageDetected) {
+        // If low voltgae detected, but not the lowest safe volatge, then show warning for some time, on button press.
+        // Show warning for some time
+        batteryWarningLED_ON();
+        // batteryWarningLED_Blink();
+        // TBD
+        // ... for some time and then show the time
+        // TBD
+        // SetTimeOverSerial();
+        // getAndShowTime();
       } else {
-        // If low voltgae detected, then show warning for some time
+        // If lowest voltgae detected
         batteryWarningLED_ON();
       }
     }

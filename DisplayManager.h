@@ -1,9 +1,9 @@
 /*
-Description: 7 segmebnt display manager for showing digits
-Author: Saurabh datta.
-Time: Aug, 2021.
-Loca: Beijing, China.
-License: MIT
+  Description: 7 segmebnt display manager for showing digits
+  Author: Saurabh datta.
+  Time: Aug, 2021.
+  Loca: Beijing, China.
+  License: MIT
 */
 
 
@@ -114,4 +114,8 @@ void batteryWarningLED_OFF() {
   // Turn PC5 (Battery warning LED dot) output off
   PORTC.OUTCLR = PIN5_bm;
   sei();
+}
+
+void batteryWarningLED_Blink() {
+
 }
