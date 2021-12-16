@@ -24,6 +24,8 @@ int hrToBeSet = 0;
 int minToBeSet = 0;
 int secToBeSet = 0;
 
+
+
 boolean setCustomTime;
 
 void fillDataArray() {
@@ -43,7 +45,7 @@ void fillDataArray() {
   }
 }
 
-// 02:18:19:6:25:06:2021
+// 02:18:19:6:25:06:2021:5
 
 void parseDataArray() {
 
@@ -75,6 +77,10 @@ void parseDataArray() {
       monthToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
       yearToBeSet = atoi(strtokIndx);
+      // ---- New *** ---- //
+      strtokIndx = strtok(NULL, ":");
+      stayAwakeFor = (atoi(strtokIndx))*1000; // data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000 
+      // ---- *** *** ---- //
 
       // -- ** Debug code remove later ** -- //
       //      Serial.print("HOUR- ");
@@ -91,6 +97,8 @@ void parseDataArray() {
       //      Serial.println(monthToBeSet);
       //      Serial.print("YEAR- ");
       //      Serial.println(yearToBeSet);
+      //      Serial.print("DELAY in MS- ");
+      //      Serial.println(stayAwakeFor);
 
       setCustomTime = true;
     }

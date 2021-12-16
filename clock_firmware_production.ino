@@ -6,6 +6,8 @@
   License: MIT
 */
 
+int stayAwakeFor = 4000;
+
 #include <avr/sleep.h>
 
 #include "DisplayManager.h"
@@ -14,7 +16,7 @@
 #include "SerialReset.h"
 #include "Buttons.h"
 
-int stayAwakeFor = 4000;
+
 uint16_t unsafeLowVoltage = 28; // 2.7V
 uint16_t safeLowVoltage = 30; //3.0V
 
@@ -86,31 +88,14 @@ void loop() {
 
     // Check if the voltage is higher that the safe voltage
     if (currBattVolt >= safeLowVoltage) {
-      // Meaning that the voltage is in a good range for teh device to operate
+      // Meaning that the voltage is in a good range for the device to operate
       lowVoltageDetected = false;
-      lowestVoltageDetected = false;
       batteryWarningLED_OFF();
     }
     // Check if the voltage is lower that the safe voltage
     if (currBattVolt < safeLowVoltage) {
-      // Check if the voltage is still higher than the lowest un-safe voltage
-      if (currBattVolt > unsafeLowVoltage) {
-        lowVoltageDetected = true;
-        lowestVoltageDetected = false;
-      }
-      // Check if the voltage is still lower than the lowest un-safe voltage
-      if (currBattVolt <= unsafeLowVoltage) {
-        lowVoltageDetected = true;
-        lowestVoltageDetected = true;
-      }
+      lowVoltageDetected = true;
     }
-
-    //    if (currBattVolt < unsafeLowVoltage) {
-    //      lowVoltageDetected = true;
-    //    } else {
-    //      lowVoltageDetected = false;
-    //      batteryWarningLED_OFF();
-    //    }
 
 
     //--- start the timer for how long to show [In Buttons.h] ---//
@@ -118,12 +103,14 @@ void loop() {
 
     while ( showTimePeriodOver == 0) {
       // If battery voltage is above threshold and low voltage not detected
-      if (!lowestVoltageDetected && !lowVoltageDetected) {
+      //      if (!lowestVoltageDetected && !lowVoltageDetected) {
+      if (!lowVoltageDetected) {
         // If data arrives over serial, it will check for data format and set time to RTC as it expects data to be the "setTime" data
         SetTimeOverSerial();
         // Anyways, "show time here" routine also runs
         getAndShowTime();
-      } else if (!lowestVoltageDetected && lowVoltageDetected) {
+      } else if (lowVoltageDetected) {
+        //        else if (!lowestVoltageDetected && lowVoltageDetected) {
         // If low voltgae detected, but not the lowest safe volatge, then show warning for some time, on button press.
         // Show warning for some time
         batteryWarningLED_ON();
