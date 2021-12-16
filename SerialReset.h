@@ -33,7 +33,6 @@ void fillDataArray() {
 
   while (Serial.available() > 0) {
     incomingChar = Serial.read();
-    //    Serial.print(incomingChar);
     if (incomingChar == '\n') {
       newDataArrived = true;
       idx = 0;
@@ -46,7 +45,6 @@ void fillDataArray() {
 }
 
 // 02:18:19:6:25:06:2021:5
-
 void parseDataArray() {
 
   if (newDataArrived) {
@@ -77,29 +75,29 @@ void parseDataArray() {
       monthToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
       yearToBeSet = atoi(strtokIndx);
-      // ---- New *** ---- //
+      // ---- [DEBUG --- TBD]
       strtokIndx = strtok(NULL, ":");
-      stayAwakeFor = (atoi(strtokIndx))*1000; // data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000 
-      // ---- *** *** ---- //
+      stayAwakeFor = (atoi(strtokIndx)) * 1000; // data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000
 
-      // -- ** Debug code remove later ** -- //
-      //      Serial.print("HOUR- ");
-      //      Serial.println(hrToBeSet);
-      //      Serial.print("MIN- ");
-      //      Serial.println(minToBeSet);
-      //      Serial.print("SEC- ");
-      //      Serial.println(secToBeSet);
-      //      Serial.print("WEEKDAY ");
-      //      Serial.println(weekdayToBeSet);
-      //      Serial.print("DATE- ");
-      //      Serial.println(dateToBeSet);
-      //      Serial.print("MONTH- ");
-      //      Serial.println(monthToBeSet);
-      //      Serial.print("YEAR- ");
-      //      Serial.println(yearToBeSet);
-      //      Serial.print("DELAY in MS- ");
-      //      Serial.println(stayAwakeFor);
 
+      if (debug_log) {
+        Serial.print("HOUR- ");
+        Serial.println(hrToBeSet);
+        Serial.print("MIN- ");
+        Serial.println(minToBeSet);
+        Serial.print("SEC- ");
+        Serial.println(secToBeSet);
+        Serial.print("WEEKDAY ");
+        Serial.println(weekdayToBeSet);
+        Serial.print("DATE- ");
+        Serial.println(dateToBeSet);
+        Serial.print("MONTH- ");
+        Serial.println(monthToBeSet);
+        Serial.print("YEAR- ");
+        Serial.println(yearToBeSet);
+        Serial.print("DELAY in MS- ");
+        Serial.println(stayAwakeFor);
+      }
       setCustomTime = true;
     }
   } else {
@@ -107,15 +105,17 @@ void parseDataArray() {
   }
 }
 
+
+
 void setRTCToNewTime() {
   if (setCustomTime) {
-    //    Serial.println(F("Setting custom time..."));
+    if (debug_log) Serial.println(F("Setting custom time..."));
+    
     if (rtc.setTime(secToBeSet, minToBeSet, hrToBeSet, weekdayToBeSet, dateToBeSet, monthToBeSet, yearToBeSet) == false) {
-      // -- ** Debug code remove later ** -- //
-      //      Serial.println("Something went wrong setting the time");
+      if (debug_log) Serial.println("Something went wrong setting the time");
     }
-    // -- ** Debug code remove later ** -- //
-    //    Serial.println(F("Custom Time set!"));
+    
+    if (debug_log) Serial.println(F("Custom Time set!"));
     setCustomTime = false;
   }
 }

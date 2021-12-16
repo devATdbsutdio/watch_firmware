@@ -6,6 +6,9 @@
   License: MIT
 */
 
+unsigned long startWarningCountMillis;
+unsigned long currentWarningCountMillis;
+
 void disableUnusedPins() {
   // set them to input pull and do not keep them floating
   PORTC.PIN0CTRL = PORT_PULLUPEN_bm;

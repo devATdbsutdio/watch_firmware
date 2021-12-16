@@ -20,10 +20,9 @@ void setupDisplay() {
 
   //  Cathode Pins for LEDS segments
   PORTA.DIRSET = 0b11111110; // [ PA 1-7 as Outputs]
+  
   //  Anode Pins for LEDS
   PORTB.DIRSET = 0b11110000;
-
-  //  startMicros = micros();
 }
 
 
