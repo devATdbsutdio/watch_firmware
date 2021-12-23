@@ -49,7 +49,7 @@ void watchButtons() {
   if (wakeUpTriggered == 1) {
     wakeUpTriggered = 0;
 
-    if (debug_log) Serial.println(F("Interrupt-1 fired. Awaking device & reading Pins.."));
+    //    if (debug_log) Serial.println(F("Interrupt-1 fired. Awaking device & reading Pins.."));
 
     // Read PC2
     SW_OneState = PORTC.IN & PIN2_bm;

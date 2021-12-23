@@ -6,10 +6,6 @@
   License: MIT
 */
 
-#define debug_log false
-
-int stayAwakeFor = 5000;
-
 #include <avr/sleep.h>
 
 #include "DisplayManager.h"
@@ -18,6 +14,9 @@ int stayAwakeFor = 5000;
 #include "SerialReset.h"
 #include "Buttons.h"
 
+
+boolean debug_log = false;
+int stayAwakeFor = 5000;
 
 uint16_t unsafeLowVoltage = 28; // 2.7V
 uint16_t safeLowVoltage = 30; //3.0V
@@ -74,11 +73,11 @@ void loop() {
     setupRTC();
 
 
-    if (debug_log) {
-      Serial.print("\"Show Time\" button has been released. So show time for ");
-      Serial.print(stayAwakeFor / 1000);
-      Serial.println(" sec.");
-    }
+    //    if (debug_log) {
+    //      Serial.print("\"Show Time\" button has been released. So show time for ");
+    //      Serial.print(stayAwakeFor / 1000);
+    //      Serial.println(" sec.");
+    //    }
 
     //--- Detect self referenced Batt voltage ---//
     ADCVoltRefSetup();
@@ -86,11 +85,11 @@ void loop() {
     bool lowVoltageDetected = false;
     bool lowestVoltageDetected = false;
 
-    if (debug_log) {
-      Buffer[0] = voltage / 10; Buffer[1] = voltage % 10;
-      Serial.print(float(currBattVolt) / 10);
-      Serial.println(" V");
-    }
+    //    if (debug_log) {
+    //      //      Buffer[0] = voltage / 10; Buffer[1] = voltage % 10;
+    //      Serial.print(float(currBattVolt) / 10);
+    //      Serial.println(" V");
+    //    }
 
     // Check if the voltage is higher that the safe voltage
     if (currBattVolt >= safeLowVoltage) {
@@ -109,21 +108,23 @@ void loop() {
 
     while ( showTimePeriodOver == 0) {
       // If battery voltage is above threshold and low voltage not detected
-      if (!lowestVoltageDetected && !lowVoltageDetected) {
-        // if (!lowVoltageDetected) {
+      //      if (!lowestVoltageDetected && !lowVoltageDetected) {
+      if (!lowVoltageDetected) {
         // If data arrives over serial, it will check for data format and set time to RTC as it expects data to be the "setTime" data
         SetTimeOverSerial();
         // Anyways, "show time here" routine also runs
         getAndShowTime();
-      } else if (!lowestVoltageDetected && lowVoltageDetected) {
-        // else if (lowVoltageDetected) {
-        // If low voltgae detected, but not the lowest safe volatge, then show warning for some time, on button press.
-        // Show warning for some time [DEBUG --- TBD]
-        _low_voltage_warn();
-        // and then show the time
-        SetTimeOverSerial();
-        getAndShowTime();
-      } else {
+      }
+      //      else if (!lowestVoltageDetected && lowVoltageDetected) {
+      //        //        else if (lowVoltageDetected) {
+      //        // If low voltgae detected, but not the lowest safe volatge, then show warning for some time, on button press.
+      //        // Show warning for some time [DEBUG --- TBD]
+      //        _low_voltage_warn();
+      //        // and then show the time
+      //        SetTimeOverSerial();
+      //        getAndShowTime();
+      //      }
+      else {
         // If lowest voltgae detected
         batteryWarningLED_ON();
       }
@@ -134,7 +135,7 @@ void loop() {
 
 
     // Then go to sleep
-    if (debug_log) Serial.println(F("Sleeping..."));
+    //    if (debug_log) Serial.println(F("Sleeping..."));
 
     turnOffDisplay();
     Serial.flush();                    // flush everything before going to sleep
@@ -184,17 +185,17 @@ void getAndShowTime() {
       // *** Must push time read from registers to an int array for showing to segment display
       rtc.updateTimeArray();
 
-      if (debug_log) {
-        Serial.print(rtc.currTimeArray[0]);
-        Serial.print(rtc.currTimeArray[1]);
-        Serial.print(":");
-        Serial.print(rtc.currTimeArray[2]);
-        Serial.print(rtc.currTimeArray[3]);
-        Serial.print(":");
-        Serial.print(rtc.currTimeArray[4]);
-        Serial.print(rtc.currTimeArray[5]);
-        Serial.println();
-      }
+      //      if (debug_log) {
+      //        Serial.print(rtc.currTimeArray[0]);
+      //        Serial.print(rtc.currTimeArray[1]);
+      //        Serial.print(":");
+      //        Serial.print(rtc.currTimeArray[2]);
+      //        Serial.print(rtc.currTimeArray[3]);
+      //        Serial.print(":");
+      //        Serial.print(rtc.currTimeArray[4]);
+      //        Serial.print(rtc.currTimeArray[5]);
+      //        Serial.println();
+      //      }
     }
 
     startCountMillis = currentCountMillis;

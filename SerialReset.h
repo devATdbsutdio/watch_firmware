@@ -77,27 +77,27 @@ void parseDataArray() {
       yearToBeSet = atoi(strtokIndx);
       // ---- [DEBUG --- TBD]
       strtokIndx = strtok(NULL, ":");
-      stayAwakeFor = (atoi(strtokIndx)) * 1000; // data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000
+      int new_un_tested_stayAwakeFor = (atoi(strtokIndx)) * 1000; // data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000
 
 
-      if (debug_log) {
-        Serial.print("HOUR- ");
-        Serial.println(hrToBeSet);
-        Serial.print("MIN- ");
-        Serial.println(minToBeSet);
-        Serial.print("SEC- ");
-        Serial.println(secToBeSet);
-        Serial.print("WEEKDAY ");
-        Serial.println(weekdayToBeSet);
-        Serial.print("DATE- ");
-        Serial.println(dateToBeSet);
-        Serial.print("MONTH- ");
-        Serial.println(monthToBeSet);
-        Serial.print("YEAR- ");
-        Serial.println(yearToBeSet);
-        Serial.print("DELAY in MS- ");
-        Serial.println(stayAwakeFor);
-      }
+      //      if (debug_log) {
+      //        Serial.print("HOUR- ");
+      //        Serial.println(hrToBeSet);
+      //        Serial.print("MIN- ");
+      //        Serial.println(minToBeSet);
+      //        Serial.print("SEC- ");
+      //        Serial.println(secToBeSet);
+      //        Serial.print("WEEKDAY ");
+      //        Serial.println(weekdayToBeSet);
+      //        Serial.print("DATE- ");
+      //        Serial.println(dateToBeSet);
+      //        Serial.print("MONTH- ");
+      //        Serial.println(monthToBeSet);
+      //        Serial.print("YEAR- ");
+      //        Serial.println(yearToBeSet);
+      //        Serial.print("DELAY expected in MS- ");
+      //        Serial.println(new_un_tested_stayAwakeFor);
+      //      }
       setCustomTime = true;
     }
   } else {
@@ -109,13 +109,13 @@ void parseDataArray() {
 
 void setRTCToNewTime() {
   if (setCustomTime) {
-    if (debug_log) Serial.println(F("Setting custom time..."));
-    
+    //    if (debug_log) Serial.println(F("Setting custom time..."));
+
     if (rtc.setTime(secToBeSet, minToBeSet, hrToBeSet, weekdayToBeSet, dateToBeSet, monthToBeSet, yearToBeSet) == false) {
-      if (debug_log) Serial.println("Something went wrong setting the time");
+      //      if (debug_log) Serial.println("Something went wrong setting the time");
     }
-    
-    if (debug_log) Serial.println(F("Custom Time set!"));
+
+    //    if (debug_log) Serial.println(F("Custom Time set!"));
     setCustomTime = false;
   }
 }
