@@ -14,7 +14,7 @@ bool rtcReadable;
 
 unsigned long startCountMillis;
 unsigned long currentCountMillis;
-const unsigned long secPeriod = 1000;  //the value is a number of milliseconds
+const unsigned long secPeriod = 1000; //the value is a number of milliseconds
 
 
 

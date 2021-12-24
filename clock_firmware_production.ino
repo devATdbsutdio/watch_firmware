@@ -16,10 +16,12 @@
 
 
 boolean debug_log = false;
-int stayAwakeFor = 5000;
+int stayAwakeFor  = 5000;
 
-uint16_t unsafeLowVoltage = 28; // 2.7V
-uint16_t safeLowVoltage = 30; //3.0V
+
+uint16_t unsafeLowVoltage = 28; // 2.8V
+uint16_t safeLowVoltage   = 31; //3.0V
+
 
 void setup() {
   disableSerialHWPins();
@@ -35,10 +37,10 @@ void setup() {
   //--- Button Modes Enabled ---//
   setupButtons();
 
-  //--- disable ADC ---//
-  //  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
 
-  //--- enable ADC ---//
+  //--- Disable ADC ---// [ Doesn't have much affect for power saving in deep sleep but actually is counter productive, don't know why !]
+  //  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
+  //--- Enable ADC ---//
   // ADC0.CTRLA |= ADC_ENABLE_bm;
 
 
@@ -49,9 +51,9 @@ void setup() {
   sei();
 
   // Setup some counters...
-  startCountMillis = millis(); // for the ext rtc
-  startMicros = micros();      // for display fps
-  startWarningCountMillis = millis();     // for warning LED for safe low volatge
+  startCountMillis = millis();        // For the ext rtc
+  startMicros = micros();             // For display fps
+  startWarningCountMillis = millis(); // For battery low voltage warning LED blinking
 
   //--- Sleep mode enablers ---//
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
@@ -72,7 +74,6 @@ void loop() {
     //--- RV-8803 Ext RTC initialization ---//
     setupRTC();
 
-
     //    if (debug_log) {
     //      Serial.print("\"Show Time\" button has been released. So show time for ");
     //      Serial.print(stayAwakeFor / 1000);
@@ -82,61 +83,50 @@ void loop() {
     //--- Detect self referenced Batt voltage ---//
     ADCVoltRefSetup();
     uint16_t currBattVolt = measuredVoltage();
-    bool lowVoltageDetected = false;
-    bool lowestVoltageDetected = false;
+
+    bool lowVoltageDetected = true;
+    bool lowestVoltageDetected = true;
 
     //    if (debug_log) {
-    //      //      Buffer[0] = voltage / 10; Buffer[1] = voltage % 10;
     //      Serial.print(float(currBattVolt) / 10);
     //      Serial.println(" V");
     //    }
 
-    // Check if the voltage is higher that the safe voltage
-    if (currBattVolt >= safeLowVoltage) {
-      // Meaning that the voltage is in a good range for the device to operate
-      lowVoltageDetected = false;
-      batteryWarningLED_OFF();
-    }
-    // Check if the voltage is lower that the safe voltage
-    if (currBattVolt < safeLowVoltage) {
-      lowVoltageDetected = true;
-    }
+    batteryWarningLED_OFF();      // On wake up, initialize the warning led dot of the segment to be OFF
+    turnOffDisplay();             // On wake up, initialize the whole display segment to be OFF
+    do_blink = 1;                 // On wake up, initializing the variable for low voltage warning blinking action.
 
+    RTC_DELAY_init(stayAwakeFor); // Start the timer for keeping track of time for how long to keep the uC awake and do it's business (5000 ms)
 
-    //--- start the timer for how long to show [In Buttons.h] ---//
-    RTC_DELAY_init(stayAwakeFor);
-
-    while ( showTimePeriodOver == 0) {
-      // If battery voltage is above threshold and low voltage not detected
-      //      if (!lowestVoltageDetected && !lowVoltageDetected) {
-      if (!lowVoltageDetected) {
-        // If data arrives over serial, it will check for data format and set time to RTC as it expects data to be the "setTime" data
-        SetTimeOverSerial();
-        // Anyways, "show time here" routine also runs
-        getAndShowTime();
-      }
-      //      else if (!lowestVoltageDetected && lowVoltageDetected) {
-      //        //        else if (lowVoltageDetected) {
-      //        // If low voltgae detected, but not the lowest safe volatge, then show warning for some time, on button press.
-      //        // Show warning for some time [DEBUG --- TBD]
-      //        _low_voltage_warn();
-      //        // and then show the time
-      //        SetTimeOverSerial();
-      //        getAndShowTime();
-      //      }
-      else {
-        // If lowest voltgae detected
+    while (showTimePeriodOver == 0) {
+      // If voltage detected is lower than the safe operational voltage threshold!
+      if (currBattVolt < safeLowVoltage && currBattVolt <= unsafeLowVoltage) {
         batteryWarningLED_ON();
       }
+
+      // If voltage detected is low but not critically low and below safest threshold!
+      if (currBattVolt < safeLowVoltage && currBattVolt > unsafeLowVoltage) {
+        // Blocks and Blinks a dot LED, 2 times (in 1250 ms) as the warning to show that the battery voltage is falling.
+        low_voltage_warn();
+        // In the next remaining period [ (5000-1250)ms ] of the whole awake period, it continues to show the time.
+        getAndShowTime();
+      }
+
+      // If voltage detected is OK! and above operational and safe threshold!
+      if (currBattVolt >= safeLowVoltage && currBattVolt > unsafeLowVoltage) {
+        // If data arrives over serial,
+        // it will check for data format and set time to RTC
+        // Anyways, and then "show time here" routine also runs after that!
+        SetTimeOverSerial();
+        getAndShowTime();
+      }
     }
+
     // Reset Trigger for RTC delay
     showTimePeriodOver = 0;
 
-
-
     // Then go to sleep
     //    if (debug_log) Serial.println(F("Sleeping..."));
-
     turnOffDisplay();
     Serial.flush();                    // flush everything before going to sleep
     Serial.end();
@@ -147,28 +137,10 @@ void loop() {
 }
 
 
-//--- If the battery voltage is a bit low, then this function show a warning LED for (total ON period)/2 seconds & then shows the time
-void _low_voltage_warn() {
-  // Turn on the Warning LED
-  batteryWarningLED_ON();
-  // block the next execution of code
-  while (true) {
-    currentWarningCountMillis = millis();
-    if (currentWarningCountMillis - startWarningCountMillis >= int(stayAwakeFor / 2)) {
-      // clear the warning LED
-      batteryWarningLED_OFF();
-      startWarningCountMillis = currentWarningCountMillis;
-      break;
-    }
-  }
-}
-
-
 void getAndShowTime() {
   currentCountMillis = millis();
 
   if (currentCountMillis - startCountMillis >= secPeriod) {
-
     if (rtcAvailable) {
       // updateTime i.e read registers, ** must for getting current time
       if (rtc.updateTime()) {
@@ -186,18 +158,11 @@ void getAndShowTime() {
       rtc.updateTimeArray();
 
       //      if (debug_log) {
-      //        Serial.print(rtc.currTimeArray[0]);
-      //        Serial.print(rtc.currTimeArray[1]);
-      //        Serial.print(":");
-      //        Serial.print(rtc.currTimeArray[2]);
-      //        Serial.print(rtc.currTimeArray[3]);
-      //        Serial.print(":");
-      //        Serial.print(rtc.currTimeArray[4]);
-      //        Serial.print(rtc.currTimeArray[5]);
-      //        Serial.println();
+      //        Serial.print(rtc.currTimeArray[0]); Serial.print(rtc.currTimeArray[1]); Serial.print(":");
+      //        Serial.print(rtc.currTimeArray[2]); Serial.print(rtc.currTimeArray[3]); Serial.print(":");
+      //        Serial.print(rtc.currTimeArray[4]); Serial.print(rtc.currTimeArray[5]); Serial.println();
       //      }
     }
-
     startCountMillis = currentCountMillis;
   }
 
