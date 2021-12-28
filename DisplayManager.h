@@ -129,7 +129,7 @@ void batteryWarningLED_OFF() {
 // and then shows the time...
 void low_voltage_warn() {
   // Block code to only blink warning LED
-  //  while (true) {
+  // while (true) {
   while (do_blink == 1) {
     currentWarningCountMillis = millis();
     if (currentWarningCountMillis - startWarningCountMillis >= warning_blink_gap) {
