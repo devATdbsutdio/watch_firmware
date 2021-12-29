@@ -13,7 +13,7 @@ const unsigned long period = 10;  // the value is a number of Microseconds
 
 
 
-int warning_blink_gap = 125;  // The warning LED will blink (toggle at 100 ms) for 1000 ms (1s) total
+uint16_t warning_blink_gap = 125;  // The warning LED will blink (toggle at 100 ms) for 1000 ms (1s) total
 int max_blinks        = 5;    // this will become 5*2 = 10 and then 10*warning_blink_gap = 1000 ms (because the clock is also ticking at 1000 ms)
 
 int do_blink    = 1;

@@ -22,6 +22,8 @@ int stayAwakeFor  = 5000;
 uint16_t unsafeLowVoltage = 28; // 2.8V
 uint16_t safeLowVoltage   = 31; //3.0V
 
+uint8_t currTime[6];
+
 
 void setup() {
   disableSerialHWPins();
@@ -84,9 +86,6 @@ void loop() {
     ADCVoltRefSetup();
     uint16_t currBattVolt = measuredVoltage();
 
-    bool lowVoltageDetected = true;
-    bool lowestVoltageDetected = true;
-
     //    if (debug_log) {
     //      Serial.print(float(currBattVolt) / 10);
     //      Serial.println(" V");
@@ -137,36 +136,22 @@ void loop() {
 }
 
 
+
 void getAndShowTime() {
   currentCountMillis = millis();
-
   if (currentCountMillis - startCountMillis >= secPeriod) {
     if (rtcAvailable) {
       // updateTime i.e read registers, ** must for getting current time
       if (rtc.updateTime()) {
-        rtcReadable = true;
+        showOnDisplay(rtc.currTimeAsArray());
       } else {
-        rtcReadable = false;
+        // --- ** corner case handler (In case time retreival was unsuccessful) ** --- //
+        showOnDisplay(blankSignal);
       }
     } else {
-      rtcReadable = false;
-    }
-
-    // update Time i.e read registers, ** must for getting current time
-    if (rtcAvailable && rtcReadable) {
-      // *** Must push time read from registers to an int array for showing to segment display
-      rtc.updateTimeArray();
-
-      //      if (debug_log) {
-      //        Serial.print(rtc.currTimeArray[0]); Serial.print(rtc.currTimeArray[1]); Serial.print(":");
-      //        Serial.print(rtc.currTimeArray[2]); Serial.print(rtc.currTimeArray[3]); Serial.print(":");
-      //        Serial.print(rtc.currTimeArray[4]); Serial.print(rtc.currTimeArray[5]); Serial.println();
-      //      }
+      // --- ** corner case handler (In case time retreival was unsuccessful) ** --- //
+      showOnDisplay(blankSignal);
     }
     startCountMillis = currentCountMillis;
   }
-
-  // --- ** corner case handler (In case time retreival was unsuccessful) ** --- //
-  if (rtcAvailable && rtcReadable) showOnDisplay(rtc.currTimeArray);
-  else showOnDisplay(blankSignal);
 }

@@ -53,7 +53,7 @@ void parseDataArray() {
     totalDelimators = 0;
 
     // Count how many delimators (in our case that is ':' of byte value 10) are there
-    for (int i = 0; i < sizeof(dataArray); i++) {
+    for (int i = 0; i < int(sizeof(dataArray)); i++) {
       if (dataArray[i] == ':') {
         totalDelimators++;
       }
@@ -76,6 +76,7 @@ void parseDataArray() {
       monthToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
       yearToBeSet = atoi(strtokIndx);
+      
       // ---- [DEBUG --- TBD]
       //      strtokIndx = strtok(NULL, ":");
       //      //    data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000

@@ -10,7 +10,7 @@
 RV8803Tiny rtc;
 
 bool rtcAvailable;
-bool rtcReadable;
+//bool rtcReadable;
 
 unsigned long startCountMillis;
 unsigned long currentCountMillis;
