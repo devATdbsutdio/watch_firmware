@@ -8,12 +8,6 @@
 1. Basic [ **uC + RTC** ]: [Here](https://github.com/dattasaurabh82/clock_firmware_production/files/7063914/uC_RTC_basic_schematic.pdf)
 2. _Pro_ [ **uC + RTC + Serial COMM FTDI chip + LiPo charger = All in 1** ]: [Here](https://github.com/dattasaurabh82/clock_firmware_production/files/7063918/uC_RTC_FTDI_LIPO_pro_schematic.pdf)
 
-
-
-
-### PCB details: 
-_Coming soon ..._
-
 ### Development Environment:
 Arduino-IDE, arduino-cli etc.
 
