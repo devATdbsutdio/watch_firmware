@@ -49,15 +49,18 @@ LOOP:
 			    while RTC is not available, block. 
 			
 			3. Measure battery volate
-                           if low:
-                               Show low voltage warning [for 5 sec]
-                           else:
+                           if somewhat low but still safe volatge to operate:
+                               Show low voltage warning [for 1 sec] (as reminder to charge)
+			       Then show time
+                           else if voltage is very low for the batteries health:
+			       Show a dor as "Non-Operational" indicator (Warning : charge now)
+			   else:
                                Quarries the RV-8803 RTC to get latest time.
                                if RTC doesn’t responds:
                                    it shows an error signal in seven segment display.
                                else: 
                                    The uC then gets the time and shows the it on display. [for 5 sec]
-			
+	
  			MeanWhile, in parallel, if a serial string is received:
  			    Parse info:
  			        if in right format:
