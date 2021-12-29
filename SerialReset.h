@@ -9,23 +9,26 @@
 
 boolean readyToReceive;
 char incomingChar;
-int idx             = 0;
+int idx                     = 0;
 char dataArray[21];
 boolean handshakeReqArrived;
 boolean newDataArrived;
 int totalDelimators;
+boolean awakePeriodChanged  = false;
 
+int dateToBeSet             = 0;
+int monthToBeSet            = 0;
+int yearToBeSet             = 0;
+int weekdayToBeSet          = 0;
+int hrToBeSet               = 0;
+int minToBeSet              = 0;
+int secToBeSet              = 0;
 
-int dateToBeSet     = 0;
-int monthToBeSet    = 0;
-int yearToBeSet     = 0;
-int weekdayToBeSet  = 0;
-int hrToBeSet       = 0;
-int minToBeSet      = 0;
-int secToBeSet      = 0;
-
+int stayAwakeFor            = 5000;
+int new_stayAwakeFor        = 5100;
 
 boolean setNewTime;
+
 
 
 void fillDataArray() {
@@ -44,8 +47,8 @@ void fillDataArray() {
   }
 }
 
-// 02:18:19:6:25:06:2021
-// 02:18:19:6:25:06:2021:5
+// 02:18:19:6:25:06:2021    (totalDelimators == 6)
+// 02:18:19:6:25:06:2021:5  (totalDelimators == 7)
 void parseDataArray() {
 
   if (newDataArrived) {
@@ -60,9 +63,10 @@ void parseDataArray() {
     }
 
     // Check received data's format & integrity
-    if (totalDelimators == 6) {
+    if (totalDelimators == 6) {  // or 6/7 based on the stream ends with year value or with additional delay value
       char * strtokIndx; // this is used by strtok() as an index
       strtokIndx = strtok(dataArray, ":"); // get the first part - the string
+
       hrToBeSet = atoi(strtokIndx);        // convert this part to an integer
       strtokIndx = strtok(NULL, ":");      // this continues where the previous call left off
       minToBeSet = atoi(strtokIndx);       // convert this part to an integer
@@ -76,11 +80,8 @@ void parseDataArray() {
       monthToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
       yearToBeSet = atoi(strtokIndx);
-      
-      // ---- [DEBUG --- TBD]
       //      strtokIndx = strtok(NULL, ":");
-      //      //    data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000
-      //      int new_un_tested_stayAwakeFor = (atoi(strtokIndx)) * 1000;
+      //      new_stayAwakeFor = (atoi(strtokIndx))*1000;   // [TBD / WIP bc not converting to int properly ] data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000
 
 
       //      if (debug_log) {
@@ -88,7 +89,7 @@ void parseDataArray() {
       //        Serial.print("WEEKDAY: ");
       //        Serial.println(weekdayToBeSet);
       //        Serial.print("DATE: "); Serial.print(dateToBeSet); Serial.print("-"); Serial.print(monthToBeSet); Serial.print("-"); Serial.println(yearToBeSet);
-      //     //     Serial.print("MS operational delay: "); Serial.println(new_un_tested_stayAwakeFor);
+      //        Serial.print("MS operational delay: "); Serial.println(nd);
       //      }
       setNewTime = true;
     }

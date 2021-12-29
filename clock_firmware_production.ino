@@ -16,14 +16,12 @@
 
 
 boolean debug_log = false;
-int stayAwakeFor  = 5000;
 
 
 uint16_t unsafeLowVoltage = 28; // 2.8V
 uint16_t safeLowVoltage   = 31; //3.0V
 
 uint8_t currTime[6];
-
 
 void setup() {
   disableSerialHWPins();
@@ -95,6 +93,7 @@ void loop() {
     turnOffDisplay();             // On wake up, initialize the whole display segment to be OFF
     do_blink = 1;                 // On wake up, initializing the variable for low voltage warning blinking action.
 
+
     RTC_DELAY_init(stayAwakeFor); // Start the timer for keeping track of time for how long to keep the uC awake and do it's business (5000 ms)
 
     while (showTimePeriodOver == 0) {
@@ -123,6 +122,14 @@ void loop() {
 
     // Reset Trigger for RTC delay
     showTimePeriodOver = 0;
+
+    // ---- TBD WIP BUG HUNT ---- //
+    // Just before the next awake cycle begins, if the RTC_DELAY_init value has changed set it to new value.
+    //    Serial.println(totalDelimators);
+    //    Serial.println(yearToBeSet);
+    //    Serial.println(new_stayAwakeFor);
+    // if (new_stayAwakeFor != stayAwakeFor) stayAwakeFor = new_stayAwakeFor;
+    //----------------------------//
 
     // Then go to sleep
     //    if (debug_log) Serial.println(F("Sleeping..."));
