@@ -10,7 +10,13 @@
 boolean readyToReceive;
 char incomingChar;
 int idx                     = 0;
-char dataArray[21];
+
+// 02:18:19:6:25:06:2021    (totalDelimators == 6 and 21 bytes of data)
+// 02:18:19:6:25:06:2021:5  (totalDelimators == 7 and 23 bytes of data)
+const int sizeOfDataStructure = int(sizeof(char) * 23);
+char dataArray[sizeOfDataStructure];
+//char *dataArray = malloc(sizeOfDataStructure);
+
 boolean handshakeReqArrived;
 boolean newDataArrived;
 int totalDelimators;
@@ -50,20 +56,19 @@ void fillDataArray() {
 // 02:18:19:6:25:06:2021    (totalDelimators == 6)
 // 02:18:19:6:25:06:2021:5  (totalDelimators == 7)
 void parseDataArray() {
-
   if (newDataArrived) {
     newDataArrived = false;
     totalDelimators = 0;
 
-    // Count how many delimators (in our case that is ':' of byte value 10) are there
-    for (int i = 0; i < int(sizeof(dataArray)); i++) {
+    // Count how many delimators (in our case that is ':') are there
+    for (int i = 0; i < sizeOfDataStructure; i++) {
       if (dataArray[i] == ':') {
         totalDelimators++;
       }
     }
 
     // Check received data's format & integrity
-    if (totalDelimators == 6) {  // or 6/7 based on the stream ends with year value or with additional delay value
+    if (totalDelimators >= 6) {  // or 6/7 based on the stream ends with year value or with additional delay value
       char * strtokIndx; // this is used by strtok() as an index
       strtokIndx = strtok(dataArray, ":"); // get the first part - the string
 
@@ -80,9 +85,10 @@ void parseDataArray() {
       monthToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
       yearToBeSet = atoi(strtokIndx);
-      //      strtokIndx = strtok(NULL, ":");
-      //      new_stayAwakeFor = (atoi(strtokIndx))*1000;   // [TBD / WIP bc not converting to int properly ] data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000
+      strtokIndx = strtok(NULL, ":");
+      new_stayAwakeFor = (atoi(strtokIndx)) * 1000; // data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000
 
+      //      free(dataArray); // dataArray pointer must be deallocated
 
       //      if (debug_log) {
       //        Serial.print("TIME: "); Serial.print(hrToBeSet); Serial.print("-"); Serial.print(minToBeSet); Serial.print("-"); Serial.println(secToBeSet);
@@ -91,6 +97,7 @@ void parseDataArray() {
       //        Serial.print("DATE: "); Serial.print(dateToBeSet); Serial.print("-"); Serial.print(monthToBeSet); Serial.print("-"); Serial.println(yearToBeSet);
       //        Serial.print("MS operational delay: "); Serial.println(nd);
       //      }
+
       setNewTime = true;
     }
   } else {

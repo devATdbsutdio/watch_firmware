@@ -122,14 +122,9 @@ void loop() {
 
     // Reset Trigger for RTC delay
     showTimePeriodOver = 0;
-
-    // ---- TBD WIP BUG HUNT ---- //
+    
     // Just before the next awake cycle begins, if the RTC_DELAY_init value has changed set it to new value.
-    //    Serial.println(totalDelimators);
-    //    Serial.println(yearToBeSet);
-    //    Serial.println(new_stayAwakeFor);
-    // if (new_stayAwakeFor != stayAwakeFor) stayAwakeFor = new_stayAwakeFor;
-    //----------------------------//
+    if (new_stayAwakeFor != stayAwakeFor) stayAwakeFor = new_stayAwakeFor;
 
     // Then go to sleep
     //    if (debug_log) Serial.println(F("Sleeping..."));
@@ -140,25 +135,4 @@ void loop() {
     disableTWI();
     sleep_cpu();
   }
-}
-
-
-
-void getAndShowTime() {
-  currentCountMillis = millis();
-  if (currentCountMillis - startCountMillis >= secPeriod) {
-    if (rtcAvailable) {
-      // updateTime i.e read registers, ** must for getting current time
-      if (rtc.updateTime()) rtcReadable = true;
-      else rtcReadable = false;
-    } else {
-      rtcReadable = false;
-    }
-    startCountMillis = currentCountMillis;
-  }
-
-  // :: Display Time :: //
-  // --- ** corner case handler (In case time retreival was unsuccessful) ** --- //
-  if (rtcAvailable && rtcReadable) showOnDisplay(rtc.currTimeAsArray());
-  else showOnDisplay(blankSignal);
 }

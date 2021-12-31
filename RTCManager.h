@@ -24,3 +24,23 @@ void setupRTC() {
   }
   rtcAvailable = true;
 }
+
+
+void getAndShowTime() {
+  currentCountMillis = millis();
+  if (currentCountMillis - startCountMillis >= secPeriod) {
+    if (rtcAvailable) {
+      // updateTime i.e read registers, ** must for getting current time
+      if (rtc.updateTime()) rtcReadable = true;
+      else rtcReadable = false;
+    } else {
+      rtcReadable = false;
+    }
+    startCountMillis = currentCountMillis;
+  }
+
+  // :: Display Time :: //
+  // --- ** corner case handler (In case time retreival was unsuccessful) ** --- //
+  if (rtcAvailable && rtcReadable) showOnDisplay(rtc.currTimeAsArray());
+  else showOnDisplay(blankSignal);
+}
