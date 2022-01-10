@@ -13,28 +13,29 @@ int idx                     = 0;
 
 // 02:18:19:6:25:06:2021    (totalDelimators == 6 and 21 bytes of data)
 // 02:18:19:6:25:06:2021:5  (totalDelimators == 7 and 23 bytes of data)
+// 02:18:19:6:25:06:2021:5:1(totalDelimators == 8 and 25 bytes of data)
+
 const int sizeOfDataStructure = int(sizeof(char) * 23);
 char dataArray[sizeOfDataStructure];
-//char *dataArray = malloc(sizeOfDataStructure);
 
 boolean handshakeReqArrived;
 boolean newDataArrived;
 int totalDelimators;
 boolean awakePeriodChanged  = false;
 
-int dateToBeSet             = 0;
-int monthToBeSet            = 0;
-int yearToBeSet             = 0;
-int weekdayToBeSet          = 0;
-int hrToBeSet               = 0;
-int minToBeSet              = 0;
-int secToBeSet              = 0;
+uint8_t dateToBeSet             = 0;
+uint8_t monthToBeSet            = 0;
+uint8_t yearToBeSet             = 0;
+uint8_t weekdayToBeSet          = 0;
+uint8_t hrToBeSet               = 0;
+uint8_t minToBeSet              = 0;
+uint8_t secToBeSet              = 0;
 
 int stayAwakeFor            = 5000;
 int new_stayAwakeFor        = 5100;
 
 boolean setNewTime;
-
+//int enableTiltFunc = 0;
 
 
 void fillDataArray() {
@@ -55,6 +56,7 @@ void fillDataArray() {
 
 // 02:18:19:6:25:06:2021    (totalDelimators == 6)
 // 02:18:19:6:25:06:2021:5  (totalDelimators == 7)
+// 02:18:19:6:25:06:2021:5:1(totalDelimators == 8)
 void parseDataArray() {
   if (newDataArrived) {
     newDataArrived = false;
@@ -68,7 +70,7 @@ void parseDataArray() {
     }
 
     // Check received data's format & integrity
-    if (totalDelimators >= 6) {  // or 6/7 based on the stream ends with year value or with additional delay value
+    if (totalDelimators >= 6) {  // or 6/7/8 based on the stream ends with year value or with additional delay value or with enable tilt flag
       char * strtokIndx; // this is used by strtok() as an index
       strtokIndx = strtok(dataArray, ":"); // get the first part - the string
 
@@ -87,8 +89,8 @@ void parseDataArray() {
       yearToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
       new_stayAwakeFor = (atoi(strtokIndx)) * 1000; // data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000
-
-      //      free(dataArray); // dataArray pointer must be deallocated
+      //      strtokIndx = strtok(NULL, ":");
+      //      enableTiltFunc = atoi(strtokIndx);
 
       //      if (debug_log) {
       //        Serial.print("TIME: "); Serial.print(hrToBeSet); Serial.print("-"); Serial.print(minToBeSet); Serial.print("-"); Serial.println(secToBeSet);
@@ -96,6 +98,7 @@ void parseDataArray() {
       //        Serial.println(weekdayToBeSet);
       //        Serial.print("DATE: "); Serial.print(dateToBeSet); Serial.print("-"); Serial.print(monthToBeSet); Serial.print("-"); Serial.println(yearToBeSet);
       //        Serial.print("MS operational delay: "); Serial.println(nd);
+      //        Serial.print("Tilt SW enable Flag"); Serial.println(nd);
       //      }
 
       setNewTime = true;
@@ -121,6 +124,8 @@ void setRTCToNewTime() {
 }
 
 
+void testParser() {
+}
 
 void SetTimeOverSerial() {
   fillDataArray();

@@ -7,7 +7,7 @@
 */
 
 void disableUnusedPins() {
-  // set them to input pull and do not keep them floating
+  //  Set them to input pull and do not keep them floating
   PORTC.PIN0CTRL = PORT_PULLUPEN_bm;
   PORTC.PIN1CTRL = PORT_PULLUPEN_bm;
   PORTC.PIN3CTRL = PORT_PULLUPEN_bm;
@@ -25,7 +25,7 @@ void disableTWI() {
   //  TWI0.MCTRLA &= ~(TWI_ENABLE_bm);
   PORTB.DIRSET = PIN0_bm;
   PORTB.DIRSET = PIN1_bm;
-  cli(); 
+  cli();
   PORTB.OUT &= ~PIN0_bm;
   PORTB.OUT &= ~PIN1_bm;
   sei();
