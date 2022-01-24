@@ -1,12 +1,9 @@
-name: create release
+name: Push to AWS S3 on new release on github
 
-# Triggers the workflow on new release push
+# Triggers the workflow on new release's publish
 on:
-  push:
-    branches:
-      - production
-      - release_bin
-      - 'release/**'
+  release:
+    types: [published]
     
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -14,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Build Binary packages (interested in .hex)
+    name: upload binary files from (.hex) to AWS S3 as well
     runs-on: ubuntu-latest
     
     steps:
