@@ -39,7 +39,8 @@ jobs:
 
       - name: arduino-cli install libraries [build dependencies]
         run: |
-          echo install libraries
+          ./arduino-cli lib install TinyMegaI2C
+          ./arduino-cli lib install RV8803Tiny
 
       - name: compile binary
         run: |
