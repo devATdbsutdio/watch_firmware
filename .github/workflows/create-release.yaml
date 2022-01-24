@@ -21,4 +21,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run a one-line script
-        run: Executed successfully, when pushed on release branch
+        run: echo Executed successfully, when pushed on release branch
