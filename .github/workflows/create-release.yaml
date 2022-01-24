@@ -4,6 +4,7 @@ name: create release
 on:
   push:
     branches:
+    - release_bin
     - 'release/**'
     
   # Allows you to run this workflow manually from the Actions tab
