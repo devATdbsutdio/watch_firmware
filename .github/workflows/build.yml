@@ -42,7 +42,7 @@ jobs:
           ./arduino-cli lib install TinyMegaI2C
           ./arduino-cli lib install RV8803Tiny
 
-      - name: compile binary
+      - name: compile binary [clean build in /build/ dir]
         run: |
           rm -rf build
           ls -l
