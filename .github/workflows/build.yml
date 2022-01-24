@@ -18,7 +18,10 @@ jobs:
       - name: Update System and install sys necessities
         run: |
           sudo apt-get update -y
-          sudo apt-get install wget tar -y
+          sudo apt-get install wget tar curl  -y
+          wget -qO https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Linux_64bit.tar.gz
+          sudo tar xf arduino-cli.tar.gz
+          ls -l
 
       - name: create arduino-cli definition file
         run: |
