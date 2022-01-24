@@ -10,13 +10,22 @@ on:
 
 
 jobs:
-  build:
+  deploy:
     name: upload binary files from (.hex) to AWS S3 as well
     runs-on: ubuntu-latest
     
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so our job can access it
-      - uses: actions/checkout@v2
-
-      - name: Run a one-line script
-        run: echo Executed successfully, when pushed on release branch
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
