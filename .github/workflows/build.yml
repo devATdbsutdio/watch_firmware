@@ -18,18 +18,17 @@ jobs:
       - name: Update System and install sys necessities
         run: |
           sudo apt-get update -y
-          sudo apt-get install wget tar curl  -y
           wget -qO arduino-cli.tar.gz https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Linux_64bit.tar.gz
           sudo tar xf arduino-cli.tar.gz
           rm -rf arduino-cli.tar.gz
           sudo chmod u+x ./arduino-cli
           ./arduino-cli --help
 
-      - name: create arduino-cli definition file
+      - name: arduino-cli install boards
         run: |
-          echo create definition
+          ./arduino-cli core search megaTinyCore
 
-      - name: install libraries
+      - name: arduino-cli install libraries
         run: |
           echo install libraries
 
