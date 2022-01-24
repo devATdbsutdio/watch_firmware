@@ -53,4 +53,7 @@ jobs:
           ./arduino-cli compile $FQBN_ARG $OUTPUT_ARG
           ls -l
           mv watch_firmware.ino clock_firmware_production.ino 
+          cd build
+          ls -l
+          cd ..
 
