@@ -21,7 +21,9 @@ jobs:
           sudo apt-get install wget tar curl  -y
           wget -qO arduino-cli.tar.gz https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Linux_64bit.tar.gz
           sudo tar xf arduino-cli.tar.gz
-          ls -l
+          rm -rf arduino-cli.tar.gz
+          sudo chmod u+x ./arduino-cli
+          ./arduino-cli --help
 
       - name: create arduino-cli definition file
         run: |
