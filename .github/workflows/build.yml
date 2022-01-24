@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Update System and install sys necessities
+      - name: update system and install build tool
         run: |
           sudo apt-get update -y
           wget -qO arduino-cli.tar.gz https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Linux_64bit.tar.gz
@@ -24,7 +24,7 @@ jobs:
           sudo chmod u+x ./arduino-cli
           ./arduino-cli --help
 
-      - name: arduino-cli install boards
+      - name: arduino-cli install boards [build dependencies]
         run: |
           ./arduino-cli core update-index
           ./arduino-cli config init
@@ -33,8 +33,11 @@ jobs:
           ./arduino-cli core update-index
           ./arduino-cli config dump
           ls -l
+          ./arduino-cli core install megaTinyCore:megaavr
+          ./arduino-cli core upgrade
+          ./arduino-cli core update-index
 
-      - name: arduino-cli install libraries
+      - name: arduino-cli install libraries [build dependencies]
         run: |
           echo install libraries
 
