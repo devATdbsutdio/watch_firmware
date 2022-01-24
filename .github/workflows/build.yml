@@ -26,7 +26,13 @@ jobs:
 
       - name: arduino-cli install boards
         run: |
-          ./arduino-cli core search megaTinyCore
+          ./arduino-cli core update-index
+          ./arduino-cli config init
+          ./arduino-cli config add board_manager.additional_urls http://drazzy.com/package_drazzy.com_index.json
+          ./arduino-cli config set library.enable_unsafe_install true
+          ./arduino-cli core update-index
+          ./arduino-cli config dump
+          ls -l
 
       - name: arduino-cli install libraries
         run: |
