@@ -55,5 +55,7 @@ jobs:
           mv watch_firmware.ino clock_firmware_production.ino 
           cd build
           ls -l
+          for f in watch_firmware*; do mv "$f" "clock_firmware_production${f#watch_firmware}"; done
+          ls -l
           cd ..
 
