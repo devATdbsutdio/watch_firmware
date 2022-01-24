@@ -112,7 +112,7 @@ void examinePins() {
 
 
         pac++;
-        if (pac > sizeof(portAStatus) / 2) {
+        if (pac > int(sizeof(portAStatus) / 2)) {
           pac = 1;
           PORTA_checked = true;
           Serial.println("PORT-A IO check finished!");
@@ -123,7 +123,7 @@ void examinePins() {
           //    Serial.print("Size of array: ");
           //    Serial.println(sizeof(portAStatus));
           // ** Duct tape solution
-          for (int i = 0; i < sizeof(portAStatus) / 2; i++) {
+          for (int i = 0; i < int(sizeof(portAStatus) / 2); i++) {
             //          Serial.print("PA");
             //          Serial.print(i + 1);
             //          Serial.print(": ");
@@ -201,14 +201,14 @@ void examinePins() {
 
 
         pbc++;
-        if (pbc > sizeof(portBStatus) / 2) {
+        if (pbc > int(sizeof(portBStatus) / 2)) {
           pbc = 0;
           PORTB_checked = true;
           Serial.println("PORT-B IO check finished!");
 
           int total_working_pins = 0;
 
-          for (int i = 0; i < sizeof(portBStatus) / 2; i++) { // ignoring RX TX pin's registered states
+          for (int i = 0; i < int(sizeof(portBStatus) / 2); i++) { // ignoring RX TX pin's registered states
             //  Serial.println(i);
             if ((portBStatus[i] == 0) && i != 2 && i != 3) {
               Serial.print("[ERR] Internally, PB");
@@ -281,7 +281,7 @@ void examinePins() {
 
           int total_working_pins = 0;
 
-          for (int i = 0; i < sizeof(portCStatus) / 2; i++) {
+          for (int i = 0; i < int(sizeof(portCStatus) / 2); i++) {
             if (portCStatus[i] == 0) {
               Serial.print("[ERR] Internally, PC");
               Serial.print(i);

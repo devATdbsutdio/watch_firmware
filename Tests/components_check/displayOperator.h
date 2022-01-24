@@ -145,7 +145,7 @@ void operateDisplay() {
     if (displayCycleCounter != prevCounter) {
       //  Serial.println(displayCycleCounter);
       if (displayCycleCounter > 1 && displayCycleCounter <= 3) {
-        for (int i = 0; i < sizeof(digits_); i++) {
+        for (int i = 0; i < int(sizeof(digits_)); i++) {
           digits_[i] += 4;
           if (digits_[i] > 9) digits_[i] = 0;
         }
