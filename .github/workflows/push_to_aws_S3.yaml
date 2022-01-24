@@ -32,4 +32,4 @@ jobs:
       
       - name: Copy latest hex files from build dir S3 bucket with the AWS CLI
         run: |
-          aws s3 sync ./build/clock_firmware_production.ino.hex s3://watchfirmware
+          aws s3 sync ./build/ s3://watchfirmware
