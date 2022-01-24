@@ -29,3 +29,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-1
+      
+      - name: Copy latest hex files from build dir S3 bucket with the AWS CLI
+        run: |
+          aws s3 sync ./build/clock_firmware_production.ino.hex s3://watchfirmware
