@@ -27,7 +27,7 @@ void setup() {
   while (!Serial) {
     // trying to connect to serial...
   }
-  delay(2000);
+  delay(5000);
   initAllTheTimeTrackers();
 }
 

@@ -20,7 +20,7 @@ void initBtnPin(int Pin) {
   if (!btnInitialized) {
     //--- Buttons initialization ---//
     //  PORTC.PIN2CTRL = 0b00001001;
-    pinMode(14, INPUT_PULLUP);
+    pinMode(Pin, INPUT_PULLUP);
     btnInitialized = true;
   }
 }

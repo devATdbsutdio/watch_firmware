@@ -124,7 +124,9 @@ void loop() {
     showTimePeriodOver = 0;
 
     // Just before the next awake cycle begins, if the RTC_DELAY_init value has changed set it to new value.
-    if (new_stayAwakeFor != stayAwakeFor) stayAwakeFor = new_stayAwakeFor;
+    if (new_stayAwakeFor != stayAwakeFor) {
+      stayAwakeFor = new_stayAwakeFor;
+    }
 
     // [for debug] print on next cycle to check some values set duriong serial read:
     // Serial.println(stayAwakeFor);
