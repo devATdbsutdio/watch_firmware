@@ -120,9 +120,17 @@ SerialUPDI - 230400 baud, 2.7V+ (Mac/Linux: usually CH340 only, Win: most adapte
 
 ---
 
-<details><summary>  Build And upload using arduino-cli </summary>
+<details><summary> Build And upload using arduino-cli </summary>
 <p>
-[Please read here](https://github.com/SpenceKonde/megaTinyCore/blob/master/megaavr/extras/Arduino-cli.md)
+
+On a fresh install of arduino-cli, make sure to create the config file that is used by arduino-cli
+
+`arduino-cli config init`
+
+Add the additional url for the new ATTINY cores in arduino-cli's config yaml file. 
+
+`arduino-cli core update-index --additional-urls http://drazzy.com/package_drazzy.com_index.json`
+
 </p>
 </details>
 
