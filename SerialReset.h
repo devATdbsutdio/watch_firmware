@@ -31,8 +31,8 @@ uint8_t hrToBeSet               = 0;
 uint8_t minToBeSet              = 0;
 uint8_t secToBeSet              = 0;
 
-int stayAwakeFor            = 5000;
-int new_stayAwakeFor        = 5100;
+int stayAwakeFor            = 4000;
+int new_stayAwakeFor        = 4100;
 
 boolean setNewTime;
 //int enableTiltFunc = 0;
@@ -88,7 +88,7 @@ void parseDataArray() {
       strtokIndx = strtok(NULL, ":");
       yearToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
-      new_stayAwakeFor = (atoi(strtokIndx)) * 1000; // data strcture: "...:x" where x is in sec which needs to be converted in milli seconds; hence *1000
+      new_stayAwakeFor = (atoi(strtokIndx))*1000; // in millis
       //      strtokIndx = strtok(NULL, ":");
       //      enableTiltFunc = atoi(strtokIndx);
 
@@ -97,8 +97,8 @@ void parseDataArray() {
       //        Serial.print("WEEKDAY: ");
       //        Serial.println(weekdayToBeSet);
       //        Serial.print("DATE: "); Serial.print(dateToBeSet); Serial.print("-"); Serial.print(monthToBeSet); Serial.print("-"); Serial.println(yearToBeSet);
-      //        Serial.print("MS operational delay: "); Serial.println(nd);
-      //        Serial.print("Tilt SW enable Flag"); Serial.println(nd);
+      //        Serial.print("MS operational delay: "); Serial.println(new_stayAwakeFor);
+      //        Serial.print("Tilt SW enable Flag"); Serial.println(enableTiltFunc);
       //      }
 
       setNewTime = true;
