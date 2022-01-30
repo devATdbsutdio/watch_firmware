@@ -11,7 +11,7 @@
 ### Development Environment:
 Arduino-IDE, arduino-cli etc.
 
-__Note:__ Compiled binaries (build/[filename].hex) can alos be uploaded using pyupdi. Instructions below. 
+__Note:__ Compiled binaries (build/[filename].hex) can also be uploaded using _pyupdi_. Instructions below. 
 
 ### Some more details:
 1. uC: ATTINY1607-MFR clocked at 5MHz (necessary Freq for my main application later)
