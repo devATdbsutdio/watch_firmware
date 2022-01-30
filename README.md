@@ -26,9 +26,10 @@ __So some pins are always connected to an FTDI board as such, i.e in _Pro_ versi
   [TXD] PB2 --> FTDI RXD
 ```
 
-Pseudo-code for the firmware written so far:
+<details><summary>Pseudo-code for the firmware written so far.</summary>
+
 <p>
-	
+
 ```
 SETUP:
 	Disable serial related HW pins and registers
@@ -79,7 +80,11 @@ LOOP:
                   turn off all the LED pins from seven segments
       Go to power down sleep mode	
 ```
+
 </p>
+
+</details>
+
 
 ### Arduino IDE setup and steps:
 
