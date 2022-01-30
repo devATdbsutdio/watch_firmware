@@ -167,9 +167,10 @@ arduino-cli compile $FQBN_ARG $OUTPUT_ARG
 mv watch_firmware.ino clock_firmware_production.ino
 arduino-cli compile $FQBN_ARG $OUTPUT_ARG -u -p <your upload port> -P serialupdi -t
 ```
-I chose `serialupdi` as my PROGRAMMER arg in the last command there according to my physical setup. 
+I chose `serialupdi` as my __PROGRAMMER__ for the argument, in the last command up therep. 
 
-You can see the available optiosn for this and other settings using: `arduino-cli board details -b megaTinyCore:megaavr:atxy7`
+You can see the available options for this and other settings using: `arduino-cli board details -b megaTinyCore:megaavr:atxy7`
+And read more aboput them [here](https://github.com/SpenceKonde/AVR-Guidance/blob/master/UPDI/jtag2updi.md)
 
 </p>
 </details>
