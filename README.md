@@ -85,9 +85,11 @@ LOOP:
 
 </details>
 
-
-### Arduino IDE setup and steps:
 ---
+
+<details><summary>  Arduino IDE setup and steps </summary>
+<p>
+
 Install the above mentioned "Dependent libraries", using Ardunio IDE's built in Library Manager. 
 
 Once Installed, open the sketch and set the below settings from the __Tools__ menu. 
@@ -113,19 +115,33 @@ To upload select a suitable programmer from the list. My setup uses the programm
 ``` 
 SerialUPDI - 230400 baud, 2.7V+ (Mac/Linux: usually CH340 only, Win: most adapters)), select your port or upload (ofc don't forget to select the port)
 ```
+</p>
+</details>
 
-### Build And upload using arduino-cli 
 ---
+
+<details><summary>  Build And upload using arduino-cli </summary>
+<p>
 [Please read here](https://github.com/SpenceKonde/megaTinyCore/blob/master/megaavr/extras/Arduino-cli.md)
+</p>
+</details>
 
-### Upload using pyupdi:
+
 ---
+
+<details><summary> Upload using pyupdi </summary>
+<p>
+
 Make sure that the binaries are compiled, either using arduino-cli, like from the previous step. 
 
 Enter the build directory where the .hex file is. 
 
 Issue the following command: 
 
+</p>
+</details>
+
+---
 
 
 ### Notes for Collaborators:
