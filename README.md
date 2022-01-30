@@ -149,35 +149,27 @@ arduino-cli board details -b megaTinyCore:megaavr:atxy7
 Now, from the root level of the project Directory: 
 ```shell
 rm -rf build
-
 mv clock_firmware_production.ino watch_firmware.ino
-
 FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
-
 OUTPUT_ARG="--output-dir $(pwd)/build"
-
 arduino-cli compile $FQBN_ARG $OUTPUT_ARG
-
 mv watch_firmware.ino clock_firmware_production.ino
 ```
 
 
-To Build and Upload: 
+To build and upload: 
 ```shell
 rm -rf build
-
 mv clock_firmware_production.ino watch_firmware.ino
-
 FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
-
 OUTPUT_ARG="--output-dir $(pwd)/build"
-
 arduino-cli compile $FQBN_ARG $OUTPUT_ARG
-
 mv watch_firmware.ino clock_firmware_production.ino
-
 arduino-cli compile $FQBN_ARG $OUTPUT_ARG -u -p <your upload port> -P serialupdi -t
 ```
+I chose `serialupdi` as my PROGRAMMER arg in the last command there according to my physical setup. 
+
+You can see the available optiosn for this and other settings using: `arduino-cli board details -b megaTinyCore:megaavr:atxy7`
 
 </p>
 </details>
