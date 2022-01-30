@@ -87,7 +87,6 @@ LOOP:
 
 
 ### Arduino IDE setup and steps:
-
 ---
 Install the above mentioned "Dependent libraries", using Ardunio IDE's built in Library Manager. 
 
@@ -120,6 +119,7 @@ SerialUPDI - 230400 baud, 2.7V+ (Mac/Linux: usually CH340 only, Win: most adapte
 [Please read here](https://github.com/SpenceKonde/megaTinyCore/blob/master/megaavr/extras/Arduino-cli.md)
 
 ### Upload using pyupdi:
+---
 Make sure that the binaries are compiled, either using arduino-cli, like from the previous step. 
 
 Enter the build directory where the .hex file is. 
