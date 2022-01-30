@@ -123,13 +123,61 @@ SerialUPDI - 230400 baud, 2.7V+ (Mac/Linux: usually CH340 only, Win: most adapte
 <details><summary> Build And upload using arduino-cli </summary>
 <p>
 
-On a fresh install of arduino-cli, make sure to create the config file that is used by arduino-cli
+[More info here](https://github.com/SpenceKonde/megaTinyCore/blob/master/megaavr/extras/Arduino-cli.md)
 
-`arduino-cli config init`
+Configure arduino-cli for building the project:
+```shell
+arduino-cli core update-index 
+arduino-cli config init
+arduino-cli config add board_manager.additional_urls http://drazzy.com/package_drazzy.com_index.json
+arduino-cli config set library.enable_unsafe_install true
+arduino-cli core update-index
+arduino-cli config dump
+arduino-cli core install megaTinyCore:megaavr
+arduino-cli core update-index
+arduino-cli lib install TinyMegaI2C
+arduino-cli lib install RV8803Tiny
+```
 
-Add the additional url for the new ATTINY cores in arduino-cli's config yaml file. 
+Build the sketch:
 
-`arduino-cli core update-index --additional-urls http://drazzy.com/package_drazzy.com_index.json`
+__NOTE__: All the setting and fuses for the FQBN can be found using board details command against a specifc chip series: 
+```shell
+arduino-cli board details -b megaTinyCore:megaavr:atxy7
+```
+
+Now, from the root level of the project Directory: 
+```shell
+rm -rf build
+
+mv clock_firmware_production.ino watch_firmware.ino
+
+FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
+
+OUTPUT_ARG="--output-dir $(pwd)/build"
+
+arduino-cli compile $FQBN_ARG $OUTPUT_ARG
+
+mv watch_firmware.ino clock_firmware_production.ino
+```
+
+
+To Build and Upload: 
+```shell
+rm -rf build
+
+mv clock_firmware_production.ino watch_firmware.ino
+
+FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
+
+OUTPUT_ARG="--output-dir $(pwd)/build"
+
+arduino-cli compile $FQBN_ARG $OUTPUT_ARG
+
+mv watch_firmware.ino clock_firmware_production.ino
+
+arduino-cli compile $FQBN_ARG $OUTPUT_ARG -u -p <your upload port> -P serialupdi -t
+```
 
 </p>
 </details>
