@@ -27,6 +27,8 @@ __So some pins are always connected to an FTDI board as such, i.e in _Pro_ versi
 ```
 
 Pseudo-code for the firmware written so far:
+<p>
+	
 ```
 SETUP:
 	Disable serial related HW pins and registers
@@ -77,11 +79,11 @@ LOOP:
                   turn off all the LED pins from seven segments
       Go to power down sleep mode	
 ```
-
----
-
+</p>
 
 ### Arduino IDE setup and steps:
+
+---
 Install the above mentioned "Dependent libraries", using Ardunio IDE's built in Library Manager. 
 
 Once Installed, open the sketch and set the below settings from the __Tools__ menu. 
@@ -103,12 +105,13 @@ attach=allenabled
 
 And then simply click __compile__. 
 
-To upload select a suitable programmer from the list.My setup uses the programmer:
+To upload select a suitable programmer from the list. My setup uses the programmer:
 ``` 
 SerialUPDI - 230400 baud, 2.7V+ (Mac/Linux: usually CH340 only, Win: most adapters)), select your port or upload (ofc don't forget to select the port)
 ```
 
 ### Build And upload using arduino-cli 
+---
 [Please read here](https://github.com/SpenceKonde/megaTinyCore/blob/master/megaavr/extras/Arduino-cli.md)
 
 ### Upload using pyupdi:
