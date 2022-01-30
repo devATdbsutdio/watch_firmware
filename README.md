@@ -178,20 +178,6 @@ And read more aboput them [here](https://github.com/SpenceKonde/AVR-Guidance/blo
 
 ---
 
-<details><summary> Upload using pyupdi </summary>
-<p>
-
-Make sure that the binaries are compiled, either using arduino-cli, like from the previous step. 
-
-Enter the build directory where the .hex file is. 
-
-Issue the following command: 
-
-</p>
-</details>
-
----
-
 
 ### Notes for Collaborators:
 1. Please use [ExtraUtils.h](https://github.com/dattasaurabh82/clock_firmware_production/blob/old/ExtraUtils.h) for new Functions Suggestions.
