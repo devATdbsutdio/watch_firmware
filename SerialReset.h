@@ -11,10 +11,8 @@ boolean readyToReceive;
 char incomingChar;
 int idx                     = 0;
 
-// 02:18:19:6:25:06:2021    (totalDelimators == 6 and 21 bytes of data)
-// 02:18:19:6:25:06:2021:5  (totalDelimators == 7 and 23 bytes of data)
-// 02:18:19:6:25:06:2021:5:1(totalDelimators == 8 and 25 bytes of data)
 
+// 02:18:19:6:25:06:2021:5  (totalDelimators == 7 and 23 bytes of data)
 const int sizeOfDataStructure = int(sizeof(char) * 23);
 char dataArray[sizeOfDataStructure];
 
@@ -35,7 +33,6 @@ int stayAwakeFor            = 4000;
 int new_stayAwakeFor        = 4100;
 
 boolean setNewTime;
-//int enableTiltFunc = 0;
 
 
 void fillDataArray() {
@@ -54,9 +51,7 @@ void fillDataArray() {
   }
 }
 
-// 02:18:19:6:25:06:2021    (totalDelimators == 6)
-// 02:18:19:6:25:06:2021:5  (totalDelimators == 7)
-// 02:18:19:6:25:06:2021:5:1(totalDelimators == 8)
+
 void parseDataArray() {
   if (newDataArrived) {
     newDataArrived = false;
@@ -89,17 +84,6 @@ void parseDataArray() {
       yearToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
       new_stayAwakeFor = (atoi(strtokIndx))*1000; // in millis
-      //      strtokIndx = strtok(NULL, ":");
-      //      enableTiltFunc = atoi(strtokIndx);
-
-      //      if (debug_log) {
-      //        Serial.print("TIME: "); Serial.print(hrToBeSet); Serial.print("-"); Serial.print(minToBeSet); Serial.print("-"); Serial.println(secToBeSet);
-      //        Serial.print("WEEKDAY: ");
-      //        Serial.println(weekdayToBeSet);
-      //        Serial.print("DATE: "); Serial.print(dateToBeSet); Serial.print("-"); Serial.print(monthToBeSet); Serial.print("-"); Serial.println(yearToBeSet);
-      //        Serial.print("MS operational delay: "); Serial.println(new_stayAwakeFor);
-      //        Serial.print("Tilt SW enable Flag"); Serial.println(enableTiltFunc);
-      //      }
 
       setNewTime = true;
     }
@@ -112,13 +96,9 @@ void parseDataArray() {
 
 void setRTCToNewTime() {
   if (setNewTime) {
-    //    if (debug_log) Serial.println(F("Setting custom time..."));
-
     if (rtc.setTime(secToBeSet, minToBeSet, hrToBeSet, weekdayToBeSet, dateToBeSet, monthToBeSet, yearToBeSet) == false) {
       //      if (debug_log) Serial.println("Something went wrong setting the time");
     }
-
-    //    if (debug_log) Serial.println(F("Custom Time set!"));
     setNewTime = false;
   }
 }

@@ -74,20 +74,10 @@ void loop() {
     //--- RV-8803 Ext RTC initialization ---//
     setupRTC();
 
-    //    if (debug_log) {
-    //      Serial.print("\"Show Time\" button has been released. So show time for ");
-    //      Serial.print(stayAwakeFor / 1000);
-    //      Serial.println(" sec.");
-    //    }
-
     //--- Detect self referenced Batt voltage ---//
     ADCVoltRefSetup();
     uint16_t currBattVolt = measuredVoltage();
-
-    //    if (debug_log) {
-    //      Serial.print(float(currBattVolt) / 10);
-    //      Serial.println(" V");
-    //    }
+    
 
     batteryWarningLED_OFF();      // On wake up, initialize the warning led dot of the segment to be OFF
     turnOffDisplay();             // On wake up, initialize the whole display segment to be OFF
@@ -128,12 +118,9 @@ void loop() {
       stayAwakeFor = new_stayAwakeFor;
     }
 
-    // [for debug] print on next cycle to check some values set duriong serial read:
-    // Serial.println(stayAwakeFor);
     // Serial.println(enableTiltFunc);
 
     // Then go to sleep
-    //    if (debug_log) Serial.println(F("Sleeping..."));
     turnOffDisplay();
     Serial.flush();                    // flush everything before going to sleep
     Serial.end();
