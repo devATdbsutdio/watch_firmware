@@ -48,35 +48,35 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      # - name: create release artifact
-      #   uses: actions/create-release@v1
-      #   id: create_release
-      #   with:
-      #     draft: false
-      #     prerelease: false
-      #     release_name: 'v1.0.0'
-      #     tag_name: 'v1.0.0'
-      #   env:
-      #     GITHUB_TOKEN: ${{ github.token }}
+      - name: create release artifact
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: 'v1.0.0'
+          tag_name: 'v1.0.0'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
-      - name: Check files
-        run: |
-          cd $(pwd)/build && ls *.hex
-          cd ..
+      # - name: Check files
+      #   run: |
+      #     cd $(pwd)/build && ls *.hex
+      #     cd ..
 
-      - name: set hex file name as an env var
-        run: echo "HEX_FILE_NAME=$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
+      # - name: set hex file name as an env var
+      #   run: echo "HEX_FILE_NAME=$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
       
-      - name: read file name from next step
-        run: echo "${{ env.HEX_FILE_NAME }}"
+      # - name: read file name from next step
+      #   run: echo "${{ env.HEX_FILE_NAME }}"
 
 
-      # - name: upload release artifact
-      #   uses: actions/upload-release-asset@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ github.token }}
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: ./build/clock_firmware_production.ino.hex
-      #     asset_name: watch_firmware.hex
-      #     asset_content_type: application/hex
+      - name: upload release artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/*.hex
+          asset_name: watch_firmware.hex
+          asset_content_type: application/hex
