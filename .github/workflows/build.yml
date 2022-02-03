@@ -69,7 +69,6 @@ jobs:
           ./arduino-cli compile $FQBN_ARG $OUTPUT_ARG
           mv watch_firmware.ino clock_firmware_production.ino
           cd build
-          ls -l
           for f in watch_firmware*; do mv "$f" "clock_firmware_production${f#watch_firmware.ino}"; done
           ls -l
           cd ..
