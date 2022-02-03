@@ -83,7 +83,6 @@ jobs:
       - name: /[SANITY CHECK/] hex file's name and hex file's path as read from env vars for upload step
         run: |
           echo "${{ env.HEX_FILE_NAME }}"
-        # echo "${{ env.HEX_FILE_PATH }}"
 
       # - name: create release artifact
       #   id: create_release
