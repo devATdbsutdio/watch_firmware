@@ -100,24 +100,6 @@ jobs:
           aws s3 sync ./build/ s3://watchfirmware
 
 
-  tagged-release:
-    name: Create latest release
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Create latest release
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          prerelease: false
-          draft: false
-          automatic_release_tag: latest
-          title: v1.0.2
-          files: |
-            $(pwd)/build/*.hex
-
-
 
 
 
