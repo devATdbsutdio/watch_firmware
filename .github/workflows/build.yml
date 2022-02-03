@@ -109,6 +109,16 @@ jobs:
           asset_name: ${{ env.HEX_FILE_NAME }}
           asset_content_type: application/hex
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: Sync *.hex from build dir to S3 bucket
+        run: |
+          aws s3 sync ${{ env.HEX_FILE_PATH }} s3://watchfirmware
 
       # - name: create release artifact
       #   id: create_release
