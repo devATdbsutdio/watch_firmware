@@ -67,7 +67,7 @@ jobs:
       - name: set hex file's name and path as env vars
         run: |
           echo "HEX_FILE_NAME=$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
-          echo "HEX_FILE_PATH=./build/${{ env.HEX_FILE_NAME }}" >> $GITHUB_ENV
+          echo "HEX_FILE_PATH=./build/$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
       
       - name: read file name from next step
         run: |
