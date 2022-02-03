@@ -15,6 +15,11 @@ jobs:
     name: Compile using arduino-cli
     runs-on: ubuntu-latest
 
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -69,6 +74,34 @@ jobs:
           for f in watch_firmware*; do mv "$f" "clock_firmware_production${f#watch_firmware.ino}"; done
           ls -l
           cd ..
+
+
+      # - name: create release artifact
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   with:
+      #     draft: false
+      #     prerelease: false
+      #     tag_name: ${{ github.ref }}
+      #     release_name: Release ${{ github.ref }}
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
+
+      # - name: set hex file's name and path as env vars
+      #   run: |
+      #     echo "HEX_FILE_NAME=$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
+      #     echo "HEX_FILE_PATH=./build/$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
+
+      # - name: upload release artifact
+      #   id: upload-release-asset 
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ${{ env.HEX_FILE_PATH }}
+      #     asset_name: ${{ env.HEX_FILE_NAME }}
+      #     asset_content_type: application/hex
 
 
   sync_aws_s3:
