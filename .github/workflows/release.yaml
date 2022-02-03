@@ -7,32 +7,56 @@ on:
     # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# jobs:
+#   tagged-release:
+#     name: Tagged Release
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
+
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+
+#       - name: Generate Changelog
+#         run: echo "# Good things have arrived" > ${{ github.workspace }}-CHANGELOG.txt
+
+#       - name: Release
+#         uses: softprops/action-gh-release@v1
+#         if: startsWith(github.ref, 'refs/tags/')
+#         with:
+#           body_path: ${{ github.workspace }}-CHANGELOG.txt
+#           token: "${{ secrets.RELEASE_ACCESS_TOKEN }}"
+#           draft: false
+#           prerelease: false
+#           name: "v1.0.2"
+#           tag_name: "v1.0.2"
+#           fail_on_unmatched_files: true
+#           files: |
+#             $(pwd)/build/*.hex
+#         env: 
+#           GITHUB_REPOSITORY: devATdbsutdio/watch_firmware
+
+
 jobs:
-  tagged-release:
-    name: Tagged Release
+  build_release:
+    name: build_release
     runs-on: ubuntu-latest
     permissions:
+      id-token: write
       contents: write
 
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v2
 
-      - name: Generate Changelog
-        run: echo "# Good things have arrived" > ${{ github.workspace }}-CHANGELOG.txt
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
         with:
-          body_path: ${{ github.workspace }}-CHANGELOG.txt
-          token: "${{ secrets.RELEASE_ACCESS_TOKEN }}"
           draft: false
           prerelease: false
-          name: "v1.0.2"
+          release_name: "v1.0.2"
           tag_name: "v1.0.2"
-          fail_on_unmatched_files: true
-          files: |
-            $(pwd)/build/*.hex
-        env: 
-          GITHUB_REPOSITORY: devATdbsutdio/watch_firmware
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
