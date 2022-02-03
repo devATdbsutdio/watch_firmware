@@ -1,5 +1,7 @@
 # watch_firmware
 
+![example workflow](https://github.com/devATdbsutdio/watch_firmware/actions/workflows/build.yml/badge.svg)
+
 ### Dependant libraries:
 1. [RV8803-Tiny](https://github.com/dattasaurabh82/RV8803Tiny) (Lib for helper class and functions for RV-8803 Real Time Clock)
 2. [TinyMegaI2C](https://github.com/dattasaurabh82/TinyMegaI2C) (A less bloated I2C library for new ATTINY Series to communicate with RTC - forked version)
