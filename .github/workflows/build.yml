@@ -1,8 +1,5 @@
 name: Build Using arduino-cli, create "Release" and sync with AWS
 
-# on:
-#   release:
-#     types: [published]
 
 on:
   push:
