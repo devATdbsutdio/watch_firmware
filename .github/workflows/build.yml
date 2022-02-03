@@ -1,4 +1,4 @@
-name: Build Using arduino-cli
+name: Build Using arduino-cli, create "Release" and sync with AWS
 
 # on:
 #   release:
@@ -6,8 +6,6 @@ name: Build Using arduino-cli
 
 on:
   push:
-    branches:    
-      - 'production'
     tags:        
       - v**
 
@@ -17,10 +15,12 @@ on:
 
 jobs:
   build:
+    name: Compile using arduino-cli
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       # download and install arduino-cli binary 
       - name: update system and install build tool
@@ -72,4 +72,33 @@ jobs:
           for f in watch_firmware*; do mv "$f" "clock_firmware_production${f#watch_firmware}"; done
           ls -l
           cd ..
+
+  sync_aws_s3:
+    name: Sycn *.hex to AWS S3 as well
+    runs-on: ubuntu-latest
+
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-1
+
+      - name: Sync *.hex from build dir to S3 bucket
+        run: |
+          aws s3 sync ./build/ s3://watchfirmware
+
+
+
+
+
 
