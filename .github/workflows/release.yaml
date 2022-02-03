@@ -55,8 +55,9 @@ jobs:
       - name: Build Changelog
         uses: glennawatson/ChangeLog@v1
         id: changelog
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
         
 
       - name: create release artifact
