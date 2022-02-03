@@ -1,4 +1,4 @@
-name: Build Using arduino-cli, create "Release" and sync with AWS
+name: Build, Release and sync with AWS
 
 
 on:
