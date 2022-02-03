@@ -61,14 +61,15 @@ jobs:
 
       - name: Check files
         run: |
-          cd $(pwd)/build
-          ls -l
+          cd $(pwd)/build && ls *.hex
           cd ..
 
       - name: set hex file name as an env var
-        run: |
-          echo ::set-env name=HEX_FILE_NAME::$(cd $(pwd)/build/ && ls *.hex)
-          echo HEX_FILE_NAME
+        run: echo "HEX_FILE_NAME=$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
+      
+      - name: read file name from next step
+        run: echo "${{ env.HEX_FILE_NAME }}"
+
 
       # - name: upload release artifact
       #   uses: actions/upload-release-asset@v1
