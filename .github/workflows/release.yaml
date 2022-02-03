@@ -48,12 +48,16 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
 
       - name: Build Changelog
-        id: build_changelog
-        uses: scottbrenner/generate-changelog-action@master
+        uses: glennawatson/ChangeLog@v1
+        id: changelog
         env:
-          REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ github.token }}
+        
 
       - name: create release artifact
         id: create_release
