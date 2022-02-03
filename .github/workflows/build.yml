@@ -76,6 +76,14 @@ jobs:
           cd ..
 
 
+      - name: set hex file's name and path as env vars
+        run: |
+          echo "HEX_FILE_NAME=$(cd build && ls *.hex)" >> $GITHUB_ENV
+
+      - name: /[SANITY CHECK/] hex file's name and hex file's path as read from env vars for upload step
+        run: |
+          echo "${{ env.HEX_FILE_NAME }}"
+
       # - name: create release artifact
       #   id: create_release
       #   uses: actions/create-release@v1
