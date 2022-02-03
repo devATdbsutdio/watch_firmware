@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v2
 
       # download and install arduino-cli binary 
-      - name: update system and install build tool
+      - name: Update system and install build tool
         run: |
           sudo apt-get update -y
           wget -qO arduino-cli.tar.gz https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Linux_64bit.tar.gz
@@ -62,7 +62,7 @@ jobs:
       # Gotcha: The main Arduino ino file is named differently than the repo name. 
       # So we had to do some renaming as the compiler follows traditional arduino paradigm,
       # where the main ino file should have the same prefix name as the src root directory. 
-      - name: compile binary [clean build in /build/ dir]
+      - name: Compile binary [clean build in /build/ dir]
         run: |
           rm -rf build
           mv clock_firmware_production.ino watch_firmware.ino
@@ -77,17 +77,20 @@ jobs:
           echo setting file name env vars
 
 
-      - name: set hex file's name and path as env vars
+      - name: Set hex file's name and path as env vars
         run: |
           echo "HEX_FILE_NAME=$(cd build && ls *.hex)" >> $GITHUB_ENV
           echo "HEX_FILE_PATH=./build/$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
+          echo "BUILD_DIR=./build/" >> $GITHUB_ENV
 
       - name: /[SANITY CHECK/] hex file's name and hex file's path as read from env vars for upload step
         run: |
+          echo "${{ env.BUILD_DIR }}"
           echo "${{ env.HEX_FILE_NAME }}"
           echo "${{ env.HEX_FILE_PATH }}"
 
-      - name: create release artifact
+
+      - name: Create release artifact
         id: create_release
         uses: actions/create-release@v1
         with:
@@ -98,7 +101,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
-      - name: upload release artifact
+      - name: Upload release artifact
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:
@@ -118,7 +121,7 @@ jobs:
 
       - name: Sync *.hex from build dir to S3 bucket
         run: |
-          aws s3 sync ./build/ s3://watchfirmware
+          aws s3 sync ${{ env.BUILD_DIR }} s3://watchfirmware
 
 
   # sync_aws_s3:
