@@ -1,34 +1,29 @@
 ---
-name: "tagged-release"
+name: Tagged-release
 
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
     # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
   tagged-release:
-    name: "Tagged Release"
-    runs-on: "ubuntu-latest"
+    name: Tagged Release
+    runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v2"
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: "Build & test"
+      - name: Build & test
         run: |
           echo "done!"
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: "ncipollo/release-action@v1"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          draft: false
-          automatic_release_tag: "latest"
-          title: "v1.0.2"
-          files: |
-            $(pwd)/build/*.hex
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          artifacts: "$(pwd)/build/*.hex"
