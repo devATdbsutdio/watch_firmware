@@ -71,6 +71,6 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/*.hex
+          asset_path: ./build/clock_firmware_production.ino.hex
           asset_name: watch_firmware.hex
           asset_content_type: application/hex
