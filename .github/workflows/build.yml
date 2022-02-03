@@ -25,7 +25,6 @@ jobs:
       # download and install arduino-cli binary 
       - name: update system and install build tool
         run: |
-          apt install sudo -y
           sudo apt-get update -y
           wget -qO arduino-cli.tar.gz https://downloads.arduino.cc/arduino-cli/arduino-cli_latest_Linux_64bit.tar.gz
           sudo tar xf arduino-cli.tar.gz
