@@ -1,41 +1,10 @@
 name: Tagged-release
 
 on:
-  push:
-    tags:        
-      - 'v*'
-
-
+  # push:
+  #   tags:        
+  #     - 'v*'
   workflow_dispatch:
-
-# jobs:
-#   tagged-release:
-#     name: Tagged Release
-#     runs-on: ubuntu-latest
-#     permissions:
-#       id-token: write
-#       contents: write
-
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-
-#       - name: Release
-#         uses: softprops/action-gh-release@v1
-#         if: startsWith(github.ref, 'refs/tags/')
-#         with:
-#           # token: "${{ secrets.RELEASE_ACCESS_TOKEN }}"
-#           token: ${{ github.token }}
-#           draft: false
-#           prerelease: false
-#           name: "v1.0.0"
-#           tag_name: "v1.0.0"
-#           fail_on_unmatched_files: true
-#           files: |
-#             $(pwd)/build/*.hex
-#         env: 
-#           GITHUB_REPOSITORY: devATdbsutdio/watch_firmware
-
 
 jobs:
   build_and_upload_release:
