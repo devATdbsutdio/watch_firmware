@@ -106,9 +106,6 @@ jobs:
     needs: build
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: Create latest release
         uses: marvinpinto/action-automatic-releases@latest
         with:
