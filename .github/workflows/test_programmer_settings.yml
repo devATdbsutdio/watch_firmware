@@ -64,16 +64,14 @@ jobs:
       # where the main ino file should have the same prefix name as the src root directory. 
       - name: Compile main firmware binary [clean build ]
         run: |
-          ls -l
           FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
           SKETCH_DIR="$(pwd)/Tests/components_check"
           OUTPUT_ARG="--output-dir $(pwd)/Tests/components_check/build"
           ./arduino-cli compile $FQBN_ARG $SKETCH_DIR $OUTPUT_ARG --clean
           cd Tests/components_check/build
+          for f in components_check*; do mv "$f" "components_check${f#components_check.ino}"; done
           ls -l
           cd ../../..
-          pwd
-          ls -l
 
 
       - name: Set hex file's name and path as env vars
