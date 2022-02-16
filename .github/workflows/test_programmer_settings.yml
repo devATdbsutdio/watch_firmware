@@ -67,7 +67,7 @@ jobs:
           cd Tests/components_check
           pwd
           rm -rf build
-          cd \
+          cd $HOME
           pwd
           ls -l
           FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
