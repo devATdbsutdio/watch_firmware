@@ -69,10 +69,11 @@ jobs:
           SKETCH_DIR="$(pwd)/Tests/components_check"
           OUTPUT_ARG="--output-dir $(pwd)/Tests/components_check/build"
           ./arduino-cli compile $FQBN_ARG $SKETCH_DIR $OUTPUT_ARG --clean
-          cd build
+          cd Tests/components_check/build
           ls -l
-          cd ..
+          cd ../..
           pwd
+          ls -l
 
 
       - name: Set hex file's name and path as env vars
