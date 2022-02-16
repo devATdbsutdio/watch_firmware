@@ -74,11 +74,11 @@ jobs:
           for f in watch_firmware*; do mv "$f" "clock_firmware_production${f#watch_firmware.ino}"; done
           ls -l
           cd ..
+          echo setting file name env vars
 
 
       - name: Set hex file's name and path as env vars
         run: |
-          echo Setting file name env vars
           echo "HEX_FILE_NAME=$(cd build && ls *.hex)" >> $GITHUB_ENV
           echo "HEX_FILE_PATH=./build/$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
           echo "BUILD_DIR=./build/" >> $GITHUB_ENV

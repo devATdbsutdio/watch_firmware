@@ -64,24 +64,25 @@ jobs:
       # where the main ino file should have the same prefix name as the src root directory. 
       - name: Compile main firmware binary [clean build in /build/ dir]
         run: |
+          cd Tests/components_check
+          pwd
           rm -rf build
-          mv clock_firmware_production.ino watch_firmware.ino
           FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
           OUTPUT_ARG="--output-dir $(pwd)/build"
           ./arduino-cli compile $FQBN_ARG $OUTPUT_ARG
-          mv watch_firmware.ino clock_firmware_production.ino
           cd build
-          for f in watch_firmware*; do mv "$f" "clock_firmware_production${f#watch_firmware.ino}"; done
           ls -l
           cd ..
+          pwd
 
 
       - name: Set hex file's name and path as env vars
         run: |
           echo Setting file name env vars
-          echo "HEX_FILE_NAME=$(cd build && ls *.hex)" >> $GITHUB_ENV
-          echo "HEX_FILE_PATH=./build/$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
-          echo "BUILD_DIR=./build/" >> $GITHUB_ENV
+          echo "T_HEX_FILE_NAME=$(cd Tests/components_check/build && ls *.hex)" >> $GITHUB_ENV
+          echo "THEX_FILE_PATH=./Tests/components_check/build/$(cd $(pwd)/Tests/components_check/build && ls *.hex)" >> $GITHUB_ENV
+          echo "BUILD_DIR=./Tests/components_check/build/" >> $GITHUB_ENV
+
 
       - name: /[SANITY CHECK/] hex file's name and hex file's path as read from env vars for upload step
         run: |
@@ -90,35 +91,35 @@ jobs:
           echo "${{ env.HEX_FILE_PATH }}"
 
 
-      - name: Create release artifact
-        id: create_release
-        uses: actions/create-release@v1
-        with:
-          draft: false
-          prerelease: false
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      # - name: Create release artifact
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   with:
+      #     draft: false
+      #     prerelease: false
+      #     tag_name: ${{ github.ref }}
+      #     release_name: Release ${{ github.ref }}
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
 
-      - name: Upload release artifact
-        id: upload-release-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ env.HEX_FILE_PATH }}
-          asset_name: ${{ env.HEX_FILE_NAME }}
-          asset_content_type: application/hex
+      # - name: Upload release artifact
+      #   id: upload-release-asset 
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ${{ env.HEX_FILE_PATH }}
+      #     asset_name: ${{ env.HEX_FILE_NAME }}
+      #     asset_content_type: application/hex
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-1
+      # - name: Configure AWS Credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: ap-northeast-1
 
-      - name: Sync *.hex from build dir to S3 bucket
-        run: |
-          aws s3 sync ${{ env.BUILD_DIR }} s3://watchfirmware
+      # - name: Sync *.hex from build dir to S3 bucket
+      #   run: |
+      #     aws s3 sync ${{ env.BUILD_DIR }} s3://watchfirmware
