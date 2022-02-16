@@ -1,4 +1,4 @@
-name: Build, Release and sync with AWS
+name: build test firmware
 
 
 on:
