@@ -76,18 +76,48 @@ jobs:
           cd ..
 
 
-      - name: Set hex file's name and path as env vars
+      - name: Set main firmware's hex file name and path as env vars
         run: |
           echo Setting file name env vars
           echo "HEX_FILE_NAME=$(cd build && ls *.hex)" >> $GITHUB_ENV
           echo "HEX_FILE_PATH=./build/$(cd $(pwd)/build && ls *.hex)" >> $GITHUB_ENV
           echo "BUILD_DIR=./build/" >> $GITHUB_ENV
 
+      # - name: /[SANITY CHECK/] hex file's name and hex file's path as read from env vars for upload step
+      #   run: |
+      #     echo "${{ env.BUILD_DIR }}"
+      #     echo "${{ env.HEX_FILE_NAME }}"
+      #     echo "${{ env.HEX_FILE_PATH }}"
+
+      - name: Compile Test firmware binary [clean build]
+        run: |
+          FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
+          SKETCH_DIR="$(pwd)/Tests/components_check"
+          OUTPUT_ARG="--output-dir $(pwd)/Tests/components_check/build"
+          ./arduino-cli compile $FQBN_ARG $SKETCH_DIR $OUTPUT_ARG --clean
+          cd Tests/components_check/build
+          for f in components_check*; do mv "$f" "components_check${f#components_check.ino}"; done
+          ls -l
+          cd ../../..
+
+      - name: Set test firmware's hex file name and path as env vars
+        run: |
+          echo Setting file name env vars
+          echo "T_HEX_FILE_NAME=$(cd Tests/components_check/build && ls *.hex)" >> $GITHUB_ENV
+          echo "T_HEX_FILE_PATH=./Tests/components_check/build/$(cd $(pwd)/Tests/components_check/build && ls *.hex)" >> $GITHUB_ENV
+          echo "T_BUILD_DIR=./Tests/components_check/build/" >> $GITHUB_ENV
+
       - name: /[SANITY CHECK/] hex file's name and hex file's path as read from env vars for upload step
         run: |
+          echo "Main firmware related:"
           echo "${{ env.BUILD_DIR }}"
           echo "${{ env.HEX_FILE_NAME }}"
           echo "${{ env.HEX_FILE_PATH }}"
+          echo ""
+          echo "Test firmware related:"
+          echo "${{ env.T_BUILD_DIR }}"
+          echo "${{ env.T_HEX_FILE_NAME }}"
+          echo "${{ env.T_HEX_FILE_PATH }}"
 
 
       - name: Create release artifact

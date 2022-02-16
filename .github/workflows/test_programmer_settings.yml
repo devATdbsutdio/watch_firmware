@@ -62,7 +62,7 @@ jobs:
       # Gotcha: The main Arduino ino file is named differently than the repo name. 
       # So we had to do some renaming as the compiler follows traditional arduino paradigm,
       # where the main ino file should have the same prefix name as the src root directory. 
-      - name: Compile main firmware binary [clean build ]
+      - name: Compile Test firmware binary [clean build ]
         run: |
           FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
           SKETCH_DIR="$(pwd)/Tests/components_check"
@@ -74,7 +74,7 @@ jobs:
           cd ../../..
 
 
-      - name: Set hex file's name and path as env vars
+      - name: Set test firmware's hex file name and path as env vars
         run: |
           echo Setting file name env vars
           echo "T_HEX_FILE_NAME=$(cd Tests/components_check/build && ls *.hex)" >> $GITHUB_ENV
