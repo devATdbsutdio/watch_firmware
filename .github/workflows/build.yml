@@ -120,27 +120,27 @@ jobs:
           echo "${{ env.T_HEX_FILE_PATH }}"
 
 
-      # - name: Create release artifact
-      #   id: create_release
-      #   uses: actions/create-release@v1
-      #   with:
-      #     draft: false
-      #     prerelease: false
-      #     tag_name: ${{ github.ref }}
-      #     release_name: Release ${{ github.ref }}
-      #   env:
-      #     GITHUB_TOKEN: ${{ github.token }}
+      - name: Create release artifact
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          draft: false
+          prerelease: false
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
-      # - name: Upload release artifact
-      #   id: upload-release-asset 
-      #   uses: actions/upload-release-asset@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ github.token }}
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: ${{ env.HEX_FILE_PATH }}
-      #     asset_name: ${{ env.HEX_FILE_NAME }}
-      #     asset_content_type: application/hex
+      - name: Upload release artifact
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ env.HEX_FILE_PATH }}
+          asset_name: ${{ env.HEX_FILE_NAME }}
+          asset_content_type: application/hex
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
