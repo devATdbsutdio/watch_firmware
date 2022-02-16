@@ -67,9 +67,11 @@ jobs:
           cd Tests/components_check
           pwd
           rm -rf build
+          cd ../..
           FQBN_ARG="-b megaTinyCore:megaavr:atxy7:chip=1607,clock=5internal,bodvoltage=1v8,bodmode=disabled,eesave=enable,millis=enabled,resetpin=UPDI,startuptime=0,wiremode=mors,printf=default,attach=allenabled"
-          OUTPUT_ARG="--output-dir $(pwd)/build"
-          ./arduino-cli compile $FQBN_ARG $OUTPUT_ARG
+          OUTPUT_ARG="--output-dir $(pwd)/Tests/components_check/build"
+          SKETCH_DIR="$(pwd)/Tests/components_check"
+          ./arduino-cli compile $FQBN_ARG $SKETCH_DIR $OUTPUT_ARG --clean
           cd build
           ls -l
           cd ..
