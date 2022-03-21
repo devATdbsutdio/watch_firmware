@@ -38,7 +38,8 @@ void setup() {
   setupButtons();
 
 
-  //--- Disable ADC ---// [ Doesn't have much affect for power saving in deep sleep but actually is counter productive, don't know why !]
+  //--- Disable ADC ---//
+  //--- [ Doesn't have much affect for power saving in deep sleep but actually is counter productive, don't know why !]
   //  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
   //--- Enable ADC ---//
   // ADC0.CTRLA |= ADC_ENABLE_bm;
@@ -77,7 +78,7 @@ void loop() {
     //--- Detect self referenced Batt voltage ---//
     ADCVoltRefSetup();
     uint16_t currBattVolt = measuredVoltage();
-    
+
 
     batteryWarningLED_OFF();      // On wake up, initialize the warning led dot of the segment to be OFF
     turnOffDisplay();             // On wake up, initialize the whole display segment to be OFF

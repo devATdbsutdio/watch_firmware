@@ -17,9 +17,9 @@ volatile byte showTimePeriodOver;
 
 //--- ISR for waking up from sleep mode ---//
 ISR(PORTC_PORT_vect) {
-  byte flags = PORTC.INTFLAGS; // slower a TID BIT 
+  byte flags = PORTC.INTFLAGS; // slower a TID BIT
   //  byte flags = VPORTC.INTFLAGS; // faster (TEST TBD)
-  
+
   PORTC.INTFLAGS = flags; //clear flags
   wakeUpTriggered = 1;
 }
