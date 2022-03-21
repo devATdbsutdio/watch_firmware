@@ -1,3 +1,4 @@
 *.key
+/Helper\ Docks/*.key
 *.ppt*
-
+/Helper\ Docks/*.ppt*
