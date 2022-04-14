@@ -9,7 +9,9 @@ License: MIT
 unsigned long btnWatchTimerStart;
 unsigned long btnWatchTimerCurr;
 int btnWatcherFlag = 0;
-int watchBtnFor = 10 ; // sec
+//int watchBtnFor = 10 ; // sec
+#define BTN_PIN 14
+#define watchBtnFor 10   // sec
 bool SW_OneState;
 bool old_SW_OneState;
 

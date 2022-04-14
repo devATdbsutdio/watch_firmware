@@ -19,6 +19,8 @@
 #include "displayOperator.h"
 #include "extraUtils.h"
 
+#define HOLD_DELAY 2000
+
 bool sentSerialcheckFlag;
 
 
@@ -40,7 +42,7 @@ void loop() {
   }
 
   /* ----  1. Check ATTINY's Internal digital IO Pin Status. ---- */
-  printStepTitle("CHECKING ATTINY's INT IOs", 2000);
+  printStepTitle("CHECKING ATTINY's INT IOs", HOLD_DELAY);
 
   if (!pinExaminationFinished) {
     examinePins();
@@ -51,7 +53,7 @@ void loop() {
 
 
   /* ----  2. Check rtc clock addr. ---- */
-  printStepTitle("CHECKING RTC's AVAILABILITY", 2000);
+  printStepTitle("CHECKING RTC's AVAILABILITY", HOLD_DELAY);
 
   if (pinExaminationFinished && !rtcAvailabilityChecked) {
     reportRTCAvailability();
@@ -62,7 +64,7 @@ void loop() {
 
 
   /* ---- 3. Check curr. factory default time ---- */
-  printStepTitle("CHECKING RTC's R/W FUNC", 2000);
+  printStepTitle("CHECKING RTC's R/W FUNC", HOLD_DELAY);
 
   if (rtcAvailabilityChecked && !rtcReadabilityChecked) {
     rtcReadWriteChecker();
@@ -73,8 +75,8 @@ void loop() {
 
 
   /* ---- 4. check button for presses ---- */
-  printStepTitle("CHECKING BUTTON COND [Press]", 2000);
-  initBtnPin(14);
+  printStepTitle("CHECKING BUTTON COND [Press]", HOLD_DELAY);
+  initBtnPin(BTN_PIN);
 
   if (rtcReadabilityChecked && !btnConnChecked) {
     btnChecker();
@@ -85,7 +87,7 @@ void loop() {
 
 
   /* ---- 5. check display routine ---- */
-  printStepTitle("CHECKING DISPLAY's CONDITION", 2000);
+  printStepTitle("CHECKING DISPLAY's CONDITION", HOLD_DELAY);
   printDisplayObservingInstructions();
   initSegmentDisplay();
 
