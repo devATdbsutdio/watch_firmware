@@ -9,7 +9,7 @@
 
 boolean readyToReceive;
 char incomingChar;
-int idx                     = 0;
+int idx = 0;
 
 
 // 02:18:19:6:25:06:2021:5  (totalDelimators == 7 and 23 bytes of data)
@@ -21,13 +21,13 @@ boolean newDataArrived;
 int totalDelimators;
 boolean awakePeriodChanged  = false;
 
-uint8_t dateToBeSet             = 0;
-uint8_t monthToBeSet            = 0;
-uint8_t yearToBeSet             = 0;
-uint8_t weekdayToBeSet          = 0;
-uint8_t hrToBeSet               = 0;
-uint8_t minToBeSet              = 0;
-uint8_t secToBeSet              = 0;
+uint8_t dateToBeSet         = 0;
+uint8_t monthToBeSet        = 0;
+uint8_t yearToBeSet         = 0;
+uint8_t weekdayToBeSet      = 0;
+uint8_t hrToBeSet           = 0;
+uint8_t minToBeSet          = 0;
+uint8_t secToBeSet          = 0;
 
 int stayAwakeFor            = 4000;
 int new_stayAwakeFor        = 4100;

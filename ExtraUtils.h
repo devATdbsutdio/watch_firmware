@@ -7,22 +7,28 @@
 */
 
 void disableUnusedPins() {
-  //  Set them to input pull and do not keep them floating
+  //  Set unused pins as inputpullup and do not keep them floating for better power-saving during
   PORTC.PIN0CTRL = PORT_PULLUPEN_bm;
   PORTC.PIN1CTRL = PORT_PULLUPEN_bm;
   PORTC.PIN3CTRL = PORT_PULLUPEN_bm;
   PORTC.PIN4CTRL = PORT_PULLUPEN_bm;
+
+  pinMode(12, OUTPUT); // PC0
+  pinMode(13, OUTPUT); // PC1
+  pinMode(14, OUTPUT); // PC3
+  pinMode(15, OUTPUT); // PC4
 }
 
-void disableSerialHWPins() {
-  PORTB.DIRSET = PIN3_bm;
+void disableSerialRXPin() {
+  PORTB.DIRSET = PIN2_bm;    // TX pin
+  PORTB.DIRSET = PIN3_bm;    // RX pin
   cli();
+  PORTB.OUT &= ~PIN2_bm;
   PORTB.OUT &= ~PIN3_bm;
   sei();
 }
 
 void disableTWI() {
-  //  TWI0.MCTRLA &= ~(TWI_ENABLE_bm);
   PORTB.DIRSET = PIN0_bm;
   PORTB.DIRSET = PIN1_bm;
   cli();

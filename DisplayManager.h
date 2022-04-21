@@ -13,7 +13,7 @@ const unsigned long period  = 10;  // the value is a number of Microseconds
 
 
 
-uint16_t warning_blink_gap  = 125;  // The warning LED will blink (toggle at 100 ms) for 1000 ms (1s) total
+uint16_t warning_blink_gap  = 100;  // The warning LED will blink (toggle at 125 ms) for 1000 ms (1s) total for 5/2=2.5(2 times) in 1 sec.
 int max_blinks              = 5;    // this will become 5*2 = 10 and then 10*warning_blink_gap = 1000 ms (because the clock is also ticking at 1000 ms)
 
 int do_blink                = 1;
@@ -33,11 +33,11 @@ void setupDisplay() {
   PORTA.DIRSET = 0b11111110; // [ PA 1-7 as Outputs]
 
   //  Anode Pins for LEDS
-  PORTB.DIRSET = 0b11110000;
+  PORTB.DIRSET = 0b11110000; // [ PB 4-7 as Outputs]
 }
 
 
-uint8_t blankSignal[4] = { 10, 10, 10, 10 };
+
 /*
   SINGLE 7 SEGEMNT LED LAYOUT
   --A--
@@ -65,6 +65,8 @@ unsigned char num_array[11] = {
   0b11011110, //9
   0b00010000 //_
 };
+
+uint8_t blankSignal[4] = { 10, 10, 10, 10 };
 
 
 int c = 0;

@@ -17,10 +17,8 @@ volatile byte showTimePeriodOver;
 
 //--- ISR for waking up from sleep mode ---//
 ISR(PORTC_PORT_vect) {
-  byte flags = PORTC.INTFLAGS; // slower a TID BIT
-  //  byte flags = VPORTC.INTFLAGS; // faster (TEST TBD)
-
-  PORTC.INTFLAGS = flags; //clear flags
+  byte flags = VPORTC.INTFLAGS; // a tid bit faster method
+  PORTC.INTFLAGS = flags;       //clear flags
   wakeUpTriggered = 1;
 }
 
@@ -44,8 +42,18 @@ ISR(RTC_CNT_vect) {
 
 
 //--- Buttons initialization ---//
-void setupButtons() {
-  PORTC.PIN2CTRL = 0b00001001; // in INPUT pullup mode - will trigger an async ISR // for wakeup from sleep
+void setupButton() {
+  //  Set PC2 (async interrupt pin) as input_pullup so that an async ISR can be triggered to wakeup the uC from sleep
+  PORTC.PIN2CTRL = PORT_PULLUPEN_bm | PORT_ISC_FALLING_gc;
+  /*
+     Other methods are as follows:
+     BOTHEDGES
+     RISING
+     FALLING
+     LEVEL
+  */
+
+  //  PORTC.PIN2CTRL = 0b00001001; // or just set as simple input_pull, without specifying interrupt curve
 }
 
 
@@ -53,7 +61,7 @@ void watchButtons() {
   if (wakeUpTriggered == 1) {
     wakeUpTriggered = 0;
 
-    // Read PC2
+    // Read PC2 input state
     SW_OneState = PORTC.IN & PIN2_bm;
 
     if (SW_OneState) {
