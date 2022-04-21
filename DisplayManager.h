@@ -9,11 +9,11 @@
 
 unsigned long startMicros;
 unsigned long currentMicros;
-const unsigned long period  = 10;  // the value is a number of Microseconds
+const unsigned long period  = 10;   // the value is a number of Microseconds
 
 
 
-uint16_t warning_blink_gap  = 125;  // The warning LED will blink (toggle at 100 ms) for 1000 ms (1s) total
+uint16_t warning_blink_gap  = 125;  // The warning LED will blink (toggle at 100 ms) for a total time of 1000 ms (1s) total with 5/2=2.5 (approx 2) 2 blinks 
 int max_blinks              = 5;    // this will become 5*2 = 10 and then 10*warning_blink_gap = 1000 ms (because the clock is also ticking at 1000 ms)
 
 int do_blink                = 1;
@@ -26,14 +26,14 @@ unsigned long currentWarningCountMillis;
 
 void setupDisplay() {
   //  Cathode Pin for last dot of the LED segment (used for battery low warning)
-  PORTC.DIRSET = PIN5_bm; // use PC5 as an output
-  PORTC.OUTCLR = PIN5_bm; // turn PC5 output off
+  PORTC.DIRSET = PIN5_bm;    // Use PC5 as an output
+  PORTC.OUTCLR = PIN5_bm;    // Turn PC5 output off
 
   //  Cathode Pins for LEDS segments
-  PORTA.DIRSET = 0b11111110; // [ PA 1-7 as Outputs]
+  PORTA.DIRSET = 0b11111110; // [PA 1-7 as Outputs]
 
   //  Anode Pins for LEDS
-  PORTB.DIRSET = 0b11110000;
+  PORTB.DIRSET = 0b11110000; // [PB 4-7 as Outputs]
 }
 
 

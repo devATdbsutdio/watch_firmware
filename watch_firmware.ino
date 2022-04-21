@@ -39,9 +39,8 @@ void setup() {
 
 
   //--- Disable ADC ---//
-  //--- [ Doesn't have much affect for power saving in deep sleep but actually is counter productive, don't know why !]
-  //  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
-  //--- Enable ADC ---//
+  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
+  //--- Note: this is how you can re-enable ADC ---//
   // ADC0.CTRLA |= ADC_ENABLE_bm;
 
 
@@ -50,7 +49,7 @@ void setup() {
 
   // Enable interrupt
   sei();
-
+  
   // Setup some counters...
   startCountMillis = millis();        // For the ext rtc
   startMicros = micros();             // For display fps

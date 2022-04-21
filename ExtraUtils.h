@@ -15,8 +15,10 @@ void disableUnusedPins() {
 }
 
 void disableSerialHWPins() {
-  PORTB.DIRSET = PIN3_bm;
+  PORTB.DIRSET = PIN2_bm; // TX
+  PORTB.DIRSET = PIN3_bm; // RX
   cli();
+  PORTB.OUT &= ~PIN2_bm;
   PORTB.OUT &= ~PIN3_bm;
   sei();
 }

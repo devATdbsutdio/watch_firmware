@@ -17,9 +17,7 @@ volatile byte showTimePeriodOver;
 
 //--- ISR for waking up from sleep mode ---//
 ISR(PORTC_PORT_vect) {
-  byte flags = PORTC.INTFLAGS; // slower a TID BIT
-  //  byte flags = VPORTC.INTFLAGS; // faster (TEST TBD)
-
+  byte flags = VPORTC.INTFLAGS; // faster (TEST TBD)
   PORTC.INTFLAGS = flags; //clear flags
   wakeUpTriggered = 1;
 }
@@ -45,7 +43,17 @@ ISR(RTC_CNT_vect) {
 
 //--- Buttons initialization ---//
 void setupButtons() {
-  PORTC.PIN2CTRL = 0b00001001; // in INPUT pullup mode - will trigger an async ISR // for wakeup from sleep
+  PORTC.PIN2CTRL = PORT_PULLUPEN_bm | PORT_ISC_LEVEL_gc;
+  /*
+     Other ISR routines are:
+     BOTHEDGES
+     RISING
+     FALLING
+     LEVEL
+  */
+  
+  // In INPUT pullup mode - will trigger an async ISR, for wakeup from sleep
+  // PORTC.PIN2CTRL = 0b00001001;
 }
 
 
