@@ -1,6 +1,6 @@
 
 
-Symbols from /private/var/folders/yp/37w_03rx1qdbfsqckbyyk9t80000gn/T/arduino-sketch-5380282240B235EA65F31E83BC95B4D4/components_check.ino.elf:
+Symbols from /private/var/folders/yp/37w_03rx1qdbfsqckbyyk9t80000gn/T/arduino-sketch-5881CB90D42ECC6070325818771F6501/components_check.ino.elf:
 
 Name                  Value   Class        Type         Size     Line  Section
 
@@ -45,195 +45,196 @@ __SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
 __SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
 __SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
 __SREG__            |0000003f|   a  |            NOTYPE|        |     |*ABS*
-__ctors_start       |0000007c|   T  |            NOTYPE|        |     |.text
+__c.2216            |0000007c|   t  |            OBJECT|00000007|     |.text
 __trampolines_end   |0000007c|   T  |            NOTYPE|        |     |.text
 __trampolines_start |0000007c|   T  |            NOTYPE|        |     |.text
-__ctors_end         |0000007e|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
-__dtors_end         |0000007e|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
-__dtors_start       |0000007e|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
-__init              |0000007e|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
-_initThreeStuff()   |0000008a|   T  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/main.cpp:114
-__do_clear_bss      |000000a2|   T  |            NOTYPE|00000010|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2441
-.do_clear_bss_loop  |000000aa|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2446
-.do_clear_bss_start |000000ac|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2448
-__do_copy_data      |000000b2|   T  |            NOTYPE|00000016|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2409
-__do_global_ctors   |000000c8|   T  |            NOTYPE|00000016|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2466
-__bad_interrupt     |000000e4|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_1          |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_10         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_11         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_12         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_13         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_14         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_15         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_16         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_17         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_18         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_19         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_2          |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_20         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_21         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_22         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_23         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_24         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_25         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_26         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_3          |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_30         |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_4          |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_5          |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_6          |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_7          |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-__vector_8          |000000e4|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
-TinyMegaI2CMaster::start(unsigned char, int) [clone .constprop.18]|000000e6|   t  |              FUNC|0000003e|     |.text	/Users/saurabhdatta/Documents/Arduino/libraries/TinyMegaI2C/src/TinyMegaI2C.cpp:66
+__c.2210            |00000083|   t  |            OBJECT|00000010|     |.text
+__ctors_start       |00000094|   T  |            NOTYPE|        |     |.text
+__ctors_end         |00000096|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__dtors_end         |00000096|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__dtors_start       |00000096|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+__init              |00000096|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:230
+_initThreeStuff()   |000000a2|   T  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/main.cpp:114
+__do_clear_bss      |000000ba|   T  |            NOTYPE|00000010|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2441
+.do_clear_bss_loop  |000000c2|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2446
+.do_clear_bss_start |000000c4|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2448
+__do_copy_data      |000000ca|   T  |            NOTYPE|00000016|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2409
+__do_global_ctors   |000000e0|   T  |            NOTYPE|00000016|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2466
+__bad_interrupt     |000000fc|   T  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_1          |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_10         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_11         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_12         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_13         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_14         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_15         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_16         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_17         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_18         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_19         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_2          |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_20         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_21         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_22         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_23         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_24         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_25         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_26         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_3          |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_30         |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_4          |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_5          |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_6          |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_7          |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+__vector_8          |000000fc|   W  |            NOTYPE|        |     |.text	../../../../crt1/gcrt1.S:209
+TinyMegaI2CMaster::start(unsigned char, int) [clone .constprop.18]|000000fe|   t  |              FUNC|0000003e|     |.text	/Users/saurabhdatta/Documents/Arduino/libraries/TinyMegaI2C/src/TinyMegaI2C.cpp:66
 __EEPROM_REGION_LENGTH__|00000100|   A  |            NOTYPE|        |     |*ABS*
-RV8803Tiny::readMultipleRegisters(unsigned char, unsigned char*, unsigned char) [clone .constprop.8]|00000124|   t  |              FUNC|00000098|     |.text	/Users/saurabhdatta/Documents/Arduino/libraries/RV8803Tiny/src/RV8803Tiny.cpp:402
-UartClass::availableForWrite()|000001bc|   t  |              FUNC|0000001e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:642
-UartClass::read()   |000001da|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:626
-UartClass::peek()   |00000202|   t  |              FUNC|0000001c|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:618
-UartClass::available()|0000021e|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:614
-UartClass::end()    |00000236|   t  |              FUNC|0000002e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:598
-UartClass::_poll_tx_data_empty()|00000264|   t  |              FUNC|0000003e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:352
-_poll_dre_done      |000002a0|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:404
-UartClass::write(unsigned char)|000002a2|   t  |              FUNC|00000098|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:682
-UartClass::flush()  |0000033a|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:651
-Print::write(unsigned char const*, unsigned int)|00000362|   t  |              FUNC|0000005a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/Print.cpp:29
-UartClass::operator bool()|000003bc|   t  |              FUNC|00000004|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.h:293
-micros              |000003c0|   t  |              FUNC|0000005e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/wiring.c:262
+RV8803Tiny::readMultipleRegisters(unsigned char, unsigned char*, unsigned char) [clone .constprop.8]|0000013c|   t  |              FUNC|00000098|     |.text	/Users/saurabhdatta/Documents/Arduino/libraries/RV8803Tiny/src/RV8803Tiny.cpp:402
+UartClass::availableForWrite()|000001d4|   t  |              FUNC|0000001e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:642
+UartClass::read()   |000001f2|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:626
+UartClass::peek()   |0000021a|   t  |              FUNC|0000001c|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:618
+UartClass::available()|00000236|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:614
+UartClass::end()    |0000024e|   t  |              FUNC|0000002e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:598
+UartClass::_poll_tx_data_empty()|0000027c|   t  |              FUNC|0000003e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:352
+_poll_dre_done      |000002b8|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:404
+UartClass::write(unsigned char)|000002ba|   t  |              FUNC|00000098|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:682
+UartClass::flush()  |00000352|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:651
+Print::write(unsigned char const*, unsigned int)|0000037a|   t  |              FUNC|0000005a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/Print.cpp:29
+UartClass::operator bool()|000003d4|   t  |              FUNC|00000004|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.h:293
+micros              |000003d8|   t  |              FUNC|0000005e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:307
 __DATA_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
 __LOCK_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
 __SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
 __USER_SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
-delay               |0000041e|   t  |              FUNC|00000052|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/wiring.c:724
-millis              |00000470|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/wiring.c:223
-UartClass::begin(unsigned long)|00000488|   t  |              FUNC|00000012|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.h:257
-Print::write(char const*) [clone .part.2] [clone .constprop.35]|0000049a|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/Print.h:56
-Print::println(String const&) [clone .constprop.27]|000004b2|   t  |              FUNC|00000026|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/Print.cpp:127
-Print::println(char const*) [clone .constprop.32]|000004d8|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/Print.cpp:133
-Print::print(int, int) [clone .constprop.20]|000004f0|   t  |              FUNC|000000e8|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/Print.cpp:78
-String::invalidate()|000005d8|   t  |              FUNC|00000024|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/String.cpp:127
-String::~String()   |000005fc|   t  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/String.cpp:114
-String::~String()   |000005fc|   t  |              FUNC|0000000a|     |.text
-pinMode             |00000606|   t  |              FUNC|0000004c|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/wiring_digital.c:133
-TinyMegaI2CMaster::init() [clone .constprop.17]|00000652|   t  |              FUNC|0000001a|     |.text	/Users/saurabhdatta/Documents/Arduino/libraries/TinyMegaI2C/src/TinyMegaI2C.cpp:19
-UartClass::begin(unsigned long, unsigned int)|0000066c|   t  |              FUNC|00000154|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:470
-String::reserve(unsigned int)|000007c0|   t  |              FUNC|00000050|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:553
-String::concat(char const*, unsigned int)|00000810|   t  |              FUNC|00000056|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/String.cpp:145
-operator+(StringSumHelper const&, char const*)|00000866|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/String.cpp:362
-operator+(StringSumHelper const&, String const&)|0000088e|   t  |              FUNC|00000022|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/String.cpp:354
-String::copy(char const*, unsigned int)|000008b0|   t  |              FUNC|0000003e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/String.cpp:162
-String::String(int, unsigned char) [clone .constprop.25]|000008ee|   t  |              FUNC|00000060|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/String.cpp:73
-String::String(char const*)|0000094e|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/String.cpp:122
-String::String(char const*)|0000094e|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/api/String.cpp:122
-printStepTitle(String, int) [clone .constprop.2]|00000976|   t  |              FUNC|000000ea|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/extraUtils.h:20
-_do_dre()           |00000a60|   T  |              FUNC|0000005c|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:224
-_do_dre             |00000a60|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:307
-_poll_dre           |00000a70|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:307
-_done_dre_irq       |00000a9e|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:307
-_do_rxc()           |00000abc|   T  |              FUNC|00000048|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:124
-_do_rxc             |00000abc|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:307
-_end_rxc            |00000af0|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:175
-_do_txc()           |00000b04|   T  |              FUNC|00000026|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:82
-_do_txc             |00000b04|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:105
-_txc_flush_rx       |00000b0e|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART.cpp:105
-__vector_28         |00000b2a|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART0.cpp:69
-__vector_27         |00000b34|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART0.cpp:51
-__vector_29         |00000b3e|   T  |              FUNC|00000006|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART0.cpp:26
-__vector_9          |00000b44|   T  |              FUNC|000000ac|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/wiring.c:130
-global constructors keyed to 65535_0_components_check.ino.cpp.o.2654|00000bf0|   t  |              FUNC|0000002e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/wiring.c:179
-main                |00000c1e|   T  |              FUNC|00000b26|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/main.cpp:49
-__itoa_ncheck       |00001744|   T  |              FUNC|00000014|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/components_check.ino:96
-__utoa_ncheck       |00001758|   T  |              FUNC|00000032|     |.text
-__utoa_common       |0000175a|   T  |            NOTYPE|        |     |.text
-vfprintf            |0000178a|   T  |              FUNC|00000396|     |.text
-strnlen_P           |00001b20|   T  |              FUNC|00000016|     |.text
-strnlen             |00001b36|   T  |              FUNC|00000016|     |.text
-strrev              |00001b4c|   T  |              FUNC|00000020|     |.text
-fputc               |00001b6c|   T  |              FUNC|00000060|     |.text
-__ultoa_invert      |00001bcc|   T  |              FUNC|000000bc|     |.text
-__muluhisi3         |00001c88|   T  |            NOTYPE|00000014|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:626
-__prologue_saves__  |00001c9c|   T  |            NOTYPE|00000032|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2169
-__epilogue_restores__|00001cce|   T  |            NOTYPE|00000030|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2222
-__umulhisi3         |00001cfe|   T  |            NOTYPE|0000001e|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:564
-__udivmodsi4        |00001d1c|   T  |            NOTYPE|00000044|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1638
-__udivmodsi4_loop   |00001d28|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1646
-__udivmodsi4_ep     |00001d42|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1660
-__tablejump2__      |00001d60|   T  |            NOTYPE|0000000c|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2296
-malloc              |00001d6c|   T  |              FUNC|00000138|     |.text
-free                |00001ea4|   T  |              FUNC|00000112|     |.text
-realloc             |00001fb6|   T  |              FUNC|0000016c|     |.text
-memcpy              |00002122|   T  |              FUNC|00000012|     |.text
-strcpy              |00002134|   T  |              FUNC|0000000e|     |.text
-sprintf             |00002142|   T  |              FUNC|00000040|     |.text
-_exit               |00002182|   T  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
-exit                |00002182|   W  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
-__stop_program      |00002184|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
-_etext              |00002186|   T  |            NOTYPE|        |     |.text
-__data_load_start   |0000255b|   A  |            NOTYPE|        |     |*ABS*
-__data_load_end     |00002567|   A  |            NOTYPE|        |     |*ABS*
+delay               |00000436|   t  |              FUNC|00000052|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:770
+millis              |00000488|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:245
+UartClass::begin(unsigned long)|000004a0|   t  |              FUNC|00000012|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.h:257
+Print::write(char const*) [clone .part.2] [clone .constprop.35]|000004b2|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/Print.h:56
+Print::println(String const&) [clone .constprop.27]|000004ca|   t  |              FUNC|00000026|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/Print.cpp:127
+Print::println(char const*) [clone .constprop.32]|000004f0|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/Print.cpp:133
+Print::print(int, int) [clone .constprop.20]|00000508|   t  |              FUNC|000000e8|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/Print.cpp:78
+String::invalidate()|000005f0|   t  |              FUNC|00000024|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.cpp:127
+String::~String()   |00000614|   t  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.cpp:114
+String::~String()   |00000614|   t  |              FUNC|0000000a|     |.text
+pinMode             |0000061e|   t  |              FUNC|0000004a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring_digital.c:133
+TinyMegaI2CMaster::init() [clone .constprop.17]|00000668|   t  |              FUNC|0000001a|     |.text	/Users/saurabhdatta/Documents/Arduino/libraries/TinyMegaI2C/src/TinyMegaI2C.cpp:19
+UartClass::begin(unsigned long, unsigned int)|00000682|   t  |              FUNC|00000154|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:470
+String::reserve(unsigned int)|000007d6|   t  |              FUNC|00000050|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:553
+String::concat(char const*, unsigned int)|00000826|   t  |              FUNC|00000056|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.cpp:145
+operator+(StringSumHelper const&, char const*)|0000087c|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.cpp:362
+operator+(StringSumHelper const&, String const&)|000008a4|   t  |              FUNC|00000022|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.cpp:354
+String::copy(char const*, unsigned int)|000008c6|   t  |              FUNC|0000003e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.cpp:162
+String::String(int, unsigned char) [clone .constprop.25]|00000904|   t  |              FUNC|00000062|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.cpp:168
+String::String(char const*)|00000966|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.cpp:122
+String::String(char const*)|00000966|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.cpp:122
+printStepTitle(String, int) [clone .constprop.2]|0000098e|   t  |              FUNC|000000ea|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/extraUtils.h:20
+_do_dre()           |00000a78|   T  |              FUNC|0000005c|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:224
+_do_dre             |00000a78|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/extraUtils.h:31
+_poll_dre           |00000a88|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
+_done_dre_irq       |00000ab6|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
+_do_rxc()           |00000ad4|   T  |              FUNC|00000048|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:124
+_do_rxc             |00000ad4|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
+_end_rxc            |00000b08|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:175
+_do_txc()           |00000b1c|   T  |              FUNC|00000026|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:82
+_do_txc             |00000b1c|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:105
+_txc_flush_rx       |00000b26|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:105
+__vector_28         |00000b42|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:69
+__vector_27         |00000b4c|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:51
+__vector_29         |00000b56|   T  |              FUNC|00000006|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:26
+__vector_9          |00000b5c|   T  |              FUNC|000000ac|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:145
+vfprintf            |00000c08|   T  |              FUNC|00000220|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:201
+global constructors keyed to 65535_0_components_check.ino.cpp.o.2653|00000e28|   t  |              FUNC|0000002e|     |.text
+main                |00000e56|   T  |              FUNC|00000b46|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/main.cpp:49
+__prologue_saves__  |0000199c|   T  |            NOTYPE|00000032|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2169
+__epilogue_restores__|000019ce|   T  |            NOTYPE|00000030|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2222
+strchr_P            |000019fe|   T  |              FUNC|00000016|     |.text
+__itoa_ncheck       |00001a14|   T  |              FUNC|00000014|     |.text
+__utoa_ncheck       |00001a28|   T  |              FUNC|00000032|     |.text
+__utoa_common       |00001a2a|   T  |            NOTYPE|        |     |.text
+fputc               |00001a5a|   T  |              FUNC|00000060|     |.text
+__ultoa_invert      |00001aba|   T  |              FUNC|000000bc|     |.text
+strrev              |00001b76|   T  |              FUNC|00000020|     |.text
+__muluhisi3         |00001b96|   T  |            NOTYPE|00000014|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:626
+__umulhisi3         |00001baa|   T  |            NOTYPE|0000001e|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:564
+__udivmodsi4        |00001bc8|   T  |            NOTYPE|00000044|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1638
+__udivmodsi4_loop   |00001bd4|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1646
+__udivmodsi4_ep     |00001bee|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1660
+__tablejump2__      |00001c0c|   T  |            NOTYPE|0000000c|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2296
+malloc              |00001c18|   T  |              FUNC|00000138|     |.text
+free                |00001d50|   T  |              FUNC|00000112|     |.text
+realloc             |00001e62|   T  |              FUNC|0000016c|     |.text
+memcpy              |00001fce|   T  |              FUNC|00000012|     |.text
+strcpy              |00001fe0|   T  |              FUNC|0000000e|     |.text
+sprintf             |00001fee|   T  |              FUNC|00000042|     |.text
+_exit               |00002030|   T  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+exit                |00002030|   W  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+__stop_program      |00002032|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
+_etext              |00002034|   T  |            NOTYPE|        |     |.text
+__data_load_start   |00002409|   A  |            NOTYPE|        |     |*ABS*
+__data_load_end     |00002415|   A  |            NOTYPE|        |     |*ABS*
 __stack             |00003fff|   W  |            NOTYPE|        |     |*ABS*
 __TEXT_REGION_LENGTH__|00004000|   A  |            NOTYPE|        |     |*ABS*
 __RODATA_PM_OFFSET__|00008000|   A  |            NOTYPE|        |     |*ABS*
-digital_pin_to_bit_position|0000a186|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/variants/txy7/pins_arduino.h:291
-digital_pin_to_port |0000a19c|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/variants/txy7/pins_arduino.h:263
-digital_pin_to_bit_mask|0000a1b2|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/variants/txy7/pins_arduino.h:318
-num_array           |0000a1c8|   r  |            OBJECT|0000000b|     |.rodata	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:67
-_usart_pins         |0000a1d3|   r  |            OBJECT|00000008|     |.rodata
-vtable for UartClass|0000a1db|   r  |            OBJECT|0000001a|     |.rodata
+digital_pin_to_bit_position|0000a034|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:291
+digital_pin_to_port |0000a04a|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:263
+digital_pin_to_bit_mask|0000a060|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:318
+num_array           |0000a076|   r  |            OBJECT|0000000b|     |.rodata	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:67
+_usart_pins         |0000a081|   r  |            OBJECT|00000008|     |.rodata
+vtable for UartClass|0000a089|   r  |            OBJECT|0000001a|     |.rodata
 __DATA_REGION_ORIGIN__|00803c00|   A  |            NOTYPE|        |     |*ABS*
 __data_start        |00803c00|   D  |            NOTYPE|        |     |.data
-pac                 |00803c00|   d  |            OBJECT|00000002|     |.data	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:28
-digits_             |00803c02|   d  |            OBJECT|00000004|     |.data	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:13
+pac                 |00803c00|   d  |            OBJECT|00000002|     |.data	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:28
+digits_             |00803c02|   d  |            OBJECT|00000004|     |.data	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:13
 __malloc_heap_end   |00803c06|   D  |            OBJECT|00000002|     |.data
 __malloc_heap_start |00803c08|   D  |            OBJECT|00000002|     |.data
 __malloc_margin     |00803c0a|   D  |            OBJECT|00000002|     |.data
 __bss_start         |00803c0c|   B  |            NOTYPE|        |     |.bss
 __data_end          |00803c0c|   D  |            NOTYPE|        |     |.data
 _edata              |00803c0c|   D  |            NOTYPE|        |     |.data
-timer_fract         |00803c0c|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/wiring.c:68
-timer_millis        |00803c0e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/wiring.c:70
-timer_overflow_count|00803c12|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/wiring.c:74
-portCStatus         |00803c16|   b  |            OBJECT|0000000c|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:34
-pcc                 |00803c22|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:30
-portBStatus         |00803c24|   b  |            OBJECT|00000010|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:33
-isSerialPin         |00803c34|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:64
-pbc                 |00803c35|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:29
-portAStatus         |00803c37|   b  |            OBJECT|0000000e|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:32
-secondState         |00803c45|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:63
-firstState          |00803c46|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:62
-PORTC_checked       |00803c47|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:15
-PORTB_checked       |00803c48|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:14
-PORTA_checked       |00803c49|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:13
-pinTestModeStartMillis|00803c4a|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:10
-pinTestModeCurrMillis|00803c4e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:11
-checking_rtc_counter|00803c52|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/rtcExaminer.h:13
+timer_fract         |00803c0c|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:68
+timer_millis        |00803c0e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:70
+timer_overflow_count|00803c12|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:74
+portCStatus         |00803c16|   b  |            OBJECT|0000000c|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:34
+pcc                 |00803c22|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:30
+portBStatus         |00803c24|   b  |            OBJECT|00000010|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:33
+isSerialPin         |00803c34|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:64
+pbc                 |00803c35|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:29
+portAStatus         |00803c37|   b  |            OBJECT|0000000e|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:32
+secondState         |00803c45|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:63
+firstState          |00803c46|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:62
+PORTC_checked       |00803c47|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:15
+PORTB_checked       |00803c48|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:14
+PORTA_checked       |00803c49|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:13
+pinTestModeStartMillis|00803c4a|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:10
+pinTestModeCurrMillis|00803c4e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:11
+checking_rtc_counter|00803c52|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:13
 RV8803Tiny::stringTime()::time|00803c54|   b  |            OBJECT|00000009|     |.bss
 RV8803Tiny::stringDate()::date|00803c5d|   b  |            OBJECT|0000000b|     |.bss
-rtcReadable         |00803c68|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/rtcExaminer.h:15
-rtcAvailable        |00803c69|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/rtcExaminer.h:14
-btnInitialized      |00803c6a|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/btnExaminer.h:16
-SW_OneState         |00803c6b|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/btnExaminer.h:13
-btnWatcherFlag      |00803c6c|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/btnExaminer.h:11
-btnWatchTimerStart  |00803c6e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/btnExaminer.h:9
-btnWatchTimerCurr   |00803c72|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/btnExaminer.h:10
-showdisplayobservinginstructions|00803c76|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:22
-displayPinsInitialized|00803c77|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:131
-c                   |00803c78|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:83
-startDisplayFPSMicros|00803c7a|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:9
-currDisplayFPSMicros|00803c7e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:10
-startCountMillis    |00803c82|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:14
-prevCounter         |00803c86|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:18
-displayCycleCounter |00803c88|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:17
-displayChecked      |00803c8a|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/displayOperator.h:20
-btnConnChecked      |00803c8b|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/btnExaminer.h:17
-rtcReadabilityChecked|00803c8c|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/rtcExaminer.h:18
-rtcAvailabilityChecked|00803c8d|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/rtcExaminer.h:17
-pinExaminationFinished|00803c8e|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/internalIOExaminer.h:16
-sentSerialcheckFlag |00803c8f|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/components_check.ino:22
-printHeader         |00803c90|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/extraUtils.h:10
+rtcReadable         |00803c68|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:15
+rtcAvailable        |00803c69|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:14
+btnInitialized      |00803c6a|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:18
+SW_OneState         |00803c6b|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:15
+btnWatcherFlag      |00803c6c|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:11
+btnWatchTimerStart  |00803c6e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:9
+btnWatchTimerCurr   |00803c72|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:10
+showdisplayobservinginstructions|00803c76|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:22
+displayPinsInitialized|00803c77|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:131
+c                   |00803c78|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:83
+startDisplayFPSMicros|00803c7a|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:9
+currDisplayFPSMicros|00803c7e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:10
+startCountMillis    |00803c82|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:14
+prevCounter         |00803c86|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:18
+displayCycleCounter |00803c88|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:17
+displayChecked      |00803c8a|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:20
+btnConnChecked      |00803c8b|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:19
+rtcReadabilityChecked|00803c8c|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:18
+rtcAvailabilityChecked|00803c8d|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:17
+pinExaminationFinished|00803c8e|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:16
+sentSerialcheckFlag |00803c8f|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:24
+printHeader         |00803c90|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/extraUtils.h:10
 TinyMegaI2C         |00803c91|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/Documents/Arduino/libraries/TinyMegaI2C/src/TinyMegaI2C.cpp:91
-Serial              |00803c93|   b  |            OBJECT|00000075|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.10/cores/megatinycore/UART0.cpp:81
-rtc                 |00803d08|   b  |            OBJECT|0000000f|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/clock_firmware_production/Tests/components_check/rtcExaminer.h:11
+Serial              |00803c93|   b  |            OBJECT|00000075|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:81
+rtc                 |00803d08|   b  |            OBJECT|0000000f|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:11
 __brkval            |00803d17|   B  |            OBJECT|00000002|     |.bss
 __flp               |00803d19|   B  |            OBJECT|00000002|     |.bss
 __bss_end           |00803d1b|   B  |            NOTYPE|        |     |.bss
