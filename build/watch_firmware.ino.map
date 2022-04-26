@@ -97,65 +97,65 @@ disableTWI()        |00000442|   t  |              FUNC|0000001e|     |.text	/Us
 disableSerialHWPins()|00000460|   t  |              FUNC|0000001e|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/ExtraUtils.h:18
 turnOffDisplay()    |0000047e|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/DisplayManager.h:100
 showOnDisplay(unsigned char*)|00000496|   t  |              FUNC|000000c6|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/DisplayManager.h:71
-getAndShowTime()    |0000055c|   t  |              FUNC|0000017c|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/RTCManager.h:29
-UartClass::begin(unsigned long)|000006d8|   t  |              FUNC|00000012|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.h:257
-pinMode             |000006ea|   t  |              FUNC|0000004a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring_digital.c:133
-UartClass::begin(unsigned long, unsigned int)|00000734|   t  |              FUNC|00000152|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:470
-__vector_28         |00000886|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:69
-__vector_27         |00000890|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:51
-__vector_29         |0000089a|   T  |              FUNC|00000006|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:26
-_do_dre()           |000008a0|   T  |              FUNC|0000005c|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:224
-_do_dre             |000008a0|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:31
-_poll_dre           |000008b0|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
-_done_dre_irq       |000008de|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
-_do_rxc()           |000008fc|   T  |              FUNC|00000048|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:124
-_do_rxc             |000008fc|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
-_end_rxc            |00000930|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:175
-_do_txc()           |00000944|   T  |              FUNC|00000026|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:82
-_do_txc             |00000944|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:175
-_txc_flush_rx       |0000094e|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:105
-__vector_9          |0000096a|   T  |              FUNC|000000ac|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:145
-__vector_6          |00000a16|   T  |              FUNC|00000022|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Buttons.h:37
-__vector_5          |00000a38|   T  |              FUNC|00000024|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Buttons.h:19
-vfprintf            |00000a5c|   T  |              FUNC|00000220|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Buttons.h:23
-global constructors keyed to 65535_0_watch_firmware.ino.cpp.o.2557|00000c7c|   t  |              FUNC|0000002e|     |.text
-main                |00000caa|   T  |              FUNC|0000052a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/main.cpp:49
-__prologue_saves__  |000011d4|   T  |            NOTYPE|00000032|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2169
-__epilogue_restores__|00001206|   T  |            NOTYPE|00000030|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2222
-atoi                |00001236|   T  |              FUNC|0000003a|     |.text
-strchr_P            |00001270|   T  |              FUNC|00000016|     |.text
-strtok              |00001286|   T  |              FUNC|00000006|     |.text
-strtok_r            |0000128c|   T  |              FUNC|0000004e|     |.text
-__mulhi_const_10    |000012da|   T  |            NOTYPE|        |     |.text
-fputc               |000012ea|   T  |              FUNC|00000060|     |.text
-__ultoa_invert      |0000134a|   T  |              FUNC|000000bc|     |.text
-__udivmodqi4        |00001406|   T  |            NOTYPE|00000018|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1346
-__udivmodqi4_loop   |0000140c|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1350
-__udivmodqi4_ep     |00001414|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1355
-__udivmodhi4        |0000141e|   T  |            NOTYPE|00000028|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1408
-__udivmodhi4_loop   |00001426|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1413
-__udivmodhi4_ep     |00001434|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1421
-__udivmodsi4        |00001446|   T  |            NOTYPE|00000044|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1638
-__udivmodsi4_loop   |00001452|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1646
-__udivmodsi4_ep     |0000146c|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1660
-__muluhisi3         |0000148a|   T  |            NOTYPE|00000014|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:626
-__tablejump2__      |0000149e|   T  |            NOTYPE|0000000c|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2296
-__umulhisi3         |000014aa|   T  |            NOTYPE|0000001e|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:564
-_exit               |000014c8|   T  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
-exit                |000014c8|   W  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
-__stop_program      |000014ca|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
-_etext              |000014cc|   T  |            NOTYPE|        |     |.text
-__data_load_start   |0000153d|   A  |            NOTYPE|        |     |*ABS*
-__data_load_end     |00001547|   A  |            NOTYPE|        |     |*ABS*
+getAndShowTime()    |0000055c|   t  |              FUNC|00000194|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/RTCManager.h:29
+UartClass::begin(unsigned long)|000006f0|   t  |              FUNC|00000012|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.h:257
+pinMode             |00000702|   t  |              FUNC|0000004a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring_digital.c:133
+UartClass::begin(unsigned long, unsigned int)|0000074c|   t  |              FUNC|00000152|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:470
+__vector_28         |0000089e|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:69
+__vector_27         |000008a8|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:51
+__vector_29         |000008b2|   T  |              FUNC|00000006|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:26
+_do_dre()           |000008b8|   T  |              FUNC|0000005c|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:224
+_do_dre             |000008b8|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:31
+_poll_dre           |000008c8|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
+_done_dre_irq       |000008f6|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
+_do_rxc()           |00000914|   T  |              FUNC|00000048|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:124
+_do_rxc             |00000914|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
+_end_rxc            |00000948|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:175
+_do_txc()           |0000095c|   T  |              FUNC|00000026|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:82
+_do_txc             |0000095c|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:175
+_txc_flush_rx       |00000966|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:105
+__vector_9          |00000982|   T  |              FUNC|000000ac|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:145
+__vector_6          |00000a2e|   T  |              FUNC|00000022|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Buttons.h:37
+__vector_5          |00000a50|   T  |              FUNC|00000024|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Buttons.h:19
+vfprintf            |00000a74|   T  |              FUNC|00000220|     |.text	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Buttons.h:23
+global constructors keyed to 65535_0_watch_firmware.ino.cpp.o.2557|00000c94|   t  |              FUNC|0000002e|     |.text
+main                |00000cc2|   T  |              FUNC|0000052a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/main.cpp:49
+__prologue_saves__  |000011ec|   T  |            NOTYPE|00000032|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2169
+__epilogue_restores__|0000121e|   T  |            NOTYPE|00000030|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2222
+atoi                |0000124e|   T  |              FUNC|0000003a|     |.text
+strchr_P            |00001288|   T  |              FUNC|00000016|     |.text
+strtok              |0000129e|   T  |              FUNC|00000006|     |.text
+strtok_r            |000012a4|   T  |              FUNC|0000004e|     |.text
+__mulhi_const_10    |000012f2|   T  |            NOTYPE|        |     |.text
+fputc               |00001302|   T  |              FUNC|00000060|     |.text
+__ultoa_invert      |00001362|   T  |              FUNC|000000bc|     |.text
+__udivmodqi4        |0000141e|   T  |            NOTYPE|00000018|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1346
+__udivmodqi4_loop   |00001424|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1350
+__udivmodqi4_ep     |0000142c|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1355
+__udivmodhi4        |00001436|   T  |            NOTYPE|00000028|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1408
+__udivmodhi4_loop   |0000143e|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1413
+__udivmodhi4_ep     |0000144c|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1421
+__udivmodsi4        |0000145e|   T  |            NOTYPE|00000044|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1638
+__udivmodsi4_loop   |0000146a|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1646
+__udivmodsi4_ep     |00001484|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:1660
+__muluhisi3         |000014a2|   T  |            NOTYPE|00000014|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:626
+__tablejump2__      |000014b6|   T  |            NOTYPE|0000000c|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2296
+__umulhisi3         |000014c2|   T  |            NOTYPE|0000001e|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:564
+_exit               |000014e0|   T  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+exit                |000014e0|   W  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+__stop_program      |000014e2|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
+_etext              |000014e4|   T  |            NOTYPE|        |     |.text
+__data_load_start   |00001555|   A  |            NOTYPE|        |     |*ABS*
+__data_load_end     |0000155f|   A  |            NOTYPE|        |     |*ABS*
 __stack             |00003fff|   W  |            NOTYPE|        |     |*ABS*
 __TEXT_REGION_LENGTH__|00004000|   A  |            NOTYPE|        |     |*ABS*
 __RODATA_PM_OFFSET__|00008000|   A  |            NOTYPE|        |     |*ABS*
-num_array           |000094cc|   r  |            OBJECT|0000000b|     |.rodata	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/DisplayManager.h:54
-digital_pin_to_bit_position|000094d7|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:291
-digital_pin_to_port |000094ed|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:263
-digital_pin_to_bit_mask|00009503|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:318
-_usart_pins         |00009519|   r  |            OBJECT|00000008|     |.rodata
-vtable for UartClass|00009521|   r  |            OBJECT|0000001a|     |.rodata
+num_array           |000094e4|   r  |            OBJECT|0000000b|     |.rodata	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/DisplayManager.h:54
+digital_pin_to_bit_position|000094ef|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:291
+digital_pin_to_port |00009505|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:263
+digital_pin_to_bit_mask|0000951b|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:318
+_usart_pins         |00009531|   r  |            OBJECT|00000008|     |.rodata
+vtable for UartClass|00009539|   r  |            OBJECT|0000001a|     |.rodata
 __DATA_REGION_ORIGIN__|00803c00|   A  |            NOTYPE|        |     |*ABS*
 __data_start        |00803c00|   D  |            NOTYPE|        |     |.data
 blankSignal         |00803c00|   d  |            OBJECT|00000004|     |.data	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/DisplayManager.h:40
