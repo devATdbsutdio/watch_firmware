@@ -49,11 +49,14 @@ void setup() {
 
   // Enable interrupt
   sei();
-  
+
   // Setup some counters...
   startCountMillis = millis();        // For the ext rtc
   startMicros = micros();             // For display fps
   startWarningCountMillis = millis(); // For battery low voltage warning LED blinking
+
+  // get the delay value (for which watch will stay awake), from EEPROM
+  EEPROM.get(eeprom_addr, new_stayAwakeFor);
 
   //--- Sleep mode enablers ---//
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
