@@ -33,8 +33,8 @@ uint8_t hrToBeSet           = 0;
 uint8_t minToBeSet          = 0;
 uint8_t secToBeSet          = 0;
 
-int stayAwakeFor            = 4000;
-int new_stayAwakeFor        = 4100;
+int stayAwakeFor            = 5000;
+int new_stayAwakeFor        = 5100;
 
 boolean setNewTime;
 

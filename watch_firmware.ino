@@ -38,8 +38,10 @@ void setup() {
   setupButtons();
 
 
-  //--- Disable ADC ---//
-  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
+  //--- Disable ADC [TBD doesn't do much] ---//
+  ADC0.CTRLA &= ~ADC_ENABLE_bm;
+  //  ADC0.CTRLB &= ~ADC_ENABLE_bm;
+  //  ADC0.CTRLC &= ~ADC_ENABLE_bm;
   //--- Note: this is how you can re-enable ADC ---//
   // ADC0.CTRLA |= ADC_ENABLE_bm;
 
@@ -57,7 +59,9 @@ void setup() {
 
   // get the delay value (for which watch will stay awake), from EEPROM
   EEPROM.get(eeprom_addr, new_stayAwakeFor);
-
+  if (new_stayAwakeFor == -1) {
+    new_stayAwakeFor = 5100;
+  }
   //--- Sleep mode enablers ---//
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
   sleep_enable();
@@ -86,7 +90,11 @@ void loop() {
     turnOffDisplay();             // On wake up, initialize the whole display segment to be OFF
     do_blink = 1;                 // On wake up, initializing the variable for low voltage warning blinking action.
 
-
+    // Just before the awake cycle begins, if the RTC_DELAY_init value has changed (as Read from EEPROM in setup) set it to new value.
+    //    Serial.println(new_stayAwakeFor);
+    if (new_stayAwakeFor != stayAwakeFor) {
+      stayAwakeFor = new_stayAwakeFor;
+    }
     RTC_DELAY_init(stayAwakeFor); // Start the timer for keeping track of time for how long to keep the uC awake and do it's business (5000 ms)
 
     while (showTimePeriodOver == 0) {
@@ -117,9 +125,11 @@ void loop() {
     showTimePeriodOver = 0;
 
     // Just before the next awake cycle begins, if the RTC_DELAY_init value has changed set it to new value.
-    if (new_stayAwakeFor != stayAwakeFor) {
-      stayAwakeFor = new_stayAwakeFor;
-    }
+    //    Serial.println(new_stayAwakeFor);
+    //    stayAwakeFor = new_stayAwakeFor;
+    //    if (new_stayAwakeFor != stayAwakeFor) {
+    //      stayAwakeFor = new_stayAwakeFor;
+    //    }
 
     // Serial.println(enableTiltFunc);
 
