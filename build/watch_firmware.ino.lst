@@ -3226,12 +3226,12 @@ void setupButtons() {
   setupButtons();
 
 
-  //--- Disable ADC ---//
-  ADC0.CTRLA &= ~(ADC_ENABLE_bm);
+  //--- Disable ADC [TBD doesn't do much] ---//
+  ADC0.CTRLA &= ~ADC_ENABLE_bm;
      d48:	8e 7f       	andi	r24, 0xFE	; 254
      d4a:	80 93 00 06 	sts	0x0600, r24	; 0x800600 <vtable for UartClass+0x7f7061>
      d4e:	80 91 20 08 	lds	r24, 0x0820	; 0x800820 <vtable for UartClass+0x7f7281>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:48
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:50
   //--- Note: this is how you can re-enable ADC ---//
   // ADC0.CTRLA |= ADC_ENABLE_bm;
 
@@ -3242,7 +3242,7 @@ void setupButtons() {
      d54:	80 93 20 08 	sts	0x0820, r24	; 0x800820 <vtable for UartClass+0x7f7281>
      d58:	78 94       	sei
 millis():
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:51
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:53
 
   // Enable interrupt
   sei();
@@ -3273,14 +3273,14 @@ setup():
 /Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:301
     SREG = oldSREG;
      d70:	80 93 1f 3c 	sts	0x3C1F, r24	; 0x803c1f <startCountMillis>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:54
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:56
 
   // Setup some counters...
   startCountMillis = millis();        // For the ext rtc
      d74:	90 93 20 3c 	sts	0x3C20, r25	; 0x803c20 <startCountMillis+0x1>
      d78:	a0 93 21 3c 	sts	0x3C21, r26	; 0x803c21 <startCountMillis+0x2>
      d7c:	b0 93 22 3c 	sts	0x3C22, r27	; 0x803c22 <startCountMillis+0x3>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:55
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:57
   startMicros = micros();             // For display fps
      d80:	31 db       	rcall	.-2462   	; 0x3e4 <micros>
      d82:	60 93 1b 3c 	sts	0x3C1B, r22	; 0x803c1b <startMicros>
@@ -3315,7 +3315,7 @@ setup():
 /Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:301
     SREG = oldSREG;
      da8:	80 93 4f 3c 	sts	0x3C4F, r24	; 0x803c4f <startWarningCountMillis>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:56
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:58
   startWarningCountMillis = millis(); // For battery low voltage warning LED blinking
      dac:	90 93 50 3c 	sts	0x3C50, r25	; 0x803c50 <startWarningCountMillis+0x1>
      db0:	a0 93 51 3c 	sts	0x3C51, r26	; 0x803c51 <startWarningCountMillis+0x2>
@@ -3358,7 +3358,7 @@ setup():
     for (uint8_t count = sizeof(T); count; --count, ++e) {
       *ptr++ = *e;
      dc8:	80 91 06 3c 	lds	r24, 0x3C06	; 0x803c06 <new_stayAwakeFor>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:60
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:62
 
   // get the delay value (for which watch will stay awake), from EEPROM
   EEPROM.get(eeprom_addr, new_stayAwakeFor);
@@ -3367,13 +3367,13 @@ setup():
      dd0:	01 96       	adiw	r24, 0x01	; 1
      dd2:	31 f4       	brne	.+12     	; 0xde0 <main+0x11e>
      dd4:	8c ee       	ldi	r24, 0xEC	; 236
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:61
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:63
     new_stayAwakeFor = 5100;
      dd6:	93 e1       	ldi	r25, 0x13	; 19
      dd8:	80 93 06 3c 	sts	0x3C06, r24	; 0x803c06 <new_stayAwakeFor>
      ddc:	90 93 07 3c 	sts	0x3C07, r25	; 0x803c07 <new_stayAwakeFor+0x1>
      de0:	80 91 50 00 	lds	r24, 0x0050	; 0x800050 <vtable for UartClass+0x7f6ab1>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:64
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:66
   }
   //--- Sleep mode enablers ---//
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
@@ -3381,7 +3381,7 @@ setup():
      de6:	84 60       	ori	r24, 0x04	; 4
      de8:	80 93 50 00 	sts	0x0050, r24	; 0x800050 <vtable for UartClass+0x7f6ab1>
      dec:	80 91 50 00 	lds	r24, 0x0050	; 0x800050 <vtable for UartClass+0x7f6ab1>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:65
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:67
   sleep_enable();
      df0:	81 60       	ori	r24, 0x01	; 1
      df2:	80 93 50 00 	sts	0x0050, r24	; 0x800050 <vtable for UartClass+0x7f6ab1>
@@ -3410,7 +3410,7 @@ loop():
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/DisplayManager.h:121
   PORTC.OUTCLR = PIN5_bm;     // Turn PC5 (our LED dot's CATHODE for batter warning LED) off
      e00:	22 24       	eor	r2, r2
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:89
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:91
     uint16_t currBattVolt = measuredVoltage();
 
 
@@ -3459,7 +3459,7 @@ void watchButtons() {
      e26:	f4 cf       	rjmp	.-24     	; 0xe10 <main+0x14e>
 loop():
      e28:	88 23       	and	r24, r24
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:74
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:76
 
 
 void loop() {
@@ -3468,10 +3468,10 @@ void loop() {
   if (showCurrTimePressed) {
      e2a:	e1 f3       	breq	.-8      	; 0xe24 <main+0x162>
      e2c:	10 92 55 3c 	sts	0x3C55, r1	; 0x803c55 <showCurrTimePressed>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:75
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:77
     showCurrTimePressed = false;
      e30:	40 e0       	ldi	r20, 0x00	; 0
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:78
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:80
 
     //--- Enable Serial for time setting over serial ---//
     Serial.begin(115200);
@@ -3596,7 +3596,7 @@ void batteryWarningLED_OFF() {
   sei();                      // Attach interrupt again
      ea2:	78 94       	sei
 loop():
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:88
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:90
     ADCVoltRefSetup();
     uint16_t currBattVolt = measuredVoltage();
 
@@ -3605,11 +3605,11 @@ loop():
     turnOffDisplay();             // On wake up, initialize the whole display segment to be OFF
      ea4:	ec da       	rcall	.-2600   	; 0x47e <turnOffDisplay()>
      ea6:	20 92 08 3c 	sts	0x3C08, r2	; 0x803c08 <do_blink>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:89
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:91
     do_blink = 1;                 // On wake up, initializing the variable for low voltage warning blinking action.
      eaa:	10 92 09 3c 	sts	0x3C09, r1	; 0x803c09 <do_blink+0x1>
      eae:	80 91 06 3c 	lds	r24, 0x3C06	; 0x803c06 <new_stayAwakeFor>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:93
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:95
 
     // Just before the awake cycle begins, if the RTC_DELAY_init value has changed (as Read from EEPROM in setup) set it to new value.
     //    Serial.println(new_stayAwakeFor);
@@ -3621,11 +3621,11 @@ loop():
      ec0:	93 07       	cpc	r25, r19
      ec2:	21 f0       	breq	.+8      	; 0xecc <main+0x20a>
      ec4:	80 93 04 3c 	sts	0x3C04, r24	; 0x803c04 <stayAwakeFor>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:94
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:96
       stayAwakeFor = new_stayAwakeFor;
      ec8:	90 93 05 3c 	sts	0x3C05, r25	; 0x803c05 <stayAwakeFor+0x1>
      ecc:	80 91 04 3c 	lds	r24, 0x3C04	; 0x803c04 <stayAwakeFor>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:96
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:98
     }
     RTC_DELAY_init(stayAwakeFor); // Start the timer for keeping track of time for how long to keep the uC awake and do it's business (5000 ms)
      ed0:	90 91 05 3c 	lds	r25, 0x3C05	; 0x803c05 <stayAwakeFor+0x1>
@@ -3677,13 +3677,13 @@ uint8_t RV8803Tiny::DECtoBCD(uint8_t val)
 {
     return ((val / 10) * 0x10) + (val % 10);
      efe:	80 91 54 3c 	lds	r24, 0x3C54	; 0x803c54 <showTimePeriodOver>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:98
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:100
 
     while (showTimePeriodOver == 0) {
      f02:	81 11       	cpse	r24, r1
      f04:	96 c1       	rjmp	.+812    	; 0x1232 <main+0x570>
      f06:	3f e1       	ldi	r19, 0x1F	; 31
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:100
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:102
       // If voltage detected is lower than the safe operational voltage threshold!
       if (currBattVolt < safeLowVoltage && currBattVolt <= unsafeLowVoltage) {
      f08:	c3 16       	cp	r12, r19
@@ -3874,7 +3874,7 @@ low_voltage_warn():
      fd0:	10 92 08 3c 	sts	0x3C08, r1	; 0x803c08 <do_blink>
      fd4:	10 92 09 3c 	sts	0x3C09, r1	; 0x803c09 <do_blink+0x1>
 loop():
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:109
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:111
       // If voltage detected is low but not critically low and below safest threshold!
       if (currBattVolt < safeLowVoltage && currBattVolt > unsafeLowVoltage) {
         // Blocks and Blinks a dot LED, 2 times (in 1250 ms) as the warning to show that the battery voltage is falling.
@@ -4447,7 +4447,7 @@ parseDataArray():
     1226:	8d cf       	rjmp	.-230    	; 0x1142 <main+0x480>
 stop():
     1228:	87 e0       	ldi	r24, 0x07	; 7
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:123
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:125
         getAndShowTime();
       }
     }
@@ -4456,7 +4456,7 @@ stop():
     showTimePeriodOver = 0;
     122a:	68 2e       	mov	r6, r24
     122c:	60 92 14 08 	sts	0x0814, r6	; 0x800814 <vtable for UartClass+0x7f7275>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:135
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:137
     //    }
 
     // Serial.println(enableTiltFunc);
@@ -4465,26 +4465,26 @@ stop():
     turnOffDisplay();
     1230:	f5 cf       	rjmp	.-22     	; 0x121c <main+0x55a>
 loop():
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:136
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:138
     Serial.flush();                    // flush everything before going to sleep
     1232:	10 92 54 3c 	sts	0x3C54, r1	; 0x803c54 <showTimePeriodOver>
     1236:	23 d9       	rcall	.-3514   	; 0x47e <turnOffDisplay()>
     1238:	88 e5       	ldi	r24, 0x58	; 88
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:137
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:139
     Serial.end();
     123a:	9c e3       	ldi	r25, 0x3C	; 60
     123c:	bd d8       	rcall	.-3718   	; 0x3b8 <UartClass::flush()>
     123e:	88 e5       	ldi	r24, 0x58	; 88
     1240:	9c e3       	ldi	r25, 0x3C	; 60
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:138
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:140
     disableSerialHWPins();
     1242:	38 d8       	rcall	.-3984   	; 0x2b4 <UartClass::end()>
     1244:	0d d9       	rcall	.-3558   	; 0x460 <disableSerialHWPins()>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:139
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:141
     disableTWI();
     1246:	fd d8       	rcall	.-3590   	; 0x442 <disableTWI()>
     1248:	88 95       	sleep
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:140
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/watch_firmware.ino:142
     sleep_cpu();
     124a:	e0 cd       	rjmp	.-1088   	; 0xe0c <main+0x14a>
 fillDataArray():
