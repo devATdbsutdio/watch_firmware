@@ -124,15 +124,6 @@ void loop() {
     // Reset Trigger for RTC delay
     showTimePeriodOver = 0;
 
-    // Just before the next awake cycle begins, if the RTC_DELAY_init value has changed set it to new value.
-    //    Serial.println(new_stayAwakeFor);
-    //    stayAwakeFor = new_stayAwakeFor;
-    //    if (new_stayAwakeFor != stayAwakeFor) {
-    //      stayAwakeFor = new_stayAwakeFor;
-    //    }
-
-    // Serial.println(enableTiltFunc);
-
     // Then go to sleep
     turnOffDisplay();
     Serial.flush();                    // flush everything before going to sleep

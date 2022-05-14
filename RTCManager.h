@@ -38,7 +38,7 @@ void getAndShowTime() {
     }
     startCountMillis = currentCountMillis;
   }
-
+  
   // :: Display Time :: //
   // --- ** corner case handler (In case time retreival was unsuccessful) ** --- //
   if (rtcAvailable && rtcReadable) showOnDisplay(rtc.currTimeAsArray());
