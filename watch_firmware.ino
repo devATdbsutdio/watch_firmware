@@ -15,7 +15,7 @@
 #include "Buttons.h"
 
 
-boolean debug_log = false;
+#define DEBUG // comment this for production
 
 
 uint16_t unsafeLowVoltage = 28; // 2.8V

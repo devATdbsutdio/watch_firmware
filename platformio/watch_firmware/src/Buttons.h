@@ -6,8 +6,6 @@
   License: MIT
 */
 
-#include <Arduino.h>
-
 bool SW_OneState;
 bool TiltSWState;
 

@@ -6,11 +6,9 @@
   License: MIT
 */
 
-#include <Arduino.h>
-
 #include <EEPROM.h>
 
-// addr to which delay value will be written for next cycle
+// Address to which delay value will be written for next cycle
 const int eeprom_addr = 1;
 
 bool readyToReceive;
@@ -97,6 +95,7 @@ void parseDataArray()
             yearToBeSet = atoi(strtokIndx);
             strtokIndx = strtok(NULL, ":");
             int new_val = (atoi(strtokIndx)) * 1000; // in millis
+
             // Also write this data (the watch's keep-awake time value) to the EEPROM's specified location
             EEPROM.put(eeprom_addr, new_val);
             new_stayAwakeFor = new_val;

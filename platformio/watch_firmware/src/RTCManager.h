@@ -6,8 +6,6 @@
   License: MIT
 */
 
-#include <Arduino.h>
-
 #include <RV8803Tiny.h>
 
 RV8803Tiny rtc;

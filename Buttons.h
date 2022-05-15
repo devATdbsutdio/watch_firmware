@@ -6,8 +6,8 @@
   License: MIT
 */
 
-boolean SW_OneState;
-boolean TiltSWState;
+bool SW_OneState;
+bool TiltSWState;
 
 boolean showCurrTimePressed;
 volatile byte wakeUpTriggered;

@@ -6,8 +6,6 @@
   License: MIT
 */
 
-#include <Arduino.h>
-
 void disableUnusedPins()
 {
     //  Set them to input pull and do not keep them floating

@@ -11,7 +11,7 @@
 // addr to which delay value will be written for next cycle
 const int eeprom_addr = 1;
 
-boolean readyToReceive;
+bool readyToReceive;
 char incomingChar;
 int idx = 0;
 
@@ -20,10 +20,10 @@ int idx = 0;
 const int sizeOfDataStructure = int(sizeof(char) * 23);
 char dataArray[sizeOfDataStructure];
 
-boolean handshakeReqArrived;
-boolean newDataArrived;
+bool handshakeReqArrived;
+bool newDataArrived;
 int totalDelimators;
-boolean awakePeriodChanged  = false;
+bool awakePeriodChanged  = false;
 
 uint8_t dateToBeSet         = 0;
 uint8_t monthToBeSet        = 0;
@@ -36,7 +36,7 @@ uint8_t secToBeSet          = 0;
 int stayAwakeFor            = 5000;
 int new_stayAwakeFor        = 5100;
 
-boolean setNewTime;
+bool setNewTime;
 
 
 void fillDataArray() {
@@ -104,7 +104,10 @@ void parseDataArray() {
 void setRTCToNewTime() {
   if (setNewTime) {
     if (rtc.setTime(secToBeSet, minToBeSet, hrToBeSet, weekdayToBeSet, dateToBeSet, monthToBeSet, yearToBeSet) == false) {
+#ifdef DEBUG
+      Serial.println("Something went wrong setting the time");
       //      if (debug_log) Serial.println("Something went wrong setting the time");
+#endif
     }
     setNewTime = false;
   }

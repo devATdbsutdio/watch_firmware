@@ -129,7 +129,6 @@ void batteryWarningLED_OFF() {
 // and then shows the time...
 void low_voltage_warn() {
   // Block code to only blink warning LED
-  // while (true) {
   while (do_blink == 1) {
     currentWarningCountMillis = millis();
     if (currentWarningCountMillis - startWarningCountMillis >= warning_blink_gap) {
@@ -154,8 +153,7 @@ void low_voltage_warn() {
       } else {
         dot_pin_mask = 0b00000000;
       }
-
-      //      PORTC.OUTCLR = PIN5_bm;       // Set the pin LOW
+      
       PORTB.OUTSET = 0b11110000;    // Deactivate all on PORTB bits to which the COMMON CATHODE pins of our LED segment are connected, which are  by setting them HIGH
       cli();                        // Detach interrupt (to avoid any glitch)
       PORTB.OUTTGL = dot_pin_mask;  // Toggle the cathode bit responsible for our LED dot in the matrix
