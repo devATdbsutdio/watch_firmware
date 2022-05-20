@@ -99,15 +99,15 @@ UartClass::_poll_tx_data_empty()|0000027c|   t  |              FUNC|0000003e|   
 _poll_dre_done      |000002b8|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:404
 UartClass::write(unsigned char)|000002ba|   t  |              FUNC|00000098|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:682
 UartClass::flush()  |00000352|   t  |              FUNC|00000028|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:651
-Print::write(unsigned char const*, unsigned int)|0000037a|   t  |              FUNC|0000005a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/Print.cpp:29
-UartClass::operator bool()|000003d4|   t  |              FUNC|00000004|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.h:293
-micros              |000003d8|   t  |              FUNC|0000005e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:307
+micros              |0000037a|   t  |              FUNC|0000005e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:307
+delay               |000003d8|   t  |              FUNC|00000052|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:770
 __DATA_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
 __LOCK_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
 __SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
 __USER_SIGNATURE_REGION_LENGTH__|00000400|   A  |            NOTYPE|        |     |*ABS*
-delay               |00000436|   t  |              FUNC|00000052|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:770
-millis              |00000488|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:245
+millis              |0000042a|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:245
+Print::write(unsigned char const*, unsigned int)|00000442|   t  |              FUNC|0000005a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/Print.cpp:29
+UartClass::operator bool()|0000049c|   t  |              FUNC|00000004|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.h:293
 UartClass::begin(unsigned long)|000004a0|   t  |              FUNC|00000012|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.h:257
 Print::write(char const*) [clone .part.2] [clone .constprop.35]|000004b2|   t  |              FUNC|00000018|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/Print.h:56
 Print::println(String const&) [clone .constprop.27]|000004ca|   t  |              FUNC|00000026|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/Print.cpp:127
@@ -136,13 +136,13 @@ _do_rxc()           |00000ad4|   T  |              FUNC|00000048|     |.text	/Us
 _do_rxc             |00000ad4|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:307
 _end_rxc            |00000b08|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:175
 _do_txc()           |00000b1c|   T  |              FUNC|00000026|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:82
-_do_txc             |00000b1c|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:105
+_do_txc             |00000b1c|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:175
 _txc_flush_rx       |00000b26|   t  |            NOTYPE|        |     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART.cpp:105
-__vector_28         |00000b42|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:69
-__vector_27         |00000b4c|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:51
-__vector_29         |00000b56|   T  |              FUNC|00000006|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:26
-__vector_9          |00000b5c|   T  |              FUNC|000000ac|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:145
-vfprintf            |00000c08|   T  |              FUNC|00000220|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:201
+__vector_9          |00000b42|   T  |              FUNC|000000ac|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:145
+__vector_28         |00000bee|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:69
+__vector_27         |00000bf8|   T  |              FUNC|0000000a|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:51
+__vector_29         |00000c02|   T  |              FUNC|00000006|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:26
+vfprintf            |00000c08|   T  |              FUNC|00000220|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:31
 global constructors keyed to 65535_0_components_check.ino.cpp.o.2653|00000e28|   t  |              FUNC|0000002e|     |.text
 main                |00000e56|   T  |              FUNC|00000b5e|     |.text	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/main.cpp:49
 __prologue_saves__  |000019b4|   T  |            NOTYPE|00000032|     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2169
@@ -175,10 +175,10 @@ __data_load_end     |0000242d|   A  |            NOTYPE|        |     |*ABS*
 __stack             |00003fff|   W  |            NOTYPE|        |     |*ABS*
 __TEXT_REGION_LENGTH__|00004000|   A  |            NOTYPE|        |     |*ABS*
 __RODATA_PM_OFFSET__|00008000|   A  |            NOTYPE|        |     |*ABS*
-digital_pin_to_bit_position|0000a04c|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:291
-digital_pin_to_port |0000a062|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:263
-digital_pin_to_bit_mask|0000a078|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:318
-num_array           |0000a08e|   r  |            OBJECT|0000000b|     |.rodata	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:67
+num_array           |0000a04c|   r  |            OBJECT|0000000b|     |.rodata	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:67
+digital_pin_to_bit_position|0000a057|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:291
+digital_pin_to_port |0000a06d|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:263
+digital_pin_to_bit_mask|0000a083|   r  |            OBJECT|00000016|     |.rodata	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/variants/txy7/pins_arduino.h:318
 _usart_pins         |0000a099|   r  |            OBJECT|00000008|     |.rodata
 vtable for UartClass|0000a0a1|   r  |            OBJECT|0000001a|     |.rodata
 __DATA_REGION_ORIGIN__|00803c00|   A  |            NOTYPE|        |     |*ABS*
@@ -191,46 +191,46 @@ __malloc_margin     |00803c0a|   D  |            OBJECT|00000002|     |.data
 __bss_start         |00803c0c|   B  |            NOTYPE|        |     |.bss
 __data_end          |00803c0c|   D  |            NOTYPE|        |     |.data
 _edata              |00803c0c|   D  |            NOTYPE|        |     |.data
-timer_fract         |00803c0c|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:68
-timer_millis        |00803c0e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:70
-timer_overflow_count|00803c12|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:74
-portCStatus         |00803c16|   b  |            OBJECT|0000000c|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:34
-pcc                 |00803c22|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:30
-portBStatus         |00803c24|   b  |            OBJECT|00000010|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:33
-isSerialPin         |00803c34|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:64
-pbc                 |00803c35|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:29
-portAStatus         |00803c37|   b  |            OBJECT|0000000e|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:32
-secondState         |00803c45|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:63
-firstState          |00803c46|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:62
-PORTC_checked       |00803c47|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:15
-PORTB_checked       |00803c48|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:14
-PORTA_checked       |00803c49|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:13
-pinTestModeStartMillis|00803c4a|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:10
-pinTestModeCurrMillis|00803c4e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:11
-checking_rtc_counter|00803c52|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:13
-RV8803Tiny::stringTime()::time|00803c54|   b  |            OBJECT|00000009|     |.bss
-RV8803Tiny::stringDate()::date|00803c5d|   b  |            OBJECT|0000000b|     |.bss
-rtcReadable         |00803c68|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:15
-rtcAvailable        |00803c69|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:14
-btnInitialized      |00803c6a|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:18
-SW_OneState         |00803c6b|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:15
-btnWatcherFlag      |00803c6c|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:11
-btnWatchTimerStart  |00803c6e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:9
-btnWatchTimerCurr   |00803c72|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:10
-showdisplayobservinginstructions|00803c76|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:22
-displayPinsInitialized|00803c77|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:131
-c                   |00803c78|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:83
-startDisplayFPSMicros|00803c7a|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:9
-currDisplayFPSMicros|00803c7e|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:10
-startCountMillis    |00803c82|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:14
-prevCounter         |00803c86|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:18
-displayCycleCounter |00803c88|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:17
-displayChecked      |00803c8a|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:20
-btnConnChecked      |00803c8b|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:19
-rtcReadabilityChecked|00803c8c|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:18
-rtcAvailabilityChecked|00803c8d|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:17
-pinExaminationFinished|00803c8e|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:16
-sentSerialcheckFlag |00803c8f|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:24
+portCStatus         |00803c0c|   b  |            OBJECT|0000000c|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:34
+pcc                 |00803c18|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:30
+portBStatus         |00803c1a|   b  |            OBJECT|00000010|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:33
+isSerialPin         |00803c2a|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:64
+pbc                 |00803c2b|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:29
+portAStatus         |00803c2d|   b  |            OBJECT|0000000e|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:32
+secondState         |00803c3b|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:63
+firstState          |00803c3c|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:62
+PORTC_checked       |00803c3d|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:15
+PORTB_checked       |00803c3e|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:14
+PORTA_checked       |00803c3f|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:13
+pinTestModeStartMillis|00803c40|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:10
+pinTestModeCurrMillis|00803c44|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:11
+checking_rtc_counter|00803c48|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:13
+RV8803Tiny::stringTime()::time|00803c4a|   b  |            OBJECT|00000009|     |.bss
+RV8803Tiny::stringDate()::date|00803c53|   b  |            OBJECT|0000000b|     |.bss
+rtcReadable         |00803c5e|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:15
+rtcAvailable        |00803c5f|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:14
+btnInitialized      |00803c60|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:19
+SW_OneState         |00803c61|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:16
+btnWatcherFlag      |00803c62|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:11
+btnWatchTimerStart  |00803c64|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:9
+btnWatchTimerCurr   |00803c68|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:10
+showdisplayobservinginstructions|00803c6c|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:22
+displayPinsInitialized|00803c6d|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:131
+c                   |00803c6e|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:83
+startDisplayFPSMicros|00803c70|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:9
+currDisplayFPSMicros|00803c74|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:10
+startCountMillis    |00803c78|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:14
+prevCounter         |00803c7c|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:18
+displayCycleCounter |00803c7e|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:17
+displayChecked      |00803c80|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:20
+btnConnChecked      |00803c81|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:20
+rtcReadabilityChecked|00803c82|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:18
+rtcAvailabilityChecked|00803c83|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:17
+pinExaminationFinished|00803c84|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:16
+sentSerialcheckFlag |00803c85|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:24
+timer_fract         |00803c86|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:68
+timer_millis        |00803c88|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:70
+timer_overflow_count|00803c8c|   b  |            OBJECT|00000004|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/wiring.c:74
 printHeader         |00803c90|   b  |            OBJECT|00000001|     |.bss	/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/extraUtils.h:10
 TinyMegaI2C         |00803c91|   b  |            OBJECT|00000002|     |.bss	/Users/saurabhdatta/Documents/Arduino/libraries/TinyMegaI2C/src/TinyMegaI2C.cpp:91
 Serial              |00803c93|   b  |            OBJECT|00000075|     |.bss	/Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/UART0.cpp:81
