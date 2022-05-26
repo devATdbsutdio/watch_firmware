@@ -41,6 +41,8 @@ SETUP:
 	Setup pin for the button as INPUT_PULLUP (Using PORT manipulation) 
 	
 	Set all other unused pins as INPUT_PULLUP. 
+	
+	Read the delay from EEPROM for which the uC should stay ON (after power loss, otherwise this info is lost) 
 
 	start timers (we are going to avoid delay() ofc)
 
@@ -179,6 +181,8 @@ And read more aboput them [here](https://github.com/SpenceKonde/AVR-Guidance/blo
 
 
 ---
+
+__PIO__ WIP
 
 
 ### Notes for Collaborators:
