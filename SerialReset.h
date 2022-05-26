@@ -41,7 +41,6 @@ bool setNewTime;
 
 void fillDataArray() {
   newDataArrived = false;
-
   while (Serial.available() > 0) {
     incomingChar = Serial.read();
     if (incomingChar == '\n') {
@@ -91,10 +90,10 @@ void parseDataArray() {
       // Also write this data (the watch's keep-awake time value) to the EEPROM's specified location
       EEPROM.put(eeprom_addr, new_val);
       new_stayAwakeFor = new_val;
-
       setNewTime = true;
     }
-  } else {
+  }
+  else {
     setNewTime = false;
   }
 }
@@ -104,18 +103,15 @@ void parseDataArray() {
 void setRTCToNewTime() {
   if (setNewTime) {
     if (rtc.setTime(secToBeSet, minToBeSet, hrToBeSet, weekdayToBeSet, dateToBeSet, monthToBeSet, yearToBeSet) == false) {
-#ifdef DEBUG
-      Serial.println("Something went wrong setting the time");
+      //#ifdef DEBUG
+      //      Serial.println("Something went wrong setting the time");
       //      if (debug_log) Serial.println("Something went wrong setting the time");
-#endif
+      //#endif
     }
     setNewTime = false;
   }
 }
 
-
-void testParser() {
-}
 
 void SetTimeOverSerial() {
   fillDataArray();
