@@ -19,12 +19,6 @@ Arduino-IDE, arduino-cli etc.
 3. BOD disabled in Fuse (From IDE's tools Menu)
 4. Some UART funstionalities are required.
 
-__So some pins are always connected to an FTDI board as such, i.e in _Pro_ version:__
-```
-  GND of uC <-> FTDI GND
-  [RXD] PB3 <-- FTDI TXD
-  [TXD] PB2 --> FTDI RXD
-```
 
 <details><summary>Pseudo-code for the firmware written so far.</summary>
 
