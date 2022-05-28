@@ -169,8 +169,8 @@ _exit               |00001ff4|   T  |            NOTYPE|        |     |.text	/ho
 exit                |00001ff4|   W  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
 __stop_program      |00001ff6|   t  |            NOTYPE|        |     |.text	/home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
 _etext              |00001ff8|   T  |            NOTYPE|        |     |.text
-__data_load_start   |000023c3|   A  |            NOTYPE|        |     |*ABS*
-__data_load_end     |000023cf|   A  |            NOTYPE|        |     |*ABS*
+__data_load_start   |000023d2|   A  |            NOTYPE|        |     |*ABS*
+__data_load_end     |000023de|   A  |            NOTYPE|        |     |*ABS*
 __stack             |00003fff|   W  |            NOTYPE|        |     |*ABS*
 __TEXT_REGION_LENGTH__|00004000|   A  |            NOTYPE|        |     |*ABS*
 __RODATA_PM_OFFSET__|00008000|   A  |            NOTYPE|        |     |*ABS*

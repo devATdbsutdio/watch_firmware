@@ -190,7 +190,7 @@ __do_copy_data():
 /home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2411
       ce:	bc e3       	ldi	r27, 0x3C	; 60
 /home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2412
-      d0:	e3 ec       	ldi	r30, 0xC3	; 195
+      d0:	e2 ed       	ldi	r30, 0xD2	; 210
 /home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2413
       d2:	f3 e2       	ldi	r31, 0x23	; 35
 /home/admin/build/toolchain-avr-special/gcc-build/avr/avrxmega3/libgcc/../../../../gcc/libgcc/config/avr/lib1funcs.S:2414
@@ -2501,7 +2501,7 @@ _Z14printStepTitle6Stringi.constprop.2():
      8da:	ce 01       	movw	r24, r28
      8dc:	01 96       	adiw	r24, 0x01	; 1
      8de:	70 df       	rcall	.-288    	; 0x7c0 <operator+(StringSumHelper const&, String const&)>
-     8e0:	65 e5       	ldi	r22, 0x55	; 85
+     8e0:	62 e6       	ldi	r22, 0x62	; 98
      8e2:	73 ea       	ldi	r23, 0xA3	; 163
      8e4:	59 df       	rcall	.-334    	; 0x798 <operator+(StringSumHelper const&, char const*)>
      8e6:	01 de       	rcall	.-1022   	; 0x4ea <Print::println(String const&) [clone .constprop.21]>
@@ -3484,7 +3484,7 @@ char *RV8803Tiny::stringTime()
 {
     static char time[9]; //Max of hh:mm:ss with \0 terminator
     sprintf(time, "%02d:%02d:%02d", BCDtoDEC(_time[TIME_HOURS]), BCDtoDEC(_time[TIME_MINUTES]), BCDtoDEC(_time[TIME_SECONDS]));
-     e32:	8e e7       	ldi	r24, 0x7E	; 126
+     e32:	8b e8       	ldi	r24, 0x8B	; 139
      e34:	48 2e       	mov	r4, r24
      e36:	82 ea       	ldi	r24, 0xA2	; 162
      e38:	58 2e       	mov	r5, r24
@@ -3999,9 +3999,9 @@ void examinePins() {
     10d2:	88 23       	and	r24, r24
     10d4:	09 f4       	brne	.+2      	; 0x10d8 <main+0x362>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:246
-        Serial.println("ATTINY Digital IO Test finished!");
+        Serial.println("\nATTINY Digital IO Test finished!");
     10d6:	6b c1       	rjmp	.+726    	; 0x13ae <main+0x638>
-    10d8:	87 e0       	ldi	r24, 0x07	; 7
+    10d8:	83 e1       	ldi	r24, 0x13	; 19
     10da:	92 ea       	ldi	r25, 0xA2	; 162
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:50
     examinePins();
@@ -4020,7 +4020,7 @@ loop():
   /* ----  2. Check rtc clock addr. ---- */
   printStepTitle("CHECKING RTC's AVAILABILITY", HOLD_DELAY);
     10e4:	10 92 90 3c 	sts	0x3C90, r1	; 0x803c90 <printHeader>
-    10e8:	68 e2       	ldi	r22, 0x28	; 40
+    10e8:	65 e3       	ldi	r22, 0x35	; 53
     10ea:	72 ea       	ldi	r23, 0xA2	; 162
     10ec:	ce 01       	movw	r24, r28
     10ee:	01 96       	adiw	r24, 0x01	; 1
@@ -4101,7 +4101,7 @@ examinePins():
           PORTA_checked = true;
     1148:	c0 92 3f 3c 	sts	0x3C3F, r12	; 0x803c3f <PORTA_checked>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:95
-          Serial.println("PORT-A IO check finished!");
+          Serial.println("\nPORT-A IO check finished!");
     114c:	84 e9       	ldi	r24, 0x94	; 148
     114e:	90 ea       	ldi	r25, 0xA0	; 160
     1150:	b7 d9       	rcall	.-3218   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
@@ -4131,7 +4131,7 @@ examinePins():
     116a:	bf ef       	ldi	r27, 0xFF	; 255
     116c:	ab 1a       	sub	r10, r27
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:102
-              Serial.println("Internally, PA" + String(i + 1) + "not working");
+              Serial.println("\nInternally, PA" + String(i + 1) + "not working");
     116e:	bb 0a       	sbc	r11, r27
     1170:	89 2b       	or	r24, r25
     1172:	41 f5       	brne	.+80     	; 0x11c4 <main+0x44e>
@@ -4144,7 +4144,7 @@ examinePins():
     1178:	01 96       	adiw	r24, 0x01	; 1
     117a:	52 db       	rcall	.-2396   	; 0x820 <String::String(int, unsigned char) [clone .constprop.19]>
 _ZN15StringSumHelperC2EPKc():
-    117c:	6e ea       	ldi	r22, 0xAE	; 174
+    117c:	6f ea       	ldi	r22, 0xAF	; 175
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:102
     117e:	70 ea       	ldi	r23, 0xA0	; 160
     1180:	ce 01       	movw	r24, r28
@@ -4157,7 +4157,7 @@ examinePins():
     118c:	ce 01       	movw	r24, r28
     118e:	09 96       	adiw	r24, 0x09	; 9
     1190:	17 db       	rcall	.-2514   	; 0x7c0 <operator+(StringSumHelper const&, String const&)>
-    1192:	6d eb       	ldi	r22, 0xBD	; 189
+    1192:	6f eb       	ldi	r22, 0xBF	; 191
 /Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.h:276
     #if __cplusplus >= 201103L || defined(__GXX_EXPERIMENTAL_CXX0X__)
     void move(String &rhs);
@@ -4176,7 +4176,7 @@ _ZN15StringSumHelperD2Ev():
 examinePins():
     11a0:	ce 01       	movw	r24, r28
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:100
-          Serial.println("PORT-A IO check finished!");
+          Serial.println("\nPORT-A IO check finished!");
 
           int total_working_pins = 0;
 
@@ -4196,33 +4196,33 @@ examinePins():
     11aa:	b1 04       	cpc	r11, r1
     11ac:	d1 f6       	brne	.-76     	; 0x1162 <main+0x3ec>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:109
-            Serial.println("In PORT A (PA1-PA7)");
+            Serial.println("\nIn PORT A (PA1-PA7)");
     11ae:	27 e0       	ldi	r18, 0x07	; 7
     11b0:	e2 16       	cp	r14, r18
     11b2:	f1 04       	cpc	r15, r1
     11b4:	59 f4       	brne	.+22     	; 0x11cc <main+0x456>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:110
             Serial.println("all pins are working!");
-    11b6:	89 ec       	ldi	r24, 0xC9	; 201
+    11b6:	8b ec       	ldi	r24, 0xCB	; 203
     11b8:	90 ea       	ldi	r25, 0xA0	; 160
     11ba:	82 d9       	rcall	.-3324   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:104
           // ** Duct tape solution
           for (int i = 0; i < int(sizeof(portAStatus) / 2); i++) {
             if (portAStatus[i] == 0) {
-              Serial.println("Internally, PA" + String(i + 1) + "not working");
+              Serial.println("\nInternally, PA" + String(i + 1) + "not working");
             } else {
               total_working_pins += 1;
-    11bc:	8d ed       	ldi	r24, 0xDD	; 221
+    11bc:	80 ee       	ldi	r24, 0xE0	; 224
     11be:	90 ea       	ldi	r25, 0xA0	; 160
     11c0:	7f d9       	rcall	.-3330   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:112
 
           if (total_working_pins == sizeof(portAStatus) / 2) {
-            Serial.println("In PORT A (PA1-PA7)");
+            Serial.println("\nIn PORT A (PA1-PA7)");
             Serial.println("all pins are working!");
           } else {
-            Serial.println("In PORT A (PA1-PA7), a total");
+            Serial.println("\nIn PORT A (PA1-PA7), a total");
     11c2:	c4 ce       	rjmp	.-632    	; 0xf4c <main+0x1d6>
     11c4:	ef ef       	ldi	r30, 0xFF	; 255
     11c6:	ee 1a       	sub	r14, r30
@@ -4230,7 +4230,7 @@ examinePins():
             Serial.println("of only " + String(total_working_pins) + " pins are working!");
     11c8:	fe 0a       	sbc	r15, r30
     11ca:	ed cf       	rjmp	.-38     	; 0x11a6 <main+0x430>
-    11cc:	83 ef       	ldi	r24, 0xF3	; 243
+    11cc:	86 ef       	ldi	r24, 0xF6	; 246
     11ce:	90 ea       	ldi	r25, 0xA0	; 160
     11d0:	77 d9       	rcall	.-3346   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
 /Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.h:279
@@ -4242,7 +4242,7 @@ examinePins():
     11d6:	01 96       	adiw	r24, 0x01	; 1
     11d8:	23 db       	rcall	.-2490   	; 0x820 <String::String(int, unsigned char) [clone .constprop.19]>
 _ZN15StringSumHelperC2EPKc():
-    11da:	60 e1       	ldi	r22, 0x10	; 16
+    11da:	64 e1       	ldi	r22, 0x14	; 20
     11dc:	71 ea       	ldi	r23, 0xA1	; 161
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:113
     11de:	ce 01       	movw	r24, r28
@@ -4255,7 +4255,7 @@ examinePins():
     11ea:	ce 01       	movw	r24, r28
     11ec:	09 96       	adiw	r24, 0x09	; 9
     11ee:	e8 da       	rcall	.-2608   	; 0x7c0 <operator+(StringSumHelper const&, String const&)>
-    11f0:	62 e7       	ldi	r22, 0x72	; 114
+    11f0:	69 e7       	ldi	r22, 0x79	; 121
     11f2:	71 ea       	ldi	r23, 0xA1	; 161
     11f4:	d1 da       	rcall	.-2654   	; 0x798 <operator+(StringSumHelper const&, char const*)>
 /Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.h:276
@@ -4308,8 +4308,8 @@ examinePins():
           PORTB_checked = true;
     121c:	c0 92 3e 3c 	sts	0x3C3E, r12	; 0x803c3e <PORTB_checked>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:163
-          Serial.println("PORT-B IO check finished!");
-    1220:	89 e1       	ldi	r24, 0x19	; 25
+          Serial.println("\nPORT-B IO check finished!");
+    1220:	8d e1       	ldi	r24, 0x1D	; 29
     1222:	91 ea       	ldi	r25, 0xA1	; 161
     1224:	4d d9       	rcall	.-3430   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
     1226:	7a e1       	ldi	r23, 0x1A	; 26
@@ -4336,7 +4336,7 @@ examinePins():
     123c:	4d 01       	movw	r8, r26
     123e:	89 2b       	or	r24, r25
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:169
-              Serial.println("Internally, PB" + String(i) + " not working!");
+              Serial.println("\nInternally, PB" + String(i) + " not working!");
     1240:	79 f5       	brne	.+94     	; 0x12a0 <main+0x52a>
     1242:	c7 01       	movw	r24, r14
     1244:	02 97       	sbiw	r24, 0x02	; 2
@@ -4352,7 +4352,7 @@ examinePins():
     1250:	e7 da       	rcall	.-2610   	; 0x820 <String::String(int, unsigned char) [clone .constprop.19]>
 _ZN15StringSumHelperC2EPKc():
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:169
-    1252:	63 e3       	ldi	r22, 0x33	; 51
+    1252:	68 e3       	ldi	r22, 0x38	; 56
     1254:	71 ea       	ldi	r23, 0xA1	; 161
     1256:	ce 01       	movw	r24, r28
     1258:	09 96       	adiw	r24, 0x09	; 9
@@ -4371,7 +4371,7 @@ examinePins():
 };
 
 class StringSumHelper : public String {
-    1268:	62 e4       	ldi	r22, 0x42	; 66
+    1268:	68 e4       	ldi	r22, 0x48	; 72
     126a:	71 ea       	ldi	r23, 0xA1	; 161
     126c:	95 da       	rcall	.-2774   	; 0x798 <operator+(StringSumHelper const&, char const*)>
     126e:	3d d9       	rcall	.-3462   	; 0x4ea <Print::println(String const&) [clone .constprop.21]>
@@ -4383,7 +4383,7 @@ _ZN15StringSumHelperD2Ev():
 examinePins():
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:167
           PORTB_checked = true;
-          Serial.println("PORT-B IO check finished!");
+          Serial.println("\nPORT-B IO check finished!");
 
           int total_working_pins = 0;
 
@@ -4403,7 +4403,7 @@ examinePins():
     1280:	fe 0a       	sbc	r15, r30
     1282:	f8 e0       	ldi	r31, 0x08	; 8
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:178
-            Serial.println("In PORT B (PB0-PB1 & PB4-PB7),");
+            Serial.println("\nIn PORT B (PB0-PB1 & PB4-PB7),");
     1284:	ef 16       	cp	r14, r31
     1286:	f1 04       	cpc	r15, r1
     1288:	b1 f6       	brne	.-84     	; 0x1236 <main+0x4c0>
@@ -4413,25 +4413,25 @@ examinePins():
     128c:	a2 16       	cp	r10, r18
     128e:	b1 04       	cpc	r11, r1
     1290:	59 f4       	brne	.+22     	; 0x12a8 <main+0x532>
-    1292:	80 e5       	ldi	r24, 0x50	; 80
+    1292:	86 e5       	ldi	r24, 0x56	; 86
     1294:	91 ea       	ldi	r25, 0xA1	; 161
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:173
             if ((portBStatus[i] == 0) && i != 2 && i != 3) {
-              Serial.println("Internally, PB" + String(i) + " not working!");
+              Serial.println("\nInternally, PB" + String(i) + " not working!");
             } else if ((portBStatus[i] == 0) && (i == 2 || i == 3)) {
               //  Serial.println("Ignoring Hardcoded values for Serial Pins!");
             } else {
               total_working_pins += 1;
     1296:	14 d9       	rcall	.-3544   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1298:	8f e6       	ldi	r24, 0x6F	; 111
+    1298:	86 e7       	ldi	r24, 0x76	; 118
     129a:	91 ea       	ldi	r25, 0xA1	; 161
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:181
 
           if (total_working_pins == sizeof(portBStatus) / 2 - 2) { // ignoring RX TX pins
-            Serial.println("In PORT B (PB0-PB1 & PB4-PB7),");
+            Serial.println("\nIn PORT B (PB0-PB1 & PB4-PB7),");
             Serial.println("All pins are working!");
           } else {
-            Serial.println("In PORT B (PB0-PB1 & PB4-PB7), a total");
+            Serial.println("\nIn PORT B (PB0-PB1 & PB4-PB7), a total");
     129c:	11 d9       	rcall	.-3550   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
     129e:	bc ce       	rjmp	.-648    	; 0x1018 <main+0x2a2>
     12a0:	bf ef       	ldi	r27, 0xFF	; 255
@@ -4440,7 +4440,7 @@ examinePins():
             Serial.println("of only " + String(total_working_pins) + " pins are working!");
     12a4:	bb 0a       	sbc	r11, r27
     12a6:	ea cf       	rjmp	.-44     	; 0x127c <main+0x506>
-    12a8:	85 e8       	ldi	r24, 0x85	; 133
+    12a8:	8c e8       	ldi	r24, 0x8C	; 140
     12aa:	91 ea       	ldi	r25, 0xA1	; 161
     12ac:	09 d9       	rcall	.-3566   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
 /Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.h:279
@@ -4452,7 +4452,7 @@ examinePins():
     12b2:	01 96       	adiw	r24, 0x01	; 1
     12b4:	b5 da       	rcall	.-2710   	; 0x820 <String::String(int, unsigned char) [clone .constprop.19]>
 _ZN15StringSumHelperC2EPKc():
-    12b6:	60 e1       	ldi	r22, 0x10	; 16
+    12b6:	64 e1       	ldi	r22, 0x14	; 20
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:182
     12b8:	71 ea       	ldi	r23, 0xA1	; 161
     12ba:	ce 01       	movw	r24, r28
@@ -4465,7 +4465,7 @@ examinePins():
     12c6:	ce 01       	movw	r24, r28
     12c8:	09 96       	adiw	r24, 0x09	; 9
     12ca:	7a da       	rcall	.-2828   	; 0x7c0 <operator+(StringSumHelper const&, String const&)>
-    12cc:	62 e7       	ldi	r22, 0x72	; 114
+    12cc:	69 e7       	ldi	r22, 0x79	; 121
 /Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.h:276
     #if __cplusplus >= 201103L || defined(__GXX_EXPERIMENTAL_CXX0X__)
     void move(String &rhs);
@@ -4506,10 +4506,10 @@ examinePins():
     12e6:	e0 ce       	rjmp	.-576    	; 0x10a8 <main+0x332>
     12e8:	10 92 18 3c 	sts	0x3C18, r1	; 0x803c18 <pcc>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:221
-          Serial.println("PORT-C IO check finished!");
+          Serial.println("\nPORT-C IO check finished!");
     12ec:	10 92 19 3c 	sts	0x3C19, r1	; 0x803c19 <pcc+0x1>
     12f0:	c0 92 3d 3c 	sts	0x3C3D, r12	; 0x803c3d <PORTC_checked>
-    12f4:	8c ea       	ldi	r24, 0xAC	; 172
+    12f4:	84 eb       	ldi	r24, 0xB4	; 180
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:223
 
           int total_working_pins = 0;
@@ -4529,7 +4529,7 @@ main():
     1304:	e1 2c       	mov	r14, r1
     1306:	b1 2c       	mov	r11, r1
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:227
-              Serial.println("Internally, PC" + String(i) + " not working!");
+              Serial.println("\nInternally, PC" + String(i) + " not working!");
     1308:	a1 2c       	mov	r10, r1
 examinePins():
     130a:	d4 01       	movw	r26, r8
@@ -4548,7 +4548,7 @@ examinePins():
     131a:	01 96       	adiw	r24, 0x01	; 1
     131c:	81 da       	rcall	.-2814   	; 0x820 <String::String(int, unsigned char) [clone .constprop.19]>
 _ZN15StringSumHelperC2EPKc():
-    131e:	66 ec       	ldi	r22, 0xC6	; 198
+    131e:	6f ec       	ldi	r22, 0xCF	; 207
     1320:	71 ea       	ldi	r23, 0xA1	; 161
     1322:	ce 01       	movw	r24, r28
     1324:	09 96       	adiw	r24, 0x09	; 9
@@ -4568,14 +4568,14 @@ class StringSumHelper : public String {
     1330:	09 96       	adiw	r24, 0x09	; 9
     1332:	46 da       	rcall	.-2932   	; 0x7c0 <operator+(StringSumHelper const&, String const&)>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:227
-    1334:	62 e4       	ldi	r22, 0x42	; 66
+    1334:	68 e4       	ldi	r22, 0x48	; 72
     1336:	71 ea       	ldi	r23, 0xA1	; 161
     1338:	2f da       	rcall	.-2978   	; 0x798 <operator+(StringSumHelper const&, char const*)>
     133a:	d7 d8       	rcall	.-3666   	; 0x4ea <Print::println(String const&) [clone .constprop.21]>
 _ZN15StringSumHelperD2Ev():
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:225
           PORTC_checked = true;
-          Serial.println("PORT-C IO check finished!");
+          Serial.println("\nPORT-C IO check finished!");
 
           int total_working_pins = 0;
 
@@ -4600,7 +4600,7 @@ examinePins():
     134e:	f6 e0       	ldi	r31, 0x06	; 6
     1350:	af 16       	cp	r10, r31
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:234
-            Serial.println("In PORT C (PC0-PC5),");
+            Serial.println("\nIn PORT C (PC0-PC5),");
     1352:	b1 04       	cpc	r11, r1
     1354:	d1 f6       	brne	.-76     	; 0x130a <main+0x594>
     1356:	26 e0       	ldi	r18, 0x06	; 6
@@ -4609,25 +4609,25 @@ examinePins():
     1358:	e2 16       	cp	r14, r18
     135a:	f1 04       	cpc	r15, r1
     135c:	59 f4       	brne	.+22     	; 0x1374 <main+0x5fe>
-    135e:	85 ed       	ldi	r24, 0xD5	; 213
+    135e:	8f ed       	ldi	r24, 0xDF	; 223
     1360:	91 ea       	ldi	r25, 0xA1	; 161
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:229
 
           for (int i = 0; i < int(sizeof(portCStatus) / 2); i++) {
             if (portCStatus[i] == 0) {
-              Serial.println("Internally, PC" + String(i) + " not working!");
+              Serial.println("\nInternally, PC" + String(i) + " not working!");
             } else {
               total_working_pins += 1;
     1362:	ae d8       	rcall	.-3748   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1364:	8d ed       	ldi	r24, 0xDD	; 221
+    1364:	80 ee       	ldi	r24, 0xE0	; 224
     1366:	90 ea       	ldi	r25, 0xA0	; 160
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:237
 
           if (total_working_pins == sizeof(portCStatus) / 2) {
-            Serial.println("In PORT C (PC0-PC5),");
+            Serial.println("\nIn PORT C (PC0-PC5),");
             Serial.println("all pins are working!");
           } else {
-            Serial.println("In PORT C (PC0-PC5), a total");
+            Serial.println("\nIn PORT C (PC0-PC5), a total");
     1368:	ab d8       	rcall	.-3754   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
     136a:	a7 ce       	rjmp	.-690    	; 0x10ba <main+0x344>
     136c:	bf ef       	ldi	r27, 0xFF	; 255
@@ -4636,7 +4636,7 @@ examinePins():
             Serial.println("of only " + String(total_working_pins) + " pins are working!");
     1370:	fb 0a       	sbc	r15, r27
     1372:	ea cf       	rjmp	.-44     	; 0x1348 <main+0x5d2>
-    1374:	8a ee       	ldi	r24, 0xEA	; 234
+    1374:	85 ef       	ldi	r24, 0xF5	; 245
     1376:	91 ea       	ldi	r25, 0xA1	; 161
     1378:	a3 d8       	rcall	.-3770   	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
 /Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.h:279
@@ -4649,7 +4649,7 @@ examinePins():
     1380:	4f da       	rcall	.-2914   	; 0x820 <String::String(int, unsigned char) [clone .constprop.19]>
 _ZN15StringSumHelperC2EPKc():
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:238
-    1382:	60 e1       	ldi	r22, 0x10	; 16
+    1382:	64 e1       	ldi	r22, 0x14	; 20
     1384:	71 ea       	ldi	r23, 0xA1	; 161
     1386:	ce 01       	movw	r24, r28
     1388:	09 96       	adiw	r24, 0x09	; 9
@@ -4661,7 +4661,7 @@ examinePins():
     1392:	ce 01       	movw	r24, r28
     1394:	09 96       	adiw	r24, 0x09	; 9
     1396:	14 da       	rcall	.-3032   	; 0x7c0 <operator+(StringSumHelper const&, String const&)>
-    1398:	62 e7       	ldi	r22, 0x72	; 114
+    1398:	69 e7       	ldi	r22, 0x79	; 121
 /Users/saurabhdatta/Library/Arduino15/packages/megaTinyCore/hardware/megaavr/2.5.11/cores/megatinycore/api/String.h:276
     #if __cplusplus >= 201103L || defined(__GXX_EXPERIMENTAL_CXX0X__)
     void move(String &rhs);
@@ -4683,7 +4683,7 @@ examinePins():
     13aa:	c2 d8       	rcall	.-3708   	; 0x530 <String::~String()>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/internalIOExaminer.h:250
       if (PORTA_checked && PORTB_checked && PORTC_checked) {
-        Serial.println("ATTINY Digital IO Test finished!");
+        Serial.println("\nATTINY Digital IO Test finished!");
         break;
       }
 
@@ -4732,7 +4732,7 @@ reportRTCAvailability():
     13e6:	10 92 5f 3c 	sts	0x3C5F, r1	; 0x803c5f <rtcAvailable>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:32
     Serial.println("RTC_ADDR_FOUND:0");
-    13ea:	84 e4       	ldi	r24, 0x44	; 68
+    13ea:	81 e5       	ldi	r24, 0x51	; 81
     13ec:	92 ea       	ldi	r25, 0xA2	; 162
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:35
   } else {
@@ -4748,10 +4748,9 @@ loop():
     13f6:	10 92 90 3c 	sts	0x3C90, r1	; 0x803c90 <printHeader>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:61
     printHeader = false;
-    13fa:	66 e6       	ldi	r22, 0x66	; 102
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:72
-  //    printHeader = false;
-  //  }
+    13fa:	63 e7       	ldi	r22, 0x73	; 115
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:66
+  }
 
 
   /* ---- 3. Check curr. factory default time ---- */
@@ -4769,7 +4768,7 @@ loop():
     1410:	80 91 83 3c 	lds	r24, 0x3C83	; 0x803c83 <rtcAvailabilityChecked>
     1414:	88 23       	and	r24, r24
     1416:	09 f4       	brne	.+2      	; 0x141a <main+0x6a4>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:74
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:68
 
   if (rtcAvailabilityChecked && !rtcReadabilityChecked) {
     1418:	c8 c0       	rjmp	.+400    	; 0x15aa <main+0x834>
@@ -4922,11 +4921,7 @@ rtcReadWriteChecker():
       rtcReadable = true;
     14a0:	80 93 5e 3c 	sts	0x3C5E, r24	; 0x803c5e <rtcReadable>
     14a4:	64 e6       	ldi	r22, 0x64	; 100
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:47
-      // --- ** No need for this section according to a new method [ currTimeAsArray() ] in rtc lib ** --- //
-      //      delay(100);
-      //      rtc.updateTimeArray(); // "updateTimeArray()" function has been dissolved in the RTClibrary
-      //-------------------------------------------------------------------------------------------- ------//
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:43
       delay(100);
     14a6:	70 e0       	ldi	r23, 0x00	; 0
     14a8:	80 e0       	ldi	r24, 0x00	; 0
@@ -5028,7 +5023,7 @@ stringTime():
     1500:	8f 93       	push	r24
     1502:	57 d5       	rcall	.+2734   	; 0x1fb2 <sprintf>
 rtcReadWriteChecker():
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:49
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:45
       // Send string date & time
       Serial.println(String(rtc.stringTime()));
     1504:	6a e4       	ldi	r22, 0x4A	; 74
@@ -5128,7 +5123,7 @@ char *RV8803Tiny::stringDate()
     sprintf(date, "%02d/%02d/20%02d", BCDtoDEC(_time[TIME_DATE]), BCDtoDEC(_time[TIME_MONTH]), BCDtoDEC(_time[TIME_YEAR]));
     155a:	1f 92       	push	r1
     155c:	8f 93       	push	r24
-    155e:	8d e8       	ldi	r24, 0x8D	; 141
+    155e:	8a e9       	ldi	r24, 0x9A	; 154
     1560:	92 ea       	ldi	r25, 0xA2	; 162
     1562:	9f 93       	push	r25
     1564:	8f 93       	push	r24
@@ -5139,7 +5134,7 @@ char *RV8803Tiny::stringDate()
     156e:	21 d5       	rcall	.+2626   	; 0x1fb2 <sprintf>
 rtcReadWriteChecker():
     1570:	63 e5       	ldi	r22, 0x53	; 83
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:50
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:46
       Serial.println(String(rtc.stringDate()));
     1572:	7c e3       	ldi	r23, 0x3C	; 60
     1574:	ce 01       	movw	r24, r28
@@ -5154,7 +5149,7 @@ rtcReadWriteChecker():
     158a:	cd bf       	out	0x3d, r28	; 61
     158c:	de bf       	out	0x3e, r29	; 62
     158e:	80 91 5e 3c 	lds	r24, 0x3C5E	; 0x803c5e <rtcReadable>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:57
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:53
       rtcReadable = false;
       Serial.println("RTC_READABLE:0");
     }
@@ -5164,27 +5159,27 @@ rtcReadWriteChecker():
     1592:	88 23       	and	r24, r24
     1594:	09 f4       	brne	.+2      	; 0x1598 <main+0x822>
     1596:	a8 c1       	rjmp	.+848    	; 0x18e8 <main+0xb72>
-    1598:	8d ea       	ldi	r24, 0xAD	; 173
+    1598:	8a eb       	ldi	r24, 0xBA	; 186
     159a:	92 ea       	ldi	r25, 0xA2	; 162
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:58
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:54
     Serial.println("RTC_READABLE:1");
     159c:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
 loop():
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:60
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:56
   } else {
     Serial.println("RTC_READABLE:0");
     15a0:	81 e0       	ldi	r24, 0x01	; 1
     15a2:	80 93 82 3c 	sts	0x3C82, r24	; 0x803c82 <rtcReadabilityChecked>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:77
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:71
     rtcReadWriteChecker();
 
     rtcReadabilityChecked = true;
     15a6:	10 92 90 3c 	sts	0x3C90, r1	; 0x803c90 <printHeader>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:78
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:72
     printHeader = false;
-    15aa:	6c eb       	ldi	r22, 0xBC	; 188
+    15aa:	69 ec       	ldi	r22, 0xC9	; 201
     15ac:	72 ea       	ldi	r23, 0xA2	; 162
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:83
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:77
   }
 
 
@@ -5222,7 +5217,7 @@ loop():
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/btnExaminer.h:26
     btnInitialized = true;
     15d8:	80 91 82 3c 	lds	r24, 0x3C82	; 0x803c82 <rtcReadabilityChecked>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:86
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:80
   initBtnPin(BTN_PIN);
 
   if (rtcReadabilityChecked && !btnConnChecked) {
@@ -5317,7 +5312,7 @@ btnChecker():
     1660:	09 96       	adiw	r24, 0x09	; 9
     1662:	de d8       	rcall	.-3652   	; 0x820 <String::String(int, unsigned char) [clone .constprop.19]>
 _ZN15StringSumHelperC2EPKc():
-    1664:	69 ed       	ldi	r22, 0xD9	; 217
+    1664:	66 ee       	ldi	r22, 0xE6	; 230
     1666:	72 ea       	ldi	r23, 0xA2	; 162
     1668:	ce 01       	movw	r24, r28
     166a:	0f 96       	adiw	r24, 0x0f	; 15
@@ -5330,14 +5325,14 @@ btnChecker():
     1674:	ce 01       	movw	r24, r28
     1676:	0f 96       	adiw	r24, 0x0f	; 15
     1678:	a3 d8       	rcall	.-3770   	; 0x7c0 <operator+(StringSumHelper const&, String const&)>
-    167a:	64 ee       	ldi	r22, 0xE4	; 228
+    167a:	61 ef       	ldi	r22, 0xF1	; 241
     167c:	72 ea       	ldi	r23, 0xA2	; 162
     167e:	8c d8       	rcall	.-3816   	; 0x798 <operator+(StringSumHelper const&, char const*)>
     1680:	be 01       	movw	r22, r28
     1682:	6f 5f       	subi	r22, 0xFF	; 255
     1684:	7f 4f       	sbci	r23, 0xFF	; 255
     1686:	9c d8       	rcall	.-3784   	; 0x7c0 <operator+(StringSumHelper const&, String const&)>
-    1688:	67 ee       	ldi	r22, 0xE7	; 231
+    1688:	64 ef       	ldi	r22, 0xF4	; 244
     168a:	72 ea       	ldi	r23, 0xA2	; 162
     168c:	85 d8       	rcall	.-3830   	; 0x798 <operator+(StringSumHelper const&, char const*)>
     168e:	0e 94 75 02 	call	0x4ea	; 0x4ea <Print::println(String const&) [clone .constprop.21]>
@@ -5375,16 +5370,16 @@ loop():
         btnWatcherFlag = 0;
     16c0:	c0 92 81 3c 	sts	0x3C81, r12	; 0x803c81 <btnConnChecked>
     16c4:	10 92 90 3c 	sts	0x3C90, r1	; 0x803c90 <printHeader>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:89
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:83
     btnChecker();
 
     btnConnChecked = true;
-    16c8:	62 ef       	ldi	r22, 0xF2	; 242
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:90
+    16c8:	6f ef       	ldi	r22, 0xFF	; 255
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:84
     printHeader = false;
     16ca:	72 ea       	ldi	r23, 0xA2	; 162
     16cc:	ce 01       	movw	r24, r28
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:95
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:89
   }
 
 
@@ -5402,7 +5397,7 @@ printDisplayObservingInstructions():
     16e0:	80 91 6c 3c 	lds	r24, 0x3C6C	; 0x803c6c <showdisplayobservinginstructions>
     16e4:	81 11       	cpse	r24, r1
     16e6:	31 c0       	rjmp	.+98     	; 0x174a <main+0x9d4>
-    16e8:	8f e0       	ldi	r24, 0x0F	; 15
+    16e8:	8c e1       	ldi	r24, 0x1C	; 28
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:25
 bool displayChecked;
 
@@ -5412,54 +5407,54 @@ void printDisplayObservingInstructions() {
   if (!showdisplayobservinginstructions) {
     16ea:	93 ea       	ldi	r25, 0xA3	; 163
     16ec:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    16f0:	82 e3       	ldi	r24, 0x32	; 50
+    16f0:	8f e3       	ldi	r24, 0x3F	; 63
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:26
     Serial.println("Watch if you see the below pattern");
     16f2:	93 ea       	ldi	r25, 0xA3	; 163
     16f4:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    16f8:	82 e4       	ldi	r24, 0x42	; 66
+    16f8:	8f e4       	ldi	r24, 0x4F	; 79
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:27
     Serial.println("in the segments");
     16fa:	93 ea       	ldi	r25, 0xA3	; 163
     16fc:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1700:	87 e5       	ldi	r24, 0x57	; 87
+    1700:	84 e6       	ldi	r24, 0x64	; 100
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:28
     Serial.println("(Starting in 5 sec):");
     1702:	93 ea       	ldi	r25, 0xA3	; 163
     1704:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1708:	82 e6       	ldi	r24, 0x62	; 98
+    1708:	80 e7       	ldi	r24, 0x70	; 112
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:29
-    Serial.println("0, 1, 2, 3");
+    Serial.println("\n0, 1, 2, 3");
     170a:	93 ea       	ldi	r25, 0xA3	; 163
     170c:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1710:	8f e6       	ldi	r24, 0x6F	; 111
+    1710:	8d e7       	ldi	r24, 0x7D	; 125
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:30
     Serial.println("delay(4000);");
     1712:	93 ea       	ldi	r25, 0xA3	; 163
     1714:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1718:	82 e6       	ldi	r24, 0x62	; 98
+    1718:	80 e7       	ldi	r24, 0x70	; 112
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:31
     Serial.println("4, 5, 6, 7");
     171a:	93 ea       	ldi	r25, 0xA3	; 163
     171c:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1720:	8a e7       	ldi	r24, 0x7A	; 122
+    1720:	88 e8       	ldi	r24, 0x88	; 136
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:32
     Serial.println("delay(4000);");
     1722:	93 ea       	ldi	r25, 0xA3	; 163
     1724:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1728:	82 e6       	ldi	r24, 0x62	; 98
+    1728:	80 e7       	ldi	r24, 0x70	; 112
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:33
     Serial.println("8, 9, 0, 0");
     172a:	93 ea       	ldi	r25, 0xA3	; 163
     172c:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1730:	85 e8       	ldi	r24, 0x85	; 133
+    1730:	83 e9       	ldi	r24, 0x93	; 147
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:34
     Serial.println("delay(4000);");
     1732:	93 ea       	ldi	r25, 0xA3	; 163
     1734:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
     1738:	68 e8       	ldi	r22, 0x88	; 136
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:35
-    Serial.println("Finally display will Turn OFF");
+    Serial.println("\nFinally display will Turn OFF");
     173a:	73 e1       	ldi	r23, 0x13	; 19
     173c:	80 e0       	ldi	r24, 0x00	; 0
     173e:	90 e0       	ldi	r25, 0x00	; 0
@@ -5538,7 +5533,7 @@ void initSegmentDisplay() {
     177c:	88 23       	and	r24, r24
     177e:	09 f4       	brne	.+2      	; 0x1782 <main+0xa0c>
     1780:	61 cb       	rjmp	.-2366   	; 0xe44 <main+0xce>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:99
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:93
   printDisplayObservingInstructions();
   initSegmentDisplay();
 
@@ -5770,7 +5765,7 @@ void operateDisplay() {
 reportRTCAvailability():
     18ce:	81 e0       	ldi	r24, 0x01	; 1
     18d0:	80 93 5f 3c 	sts	0x3C5F, r24	; 0x803c5f <rtcAvailable>
-    18d4:	85 e5       	ldi	r24, 0x55	; 85
+    18d4:	82 e6       	ldi	r24, 0x62	; 98
     18d6:	92 ea       	ldi	r25, 0xA2	; 162
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:34
 
@@ -5784,10 +5779,10 @@ rtcReadWriteChecker():
     18da:	10 92 5e 3c 	sts	0x3C5E, r1	; 0x803c5e <rtcReadable>
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:35
     Serial.println("RTC_ADDR_FOUND:1");
-    18de:	8e e9       	ldi	r24, 0x9E	; 158
+    18de:	8b ea       	ldi	r24, 0xAB	; 171
     18e0:	92 ea       	ldi	r25, 0xA2	; 162
     18e2:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:52
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:48
       delay(100);
       // Send string date & time
       Serial.println(String(rtc.stringTime()));
@@ -5795,14 +5790,14 @@ rtcReadWriteChecker():
     } else {
       rtcReadable = false;
     18e6:	53 ce       	rjmp	.-858    	; 0x158e <main+0x818>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:53
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:49
       Serial.println("RTC_READABLE:0");
-    18e8:	8e e9       	ldi	r24, 0x9E	; 158
+    18e8:	8b ea       	ldi	r24, 0xAB	; 171
     18ea:	92 ea       	ldi	r25, 0xA2	; 162
     18ec:	57 ce       	rjmp	.-850    	; 0x159c <main+0x826>
 btnChecker():
     18ee:	80 91 68 3c 	lds	r24, 0x3C68	; 0x803c68 <btnWatchTimerCurr>
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:60
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/rtcExaminer.h:56
     break;
   }
   if (rtcReadable) {
@@ -5885,20 +5880,20 @@ operateDisplay():
         displayCycleCounter = 0;
     1944:	10 92 7d 3c 	sts	0x3C7D, r1	; 0x803c7d <prevCounter+0x1>
 loop():
-    1948:	83 ea       	ldi	r24, 0xA3	; 163
+    1948:	82 eb       	ldi	r24, 0xB2	; 178
 /Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/displayOperator.h:156
         prevCounter = 0;
     194a:	93 ea       	ldi	r25, 0xA3	; 163
     194c:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
-    1950:	8c ea       	ldi	r24, 0xAC	; 172
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:102
+    1950:	8d ea       	ldi	r24, 0xAD	; 173
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:96
     operateDisplay();
 
     Serial.println("\nDISPLAY WORKING? (write below)");
     1952:	90 ea       	ldi	r25, 0xA0	; 160
     1954:	0e 94 60 02 	call	0x4c0	; 0x4c0 <Print::println(char const*) [clone .constprop.26]>
     1958:	81 e0       	ldi	r24, 0x01	; 1
-/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:103
+/Users/saurabhdatta/PersonalProjects/clock/Arduino/watch_firmware/Tests/components_check/components_check.ino:97
     Serial.println("!");
     195a:	80 93 80 3c 	sts	0x3C80, r24	; 0x803c80 <displayChecked>
     195e:	72 ca       	rjmp	.-2844   	; 0xe44 <main+0xce>
