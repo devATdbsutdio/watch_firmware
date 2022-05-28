@@ -2,6 +2,9 @@
 
 ![build and release](https://github.com/devATdbsutdio/watch_firmware/actions/workflows/build.yml/badge.svg)
 
+### Core:
+Super Awesome [MegaTinyCore](https://github.com/SpenceKonde/megaTinyCore)
+
 ### Dependant libraries:
 1. [RV8803-Tiny](https://github.com/dattasaurabh82/RV8803Tiny) (Lib for helper class and functions for RV-8803 Real Time Clock)
 2. [TinyMegaI2C](https://github.com/dattasaurabh82/TinyMegaI2C) (A less bloated I2C library for new ATTINY Series to communicate with RTC - forked version)
@@ -85,8 +88,8 @@ LOOP:
 
 <details><summary>  Arduino IDE setup and steps </summary>
 <p>
-
-Install the above mentioned [Dependent libraries](https://github.com/devATdbsutdio/watch_firmware#dependant-libraries), using Ardunio IDE's built in Library Manager. 
+Install the __MegaTinyCore__ by following the installation instruction from the [https://github.com/SpenceKonde/megaTinyCore#installation]. 
+Install the above mentioned __Dependent libraries__, using Ardunio IDE's built in Library Manager. 
 
 Once Installed, open the sketch and set the below settings from the __Tools__ menu. 
 
