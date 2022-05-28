@@ -88,10 +88,8 @@ LOOP:
 
 <details><summary>  Arduino IDE setup and steps </summary>
 <p>
-Install the __MegaTinyCore__ by following the installation instruction from the [https://github.com/SpenceKonde/megaTinyCore#installation]. 
-Install the above mentioned __Dependent libraries__, using Ardunio IDE's built in Library Manager. 
-
-Once Installed, open the sketch and set the below settings from the __Tools__ menu. 
+Install the MegaTinyCore by following the installation instruction from the [https://github.com/SpenceKonde/megaTinyCore#installation]. Also install the above mentioned Dependent libraries, using Ardunio IDE's built in Library Manager. 
+Once Installed, open the sketch and set the below settings from the Tools menu. 
 
 __Options:__
 ```
