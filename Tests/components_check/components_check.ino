@@ -61,12 +61,6 @@ void loop() {
     printHeader = false;
   }
 
-  //  if (!rtcAvailabilityChecked) {
-  //    reportRTCAvailability();
-  //    rtcAvailabilityChecked = true;
-  //    printHeader = false;
-  //  }
-
 
   /* ---- 3. Check curr. factory default time ---- */
   printStepTitle("CHECKING RTC's R/W FUNC", HOLD_DELAY);
