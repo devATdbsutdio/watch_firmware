@@ -92,24 +92,24 @@ void examinePins() {
         if (pac > int(sizeof(portAStatus) / 2)) {
           pac = 1;
           PORTA_checked = true;
-          Serial.println("PORT-A IO check finished!");
+          Serial.println("\nPORT-A IO check finished!");
 
           int total_working_pins = 0;
 
           // ** Duct tape solution
           for (int i = 0; i < int(sizeof(portAStatus) / 2); i++) {
             if (portAStatus[i] == 0) {
-              Serial.println("Internally, PA" + String(i + 1) + "not working");
+              Serial.println("\nInternally, PA" + String(i + 1) + "not working");
             } else {
               total_working_pins += 1;
             }
           }
 
           if (total_working_pins == sizeof(portAStatus) / 2) {
-            Serial.println("In PORT A (PA1-PA7)");
+            Serial.println("\nIn PORT A (PA1-PA7)");
             Serial.println("all pins are working!");
           } else {
-            Serial.println("In PORT A (PA1-PA7), a total");
+            Serial.println("\nIn PORT A (PA1-PA7), a total");
             Serial.println("of only " + String(total_working_pins) + " pins are working!");
           }
         }
@@ -160,13 +160,13 @@ void examinePins() {
         if (pbc > int(sizeof(portBStatus) / 2)) {
           pbc = 0;
           PORTB_checked = true;
-          Serial.println("PORT-B IO check finished!");
+          Serial.println("\nPORT-B IO check finished!");
 
           int total_working_pins = 0;
 
           for (int i = 0; i < int(sizeof(portBStatus) / 2); i++) { // ignoring RX TX pin's registered states
             if ((portBStatus[i] == 0) && i != 2 && i != 3) {
-              Serial.println("Internally, PB" + String(i) + " not working!");
+              Serial.println("\nInternally, PB" + String(i) + " not working!");
             } else if ((portBStatus[i] == 0) && (i == 2 || i == 3)) {
               //  Serial.println("Ignoring Hardcoded values for Serial Pins!");
             } else {
@@ -175,10 +175,10 @@ void examinePins() {
           }
 
           if (total_working_pins == sizeof(portBStatus) / 2 - 2) { // ignoring RX TX pins
-            Serial.println("In PORT B (PB0-PB1 & PB4-PB7),");
+            Serial.println("\nIn PORT B (PB0-PB1 & PB4-PB7),");
             Serial.println("All pins are working!");
           } else {
-            Serial.println("In PORT B (PB0-PB1 & PB4-PB7), a total");
+            Serial.println("\nIn PORT B (PB0-PB1 & PB4-PB7), a total");
             Serial.println("of only " + String(total_working_pins) + " pins are working!");
           }
         }
@@ -218,23 +218,23 @@ void examinePins() {
         if (pcc > 5) {
           pcc = 0;
           PORTC_checked = true;
-          Serial.println("PORT-C IO check finished!");
+          Serial.println("\nPORT-C IO check finished!");
 
           int total_working_pins = 0;
 
           for (int i = 0; i < int(sizeof(portCStatus) / 2); i++) {
             if (portCStatus[i] == 0) {
-              Serial.println("Internally, PC" + String(i) + " not working!");
+              Serial.println("\nInternally, PC" + String(i) + " not working!");
             } else {
               total_working_pins += 1;
             }
           }
 
           if (total_working_pins == sizeof(portCStatus) / 2) {
-            Serial.println("In PORT C (PC0-PC5),");
+            Serial.println("\nIn PORT C (PC0-PC5),");
             Serial.println("all pins are working!");
           } else {
-            Serial.println("In PORT C (PC0-PC5), a total");
+            Serial.println("\nIn PORT C (PC0-PC5), a total");
             Serial.println("of only " + String(total_working_pins) + " pins are working!");
           }
         }
@@ -243,7 +243,7 @@ void examinePins() {
 
 
       if (PORTA_checked && PORTB_checked && PORTC_checked) {
-        Serial.println("ATTINY Digital IO Test finished!");
+        Serial.println("\nATTINY Digital IO Test finished!");
         break;
       }
 

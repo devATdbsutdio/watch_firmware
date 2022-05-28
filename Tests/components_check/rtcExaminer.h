@@ -40,10 +40,6 @@ void rtcReadWriteChecker() {
   while (rtcAvailable) {
     if (rtc.updateTime()) {
       rtcReadable = true;
-      // --- ** No need for this section according to a new method [ currTimeAsArray() ] in rtc lib ** --- //
-      //      delay(100);
-      //      rtc.updateTimeArray(); // "updateTimeArray()" function has been dissolved in the RTClibrary
-      //-------------------------------------------------------------------------------------------- ------//
       delay(100);
       // Send string date & time
       Serial.println(String(rtc.stringTime()));
