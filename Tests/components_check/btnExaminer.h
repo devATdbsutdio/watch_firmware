@@ -1,9 +1,9 @@
 /*
-Description: Button press reader and reporter for test sketch
-Author: Saurabh datta.
-Time: Oct, 2021.
-Loca: Beijing, China.
-License: MIT
+  Description: Button press reader and reporter for test sketch
+  Author: Saurabh datta.
+  Time: Oct, 2021.
+  Loca: Beijing, China.
+  License: MIT
 */
 
 unsigned long btnWatchTimerStart;
@@ -22,7 +22,6 @@ bool btnConnChecked;
 void initBtnPin(int Pin) {
   if (!btnInitialized) {
     //--- Buttons initialization ---//
-    //  PORTC.PIN2CTRL = 0b00001001;
     pinMode(Pin, INPUT_PULLUP);
     btnInitialized = true;
   }
@@ -31,24 +30,18 @@ void initBtnPin(int Pin) {
 void btnChecker() {
   while (true) {
     btnWatchTimerCurr = millis();
+    
     if ( btnWatchTimerCurr - btnWatchTimerStart >= 1000) {
-
+      
       btnWatcherFlag++;
       SW_OneState = digitalRead(14);
-
-      Serial.print("SW_STATE: ");
-      Serial.print(!SW_OneState);
-      Serial.print(" [");
-      Serial.print(10 - btnWatcherFlag);
-      Serial.println(" sec left]");
+      
+      Serial.println("SW_STATE: " + String(!SW_OneState) + " [" + String(10 - btnWatcherFlag) + " sec left]");
 
       if (btnWatcherFlag >= watchBtnFor) {
         btnWatcherFlag = 0;
-        //        btnConnChecked = true;
-        //        printHeader = false;
         break;
       }
-
       btnWatchTimerStart = btnWatchTimerCurr;
     }
   }

@@ -23,15 +23,14 @@ bool showdisplayobservinginstructions;
 
 void printDisplayObservingInstructions() {
   if (!showdisplayobservinginstructions) {
-    Serial.println("Watch if you see the below pattern \nin the segments\n(Starting in 5 sec):");
-    Serial.println("0, 1");
-    Serial.println("2, 3");
+    Serial.println("Watch if you see the below pattern");
+    Serial.println("in the segments");
+    Serial.println("(Starting in 5 sec):");
+    Serial.println("0, 1, 2, 3");
     Serial.println("delay(4000);");
-    Serial.println("4, 5");
-    Serial.println("6, 7");
+    Serial.println("4, 5, 6, 7");
     Serial.println("delay(4000);");
-    Serial.println("8, 9");
-    Serial.println("0, 0");
+    Serial.println("8, 9, 0, 0");
     Serial.println("delay(4000);");
     Serial.println("Finally display will Turn OFF");
 

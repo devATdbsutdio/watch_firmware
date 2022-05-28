@@ -1,4 +1,4 @@
- /*
+/*
   Description: Main sketch for running test sequence and reporting over serial
   Author: Saurabh datta.
   Time: Oct, 2021.
@@ -57,10 +57,15 @@ void loop() {
 
   if (pinExaminationFinished && !rtcAvailabilityChecked) {
     reportRTCAvailability();
-
     rtcAvailabilityChecked = true;
     printHeader = false;
   }
+
+  //  if (!rtcAvailabilityChecked) {
+  //    reportRTCAvailability();
+  //    rtcAvailabilityChecked = true;
+  //    printHeader = false;
+  //  }
 
 
   /* ---- 3. Check curr. factory default time ---- */

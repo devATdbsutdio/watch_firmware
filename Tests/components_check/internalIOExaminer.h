@@ -16,14 +16,7 @@ boolean PORTC_checked;
 bool pinExaminationFinished;
 bool pinStatus;
 
-//-- Helper function **
-void printBinary(byte b) {
-  for (int i = 7; i >= 0; i-- )
-  {
-    Serial.print((b >> i) & 0X01);//shift and select first bit
-  }
-  Serial.println();
-}
+//-- Helper functions **
 
 int pac = 1;
 int pbc = 0;
@@ -72,14 +65,8 @@ void examinePins() {
 
       //---  For Port A (Before Port B & C) ---//
       if (!PORTA_checked && !PORTB_checked && !PORTC_checked) {
-        //      Serial.print("Checking: PA-");
-        //      Serial.print(pac);
-        //      Serial.print(" : ");
-
-        // byte portAddrMask = (0b00000001 << pac);
         byte portAddrMask = 0b00000001;
         portAddrMask <<= pac;
-        // printBinary(portAddrMask);
 
         // Set as OUTPUT & HIGH
         cli();
@@ -88,23 +75,13 @@ void examinePins() {
         // Set as INPUT and read STATE
         PORTA.DIRCLR = portAddrMask;
         firstState = PORTA.IN & portAddrMask;
-        //      Serial.println(firstState);
         // Set as OUTPUT & LOW
         PORTA.DIRSET = portAddrMask;
         PORTA.OUTCLR = portAddrMask;
         // Set as INPUT and read STATE, again
         PORTA.DIRCLR = portAddrMask;
         secondState = PORTA.IN & portAddrMask;
-        // Serial.println(secondState);
-
-        // [DEBUG] [TEST] **Simulation for non-working pins
-        //        if (pac == 4 || pac == 6) {
-        //          secondState = HIGH;
-        //        }
-        //------------------------------------------------//
         sei();
-
-        //      Serial.print(String(firstState) + " " + String(secondState));
 
         //  Mark that pin as "working: 1, if you see the pin has toggled!"
         if (firstState == HIGH && secondState == LOW) portAStatus[pac - 1] = 1;
@@ -119,31 +96,21 @@ void examinePins() {
 
           int total_working_pins = 0;
 
-          // ** [BUG] [TBD] - size fo array is 14 , should be 7 ??
-          //    Serial.print("Size of array: ");
-          //    Serial.println(sizeof(portAStatus));
           // ** Duct tape solution
           for (int i = 0; i < int(sizeof(portAStatus) / 2); i++) {
-            //          Serial.print("PA");
-            //          Serial.print(i + 1);
-            //          Serial.print(": ");
-            //          Serial.println(portAStatus[i]);
-
             if (portAStatus[i] == 0) {
-              Serial.print("[ERR] Internally, PA");
-              Serial.print(i + 1);
-              Serial.println(" not working!");
+              Serial.println("Internally, PA" + String(i + 1) + "not working");
             } else {
               total_working_pins += 1;
             }
           }
 
           if (total_working_pins == sizeof(portAStatus) / 2) {
-            Serial.println("[/] In PORT A (PA1-PA7),");
-            Serial.println("All pins are working!\n");
+            Serial.println("In PORT A (PA1-PA7)");
+            Serial.println("all pins are working!");
           } else {
-            Serial.println("[X] In PORT A (PA1-PA7), a total");
-            Serial.println("of only " + String(total_working_pins) + " pins are working!\n");
+            Serial.println("In PORT A (PA1-PA7), a total");
+            Serial.println("of only " + String(total_working_pins) + " pins are working!");
           }
         }
       }
@@ -156,8 +123,6 @@ void examinePins() {
 
         if (pbc == 2 || pbc == 3) {
           isSerialPin = true;
-          //  Serial.println("Not bitshifting, it is serial pin!");
-
           // Just for filling in hardcoded data for later
           firstState = LOW;
           secondState = LOW;
@@ -168,7 +133,6 @@ void examinePins() {
         if (!isSerialPin) {
           // bit shift and iterate through PORT
           portAddrMask <<= pbc;
-          //        printBinary(portAddrMask);
 
           // Set as OUTPUT & HIGH
           cli();
@@ -177,20 +141,12 @@ void examinePins() {
           // Set as INPUT and read STATE
           PORTB.DIRCLR = portAddrMask;
           firstState = PORTB.IN & portAddrMask;
-          //        Serial.println(firstState);
           // Set as OUTPUT & LOW
           PORTB.DIRSET = portAddrMask;
           PORTB.OUTCLR = portAddrMask;
           // Set as INPUT and read STATE, again!
           PORTB.DIRCLR = portAddrMask;
           secondState = PORTB.IN & portAddrMask;
-          //        Serial.println(secondState);
-
-          // [DEBUG] [TEST] **Simulation for non-working pins
-          //          if (pbc == 5) {
-          //            secondState = HIGH;
-          //          }
-          //------------------------------------------------//
           sei();
         }
 
@@ -209,11 +165,8 @@ void examinePins() {
           int total_working_pins = 0;
 
           for (int i = 0; i < int(sizeof(portBStatus) / 2); i++) { // ignoring RX TX pin's registered states
-            //  Serial.println(i);
             if ((portBStatus[i] == 0) && i != 2 && i != 3) {
-              Serial.print("[ERR] Internally, PB");
-              Serial.print(i);
-              Serial.println(" not working!");
+              Serial.println("Internally, PB" + String(i) + " not working!");
             } else if ((portBStatus[i] == 0) && (i == 2 || i == 3)) {
               //  Serial.println("Ignoring Hardcoded values for Serial Pins!");
             } else {
@@ -222,11 +175,11 @@ void examinePins() {
           }
 
           if (total_working_pins == sizeof(portBStatus) / 2 - 2) { // ignoring RX TX pins
-            Serial.println("[/] In PORT B (PB0-PB1 & PB4-PB7),");
-            Serial.println("All pins are working!\n");
+            Serial.println("In PORT B (PB0-PB1 & PB4-PB7),");
+            Serial.println("All pins are working!");
           } else {
-            Serial.println("[X] In PORT B (PB0-PB1 & PB4-PB7), a total");
-            Serial.println("of only " + String(total_working_pins) + " pins are working!\n");
+            Serial.println("In PORT B (PB0-PB1 & PB4-PB7), a total");
+            Serial.println("of only " + String(total_working_pins) + " pins are working!");
           }
         }
       }
@@ -236,40 +189,28 @@ void examinePins() {
 
         byte portAddrMask = 0b00000001;
         portAddrMask <<= pcc;
-        //      printBinary(portAddrMask);
 
-        // Set as OUTPUT & HIGH
         cli();
         PORTC.DIRSET = portAddrMask;
         PORTC.OUTSET = portAddrMask;
         // Set as INPUT and read STATE
         PORTC.DIRCLR = portAddrMask;
         firstState = PORTC.IN & portAddrMask;
-        //      Serial.println(firstState);
         // Set as OUTPUT & LOW
         PORTC.DIRSET = portAddrMask;
         PORTC.OUTCLR = portAddrMask;
         // Set as INPUT and read STATE, again
         PORTC.DIRCLR = portAddrMask;
         secondState = PORTC.IN & portAddrMask;
-        //      Serial.println(secondState);
-
-        // [DEBUG] [TEST] **Simulation for non-working pins
-        //        if (pcc == 4) {
-        //          secondState = HIGH;
-        //        }
-        //------------------------------------------------//
         sei();
 
 
         if (firstState == HIGH && secondState == LOW) {
           //  Means that particular pin state is changing and working
           //  Mark that pin as "working: 1"
-          //  Serial.println("Working!");
           portCStatus[pcc] = 1;
         } else {
           //  Mark that pin as "not-working: 0"
-          //  Serial.println("Not Working!");
           portCStatus[pcc] = 0;
         }
 
@@ -283,20 +224,18 @@ void examinePins() {
 
           for (int i = 0; i < int(sizeof(portCStatus) / 2); i++) {
             if (portCStatus[i] == 0) {
-              Serial.print("[ERR] Internally, PC");
-              Serial.print(i);
-              Serial.println(" not working!");
+              Serial.println("Internally, PC" + String(i) + " not working!");
             } else {
               total_working_pins += 1;
             }
           }
 
           if (total_working_pins == sizeof(portCStatus) / 2) {
-            Serial.println("[/] In PORT C (PC0-PC5),");
-            Serial.println("All pins are working!\n");
+            Serial.println("In PORT C (PC0-PC5),");
+            Serial.println("all pins are working!");
           } else {
-            Serial.println("[X] In PORT C (PC0-PC5), a total");
-            Serial.println("of only " + String(total_working_pins) + " pins are working!\n");
+            Serial.println("In PORT C (PC0-PC5), a total");
+            Serial.println("of only " + String(total_working_pins) + " pins are working!");
           }
         }
       }
@@ -304,7 +243,7 @@ void examinePins() {
 
 
       if (PORTA_checked && PORTB_checked && PORTC_checked) {
-        Serial.println("\nATTINY Digital IO Test finished!\n");
+        Serial.println("ATTINY Digital IO Test finished!");
         break;
       }
 
