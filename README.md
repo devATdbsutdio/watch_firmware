@@ -86,7 +86,7 @@ LOOP:
 <details><summary>  Arduino IDE setup and steps </summary>
 <p>
 
-Install the above mentioned "Dependent libraries", using Ardunio IDE's built in Library Manager. 
+Install the above mentioned [Dependent libraries](https://github.com/devATdbsutdio/watch_firmware#dependant-libraries), using Ardunio IDE's built in Library Manager. 
 
 Once Installed, open the sketch and set the below settings from the __Tools__ menu. 
 
