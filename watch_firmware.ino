@@ -39,8 +39,8 @@ void setup() {
 
   //--- Disable ADC [TBD doesn't do much] ---//
   ADC0.CTRLA &= ~ADC_ENABLE_bm;
-  //  ADC0.CTRLB &= ~ADC_ENABLE_bm;
-  //  ADC0.CTRLC &= ~ADC_ENABLE_bm;
+  ADC0.CTRLB &= ~ADC_ENABLE_bm;
+  ADC0.CTRLC &= ~ADC_ENABLE_bm;
   //--- Note: this is how you can re-enable ADC ---//
   // ADC0.CTRLA |= ADC_ENABLE_bm;
 

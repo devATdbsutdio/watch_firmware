@@ -13,8 +13,6 @@ boolean showCurrTimePressed;
 volatile byte wakeUpTriggered;
 volatile byte showTimePeriodOver;
 
-
-
 //--- ISR for waking up from sleep mode ---//
 ISR(PORTC_PORT_vect) {
   byte flags = VPORTC.INTFLAGS; // faster (TEST TBD)

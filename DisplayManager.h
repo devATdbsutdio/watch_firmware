@@ -68,8 +68,6 @@ unsigned char num_array[11] = {
 
 
 int c = 0;
-const int numOfSevenSegments = 4;
-
 void showOnDisplay(uint8_t * digits) {
   currentMicros = micros();
 
@@ -90,7 +88,7 @@ void showOnDisplay(uint8_t * digits) {
     sei(); // Interrupts back on
 
     c++;
-    if (c > numOfSevenSegments - 1) c = 0;
+    if (c > 3) c = 0;
 
     startMicros = currentMicros;
   }
