@@ -33,6 +33,11 @@ void getAndShowTime() {
       // updateTime i.e read registers, ** must for getting current time
       if (rtc.updateTime()) rtcReadable = true;
       else rtcReadable = false;
+      // -- re-read if reading was false earlier
+      if (!rtcReadable) {
+        if (rtc.updateTime()) rtcReadable = true;
+        else rtcReadable = false;
+      }
     } else {
       rtcReadable = false;
     }

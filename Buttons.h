@@ -43,7 +43,11 @@ ISR(RTC_CNT_vect) {
 
 //--- Buttons initialization ---//
 void setupButton() {
-  PORTC.PIN2CTRL = PORT_PULLUPEN_bm | PORT_ISC_LEVEL_gc;
+  // In INPUT pullup mode - will trigger an async ISR, for wakeup from sleep
+  PORTC.PIN2CTRL = 0b00001001;
+
+  // Note: Another approach...
+  // PORTC.PIN2CTRL = PORT_PULLUPEN_bm | PORT_ISC_LEVEL_gc;
   /*
      Other ISR routines are:
      BOTHEDGES
@@ -51,8 +55,6 @@ void setupButton() {
      FALLING
      LEVEL
   */
-  // In INPUT pullup mode - will trigger an async ISR, for wakeup from sleep
-  // PORTC.PIN2CTRL = 0b00001001;
 }
 
 

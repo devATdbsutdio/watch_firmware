@@ -1,5 +1,5 @@
 /*
-  Description: [MAIN] Main sketch for the watch and the operation mechanism
+  Description: MAIN Main sketch for the watch and the operation mechanism
   Author: Saurabh datta.
   Time: Aug, 2021.
   Loc: Beijing, China.
