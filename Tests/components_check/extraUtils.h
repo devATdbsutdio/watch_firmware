@@ -21,7 +21,7 @@ void printStepTitle(String Title, int holdDelay) {
   if (!printHeader) {
     Serial.println("\n[H]" + Title + ":");
     String underline = "-";
-    for (int i = 0; i < int(Title.length())*2; i++) {
+    for (int i = 0; i < 30; i++) { /* 30 dashes are approx = width of thermal printer*/
       underline = underline + "-";
     }
     Serial.println(underline);
