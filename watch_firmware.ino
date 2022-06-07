@@ -1,5 +1,8 @@
 /*
-  Description: Time reset to RTC mechanism using serial data from computer
+  Description: MAIN Main sketch for the watch and the operation mechanism
+  Dependencies:
+    1. RV8803Tiny   (latest, Ver: 0.0.8)
+    2. TinyMegaI2C  (latest, Ver: 0.0.4)
   Author: Saurabh datta.
   Time: Aug, 2021.
   Loc: Beijing, China.

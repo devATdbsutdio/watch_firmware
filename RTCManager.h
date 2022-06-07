@@ -1,5 +1,8 @@
 /*
   Description: Time mamnagement mechanism for the specific RTC (custom library)
+  Dependencies:
+    1. RV8803Tiny   (latest, Ver: 0.0.8)
+    2. TinyMegaI2C  (latest, Ver: 0.0.4)
   Author: Saurabh datta.
   Time: Aug, 2021.
   Loc: Beijing, China.

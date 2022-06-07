@@ -2,6 +2,9 @@
   Description:
     Button press mechanism for waking up uC and handling multiple btn presses while it is awake.
     (Example: When awake (after 1st btn press), on pressing the button again, it can show date)
+  Dependencies:
+    1. RV8803Tiny   (latest, Ver: 0.0.8)
+    2. TinyMegaI2C  (latest, Ver: 0.0.4)
   Author: Saurabh datta.
   Time: Aug, 2021.
   Loc: Beijing, China.
