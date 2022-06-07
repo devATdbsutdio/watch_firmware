@@ -9,11 +9,11 @@
 
 unsigned long startMicros;
 unsigned long currentMicros;
-const unsigned long period  = 10;   // the value is a number of Microseconds
+const unsigned long period  = 100;   // The value is a number of Microseconds
 
 
 
-uint16_t warning_blink_gap  = 125;  // The warning LED will blink (toggle at 100 ms) for a total time of 1000 ms (1s) total with 5/2=2.5 (approx 2) 2 blinks 
+uint16_t warning_blink_gap  = 125;  // The warning LED will blink (toggle at 100 ms) for a total time of 1000 ms (1s) total with 5/2=2.5 (approx 2) 2 blinks
 int max_blinks              = 5;    // this will become 5*2 = 10 and then 10*warning_blink_gap = 1000 ms (because the clock is also ticking at 1000 ms)
 
 int do_blink                = 1;
@@ -125,9 +125,12 @@ void batteryWarningLED_OFF() {
 
 
 
-// This function show a warning LED for (total ON period)/2 seconds
-// and then shows the time...
 void low_voltage_warn() {
+  /*
+    This function show a warning LED for time = total ON period)/2 seconds 
+    and then shows the time ...
+  */
+
   // Block code to only blink warning LED
   while (do_blink == 1) {
     currentWarningCountMillis = millis();
@@ -145,7 +148,7 @@ void low_voltage_warn() {
         break;
       }
 
-      //--- Toggle PC5 (Battery warning LED dot) output on and off mechanism ---//
+      // Toggle PC5 (Battery warning LED dot) output on and off mechanism
       byte dot_pin_mask = 0b00010000; // mask to make the cathide bit, responsible for our led dot to toggle
       tog = !tog;
       if (tog) {
@@ -153,12 +156,12 @@ void low_voltage_warn() {
       } else {
         dot_pin_mask = 0b00000000;
       }
-      
-      PORTB.OUTSET = 0b11110000;    // Deactivate all on PORTB bits to which the COMMON CATHODE pins of our LED segment are connected, which are  by setting them HIGH
-      cli();                        // Detach interrupt (to avoid any glitch)
-      PORTB.OUTTGL = dot_pin_mask;  // Toggle the cathode bit responsible for our LED dot in the matrix
-      VPORTC.OUT = PIN5_bm;         // Quickly set the pin to high with this spl method.
-      sei();                        // Attach interrupt again
+
+      PORTB.OUTSET = 0b11110000;      // Deactivate all on PORTB bits to which the COMMON CATHODE pins of our LED segment are connected, which are  by setting them HIGH
+      cli();                          // Detach interrupt (to avoid any glitch)
+      PORTB.OUTTGL = dot_pin_mask;    // Toggle the cathode bit responsible for our LED dot in the matrix
+      VPORTC.OUT = PIN5_bm;           // Quickly set the pin to high with this spl method.
+      sei();                          // Attach interrupt again
     }
   }
 }

@@ -12,26 +12,43 @@ RV8803Tiny rtc;
 bool rtcAvailable;
 bool rtcReadable;
 
-unsigned long startCountMillis;
-unsigned long currentCountMillis;
-const unsigned long secPeriod = 1000; //the value is a number of milliseconds
+unsigned long startMillisTimeUpdateCount;
+unsigned long currentMillisTimeUpdateCount;
+unsigned long startMillisDateUpdateCount;
+unsigned long currentMillisDateUpdateCount;
 
+const unsigned long secPeriod = 500; // The value is a number of milliseconds
 
+/*--- Display time or date selection ---*/
+boolean showCurrTime;
+boolean showCurrDate;
 
 void setupRTC() {
-  while (rtc.begin() == false) { // un-shifted default address for RV-8803 is 0x32. Check library!
-    rtcAvailable = false;
+  /*
+    For few times check rtc's availability by checking against Un-shifted default address for RV-8803 i.e 0x32.
+    Check library!
+  */
+  for (int e = 0; e < 10; e++) {
+    if (rtc.begin() == false) {
+      rtcAvailable = false;
+    } else {
+      rtcAvailable = true;
+      break;
+    }
   }
-  rtcAvailable = true;
+  /*
+    Even if rtc is un-available, proceed as we have a pattern that we show in display to communicate that rtc is not working.
+    This good to notify what has broken even in the finished product.
+  */
 }
 
 
-void getAndShowTime() {
-  currentCountMillis = millis();
-  if (currentCountMillis - startCountMillis >= secPeriod) {
+void getAndShowTimeOrDate() {
+  currentMillisTimeUpdateCount = millis();
+  if (currentMillisTimeUpdateCount - startMillisTimeUpdateCount >= secPeriod) {
     if (rtcAvailable) {
-      // updateTime i.e read registers, ** must for getting current time
-      // Just do a couple of updates ...
+      // UpdateTime i.e read registers, ** must for getting current time.
+      // Note: Just do a couple of updates ...
       rtc.updateTime();
       rtc.updateTime();
       if (rtc.updateTime()) rtcReadable = true;
@@ -39,11 +56,19 @@ void getAndShowTime() {
     } else {
       rtcReadable = false;
     }
-    startCountMillis = currentCountMillis;
+    startMillisTimeUpdateCount = currentMillisTimeUpdateCount;
   }
 
-  // :: Display Time :: //
-  // --- ** corner case handler (In case time retreival was unsuccessful) ** --- //
-  if (rtcAvailable && rtcReadable) showOnDisplay(rtc.currTimeAsArray());
-  else showOnDisplay(blankSignal);
+  // Display Time / Date, depending on if we have pressed the button again and again, when the watch is awake.
+  if (rtcReadable) {
+    if (showCurrTime && !showCurrDate) {
+      showOnDisplay(rtc.currTimeAsArray());
+    } else if (showCurrDate && !showCurrTime) {
+      showOnDisplay(rtc.currDateAsArray());
+    } else { /* corner case handler (In case button is not working) */
+      showOnDisplay(blankSignal);
+    }
+  } else { /* corner case handler (In case time retreival was unsuccessful) */
+    showOnDisplay(blankSignal);
+  }
 }

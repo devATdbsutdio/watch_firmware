@@ -1,132 +1,125 @@
 /*
-  Description: MAIN Main sketch for the watch and the operation mechanism
+  Description: Time reset to RTC mechanism using serial data from computer
   Author: Saurabh datta.
   Time: Aug, 2021.
   Loc: Beijing, China.
   License: MIT
 */
 
-//#define DEBUG // comment this for production
+#include <EEPROM.h>
 
-#include <avr/sleep.h>
+//-- Addr to which delay value will be written for next cycle --//
+/*
+  This is to help remember what was the last "stay awake" period, 
+  if in any case, the main power source to the uC is lost.
+*/
+const int eeprom_addr = 1;
 
-#include "DisplayManager.h"
-#include "ExtraUtils.h"
-#include "RTCManager.h"
-#include "SerialReset.h"
-#include "Buttons.h"
-
-
-const uint16_t unsafeLowVoltage = 28; // 2.8V
-const uint16_t safeLowVoltage   = 31; // 3.0V
-
-uint8_t currTime[6];
-
-void setup() {
-  disableSerialHWPins();
-  disableTWI();
-
-  //--- Disable unused pins (i.e do not keep them floating) | For efficient low power in sleep mode ---//
-  disableUnusedPins();
-
-  //--- Seven segment display initialization ---//
-  setupDisplay();
-  turnOffDisplay();
-
-  //--- Button Modes Enabled ---//
-  setupButton();
+bool readyToReceive;
+char incomingChar;
+int idx = 0;
 
 
-  //--- Disable ADC [TBD doesn't do much] ---//
-  ADC0.CTRLA &= ~ADC_ENABLE_bm;
-  ADC0.CTRLB &= ~ADC_ENABLE_bm;
-  ADC0.CTRLC &= ~ADC_ENABLE_bm;
-  //--- Note: this is how you can re-enable ADC ---//
-  // ADC0.CTRLA |= ADC_ENABLE_bm;
+// This is out data structure pattern, example = 02:18:19:6:25:06:2021:5  (totalDelimators == 7 and 23 bytes of data)
+const int sizeOfDataStructure = int(sizeof(char) * 23);
+char dataArray[sizeOfDataStructure];
+
+bool handshakeReqArrived;
+bool newDataArrived;
+int totalDelimators;
+bool awakePeriodChanged  = false;
+
+uint8_t dateToBeSet         = 0;
+uint8_t monthToBeSet        = 0;
+uint8_t yearToBeSet         = 0;
+uint8_t weekdayToBeSet      = 0;
+uint8_t hrToBeSet           = 0;
+uint8_t minToBeSet          = 0;
+uint8_t secToBeSet          = 0;
+
+int stayAwakeFor            = 5000;
+int new_stayAwakeFor        = 5100;
+
+bool setNewTime;
 
 
-  //--- disable SPI ---//
-  SPI0.CTRLA &= ~(SPI_ENABLE_bm);
-
-  // Enable interrupt
-  sei();
-
-  // Setup some counters...
-  startCountMillis = millis();        // For the ext rtc
-  startMicros = micros();             // For display fps
-  startWarningCountMillis = millis(); // For battery low voltage warning LED blinking
-
-  // Get the delay value (for which watch will stay awake), from EEPROM
-  EEPROM.get(eeprom_addr, new_stayAwakeFor);
-  if (new_stayAwakeFor == -1) {
-    new_stayAwakeFor = 5100;
+void fillDataArray() {
+  newDataArrived = false;
+  while (Serial.available() > 0) {
+    incomingChar = Serial.read();
+    if (incomingChar == '\n') {
+      newDataArrived = true;
+      idx = 0;
+    } else {
+      newDataArrived = false;
+      dataArray[idx] = incomingChar;
+      idx++;
+    }
   }
-
-  //--- Sleep mode enablers ---//
-  set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-  sleep_enable();
 }
 
 
-void loop() {
-  watchButtons();
+void parseDataArray() {
+  if (newDataArrived) {
+    newDataArrived = false;
+    totalDelimators = 0;
 
-  if (showCurrTimePressed) {
-    showCurrTimePressed = false;
-
-    //--- Enable Serial for time setting over serial ---//
-    Serial.begin(115200);
-    //--- RV-8803 Ext RTC initialization ---//
-    setupRTC();
-
-    //--- Detect self referenced Batt voltage ---//
-    ADCVoltRefSetup();
-    uint16_t currBattVolt = measuredVoltage();
-
-    batteryWarningLED_OFF();      // On wake up, initialize the warning led dot of the segment to be OFF
-    turnOffDisplay();             // On wake up, initialize the whole display segment to be OFF
-    do_blink = 1;                 // On wake up, initializing the variable for low voltage warning blinking action.
-
-    // Just before the awake cycle begins, if the RTC_DELAY_init value has changed (as Read from EEPROM in setup) set it to new value.
-    if (new_stayAwakeFor != stayAwakeFor) {
-      stayAwakeFor = new_stayAwakeFor;
-    }
-
-    RTC_DELAY_init(stayAwakeFor); // Start the timer for keeping track of time for how long to keep the uC awake and do it's business (5000 ms)
-
-    while (showTimePeriodOver == 0) {
-      // If voltage detected is lower than the safe operational voltage threshold!
-      if (currBattVolt <= unsafeLowVoltage) {
-        batteryWarningLED_ON();
-      }
-
-      // If voltage detected is low but not critically low and below safest threshold!
-      if (currBattVolt > unsafeLowVoltage && currBattVolt < safeLowVoltage) {
-        // Blocks and Blinks a dot LED, 2 times (in 1250 ms) as the warning to show that the battery voltage is falling.
-        low_voltage_warn();
-        // In the next remaining period [ (5000-1250)ms ] of the whole awake period, it continues to show the time.
-        getAndShowTime();
-      }
-
-      // If voltage detected is OK! and above operational and safe threshold!
-      if (currBattVolt >= safeLowVoltage) {
-        // If data arrives over serial,
-        // it will check for data format and set time to RTC
-        // Anyways, and then "show time here" routine also runs after that!
-        SetTimeOverSerial();
-        getAndShowTime();
+    // Count how many delimators (in our case that is ':') are there
+    for (int i = 0; i < sizeOfDataStructure; i++) {
+      if (dataArray[i] == ':') {
+        totalDelimators++;
       }
     }
 
-    // Reset Trigger for RTC delay
-    showTimePeriodOver = 0;
+    // Check received data's format & integrity
+    if (totalDelimators >= 6) {  /* or 6/7/8 based on the stream ends with year value or with additional delay value or with enable tilt flag */
+      char * strtokIndx;                      // This is used by strtok() as an index.
+      strtokIndx = strtok(dataArray, ":");    // Get the first part - the string.
 
-    // Then go to sleep
-    turnOffDisplay();
-    Serial.flush();                    // flush everything before going to sleep
-    Serial.end();
-    disableSerialHWPins();
-    disableTWI();
-    sleep_cpu();
+      hrToBeSet = atoi(strtokIndx);           // Convert this part to an integer.
+      strtokIndx = strtok(NULL, ":");         // This continues where the previous call left off.
+      minToBeSet = atoi(strtokIndx);          // Convert this part to an integer.
+      strtokIndx = strtok(NULL, ":");
+      secToBeSet = atoi(strtokIndx);
+      strtokIndx = strtok(NULL, ":");
+      weekdayToBeSet = atoi(strtokIndx);
+      strtokIndx = strtok(NULL, ":");
+      dateToBeSet = atoi(strtokIndx);
+      strtokIndx = strtok(NULL, ":");
+      monthToBeSet = atoi(strtokIndx);
+      strtokIndx = strtok(NULL, ":");
+      yearToBeSet = atoi(strtokIndx);
+      strtokIndx = strtok(NULL, ":");
+      int new_val = (atoi(strtokIndx)) * 1000; // This is watch's new "stay awakwe" period. It needs to be converted to millis.
+      
+      // Also write this "stay awakwe" period's value at a specific location in EEPROM
+      EEPROM.put(eeprom_addr, new_val);
+      new_stayAwakeFor = new_val;
+      setNewTime = true;
+    }
   }
+  else {
+    setNewTime = false;
+  }
+}
+
+
+
+void setRTCToNewTime() {
+  if (setNewTime) {
+    if (rtc.setTime(secToBeSet, minToBeSet, hrToBeSet, weekdayToBeSet, dateToBeSet, monthToBeSet, yearToBeSet) == false) {
+      //#ifdef DEBUG
+      //      Serial.println("Something went wrong setting the time");
+      //      if (debug_log) Serial.println("Something went wrong setting the time");
+      //#endif
+    }
+    setNewTime = false;
+  }
+}
+
+
+void SetTimeOverSerial() {
+  fillDataArray();
+  parseDataArray();
+  setRTCToNewTime();
 }

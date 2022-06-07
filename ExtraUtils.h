@@ -35,10 +35,9 @@ void disableTWI() {
 
 
 
-//-----------------------------------//
-//----- LOW VOLTAGE CALCULATION -----//
-//-----------------------------------//
-// Courtesy: http://www.technoblogy.com/show?3K82 & http://www.technoblogy.com/list?3KKM
+
+/*----- LOW VOLTAGE CALCULATION -----*/
+/* Courtesy: http://www.technoblogy.com/show?3K82 & http://www.technoblogy.com/list?3KKM */
 
 void ADCVoltRefSetup() {
   VREF.CTRLA = VREF_ADC0REFSEL_1V1_gc;

@@ -8,7 +8,11 @@
 
 #include <EEPROM.h>
 
-// addr to which delay value will be written for next cycle
+//-- Addr to which delay value will be written for next cycle --//
+/*
+  This is to help remember what was the last "stay awake" period, 
+  if in any case, the main power source to the uC is lost.
+*/
 const int eeprom_addr = 1;
 
 bool readyToReceive;
@@ -16,7 +20,7 @@ char incomingChar;
 int idx = 0;
 
 
-// 02:18:19:6:25:06:2021:5  (totalDelimators == 7 and 23 bytes of data)
+// This is out data structure pattern, example = 02:18:19:6:25:06:2021:5  (totalDelimators == 7 and 23 bytes of data)
 const int sizeOfDataStructure = int(sizeof(char) * 23);
 char dataArray[sizeOfDataStructure];
 
@@ -68,13 +72,13 @@ void parseDataArray() {
     }
 
     // Check received data's format & integrity
-    if (totalDelimators >= 6) {  // or 6/7/8 based on the stream ends with year value or with additional delay value or with enable tilt flag
-      char * strtokIndx; // this is used by strtok() as an index
-      strtokIndx = strtok(dataArray, ":"); // get the first part - the string
+    if (totalDelimators >= 6) {  /* or 6/7/8 based on the stream ends with year value or with additional delay value or with enable tilt flag */
+      char * strtokIndx;                      // This is used by strtok() as an index.
+      strtokIndx = strtok(dataArray, ":");    // Get the first part - the string.
 
-      hrToBeSet = atoi(strtokIndx);        // convert this part to an integer
-      strtokIndx = strtok(NULL, ":");      // this continues where the previous call left off
-      minToBeSet = atoi(strtokIndx);       // convert this part to an integer
+      hrToBeSet = atoi(strtokIndx);           // Convert this part to an integer.
+      strtokIndx = strtok(NULL, ":");         // This continues where the previous call left off.
+      minToBeSet = atoi(strtokIndx);          // Convert this part to an integer.
       strtokIndx = strtok(NULL, ":");
       secToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
@@ -86,8 +90,9 @@ void parseDataArray() {
       strtokIndx = strtok(NULL, ":");
       yearToBeSet = atoi(strtokIndx);
       strtokIndx = strtok(NULL, ":");
-      int new_val = (atoi(strtokIndx)) * 1000; // in millis
-      // Also write this data (the watch's keep-awake time value) to the EEPROM's specified location
+      int new_val = (atoi(strtokIndx)) * 1000; // This is watch's new "stay awakwe" period. It needs to be converted to millis.
+      
+      // Also write this "stay awakwe" period's value at a specific location in EEPROM
       EEPROM.put(eeprom_addr, new_val);
       new_stayAwakeFor = new_val;
       setNewTime = true;
