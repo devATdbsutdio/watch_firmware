@@ -12,7 +12,7 @@
 
 unsigned long startMicros;
 unsigned long currentMicros;
-const unsigned long period  = 100;   // The value is a number of Microseconds
+const unsigned long period  = 50;   // The value is a number of Microseconds
 
 
 
