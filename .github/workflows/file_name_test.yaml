@@ -24,12 +24,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Get tag ver
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-
       - name: Read tag ver
         run: |
-          TAG="`echo $(git describe --tags --abbrev=0)`"
-          TAG_NOT_V="`echo $TAG | sed 's/v//g'`"
-          TAG_NOT_DOT="`echo $TAG_NOT_V | sed 's/\./_/g'`"
-          echo $TAG_NOT_DOT
+          echo $(git describe --tags --abbrev=0) >> $TAG
+          echo $TAG
+        # TAG_NOT_V="`echo $TAG | sed 's/v//g'`"
+        # TAG_NOT_DOT="`echo $TAG_NOT_V | sed 's/\./_/g'`"
+        # echo $TAG_NOT_DOT
