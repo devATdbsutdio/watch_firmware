@@ -28,5 +28,4 @@ jobs:
         run: |
           sudo apt-get update -y
           clear
-
           echo "TAG: ${{github.ref_name}}"
