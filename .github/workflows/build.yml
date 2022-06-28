@@ -70,6 +70,8 @@ jobs:
           ./arduino-cli compile $FQBN_ARG $OUTPUT_ARG --clean
           cd build
           for f in watch_firmware*; do mv "$f" "watch_firmware${f#watch_firmware.ino}"; done
+        # [TBD] Add tag name to the file name, before extension 
+        # for f in watch_firmware*; do mv "$f" "watch_firmware${f#watch_firmware.ino}"; done
           ls -l
           cd ..
 

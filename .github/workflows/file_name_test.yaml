@@ -1,0 +1,33 @@
+name: File_name ending with tag test workflow
+
+
+on:
+  push:
+    tags:        
+      - 'v*'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+  jobs:
+  build:
+    name: File_name ending with tag test workflow
+    runs-on: ubuntu-latest
+
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # download and install arduino-cli binary 
+      - name: Update system
+        run: |
+          sudo apt-get update -y
+
+      - name: Get latest tag 
+        run: echo ${{github.ref_name}}
