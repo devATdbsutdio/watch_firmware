@@ -29,5 +29,7 @@ jobs:
 
       - name: Read tag ver
         run: |
-          echo $RELEASE_VERSION
-          echo ${{ env.RELEASE_VERSION }}
+          TAG="`echo $(git describe --tags --abbrev=0)`"
+          TAG_NOT_V="`echo $TAG | sed 's/v//g'`"
+          TAG_NOT_DOT="`echo $TAG_NOT_V | sed 's/\./_/g'`"
+          echo $TAG_NOT_DOT
