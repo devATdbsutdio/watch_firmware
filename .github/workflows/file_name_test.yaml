@@ -27,4 +27,6 @@ jobs:
       - name: Get tag version
         run: |
           sudo apt-get update -y
-        # echo ${{github.ref_name}}
+          clear
+
+          echo "TAG: ${{github.ref_name}}"
